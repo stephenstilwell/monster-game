@@ -1,6 +1,6 @@
 # Roadmap
 
-Sequential milestones; each requires generated art, meaningful tests, visual evidence, concise documentation and a reviewed Git checkpoint. No later milestone begins before its gate passes.
+Sequential milestones; each requires generated art, meaningful tests, visual evidence, concise documentation and a reviewed Git checkpoint. No later milestone begins before its gate passes. M0-M4 remain completed foundation work. The user requested a roguelite documentation pivot after M4; M5 onward below supersedes the former linear quest/release plan. This documentation task does not implement or complete M5.
 
 ## M0: planning and baseline — complete
 
@@ -33,12 +33,39 @@ Observed result: grass encounters, three species, five moves, two consumables, b
 ## M4: party, inventory and persistence — complete
 
 Party/storage UI, inventory, healing, settings and versioned save/load. Generate item icons, portraits and menu states. Acceptance: round trips, corruption, unsupported schema and interrupted-write recovery; full-party storage behavior; keyboard/gamepad focus without traps.
-Observed result: scene-owned field menu provides party ordering/deposit, paginated storage/withdraw/full-party exchange, balm targets, town rest/refill, battle pace and explicit save/load. Three deterministic raster atlases provide portraits, items and menu states. Schema v2 validates before applying; v1 migrates settings. Checksummed pending/primary/backup writes recover interrupted arrangements and protect unsupported versions. 168 management/save/input assertions, 33 art assertions and 51 screenshot assertions pass; M1-M3 regressions and all six suites in an isolated fresh-cache source copy pass. Native/3x captures were inspected. See PROGRESS.md for limits. Stop here; M5 is not started.
 
-## M5: complete first playable
+Observed result: scene-owned field menu provides party ordering/deposit, paginated storage/withdraw/full-party exchange, balm targets, town rest/refill, battle pace and explicit save/load. Three deterministic raster atlases provide portraits, items and menu states. Schema v2 validates before applying; v1 migrates settings. Checksummed pending/primary/backup writes recover interrupted arrangements and protect unsupported versions. 168 management/save/input assertions, 33 art assertions and 51 screenshot assertions pass; M1-M3 regressions and all six suites in an isolated fresh-cache source copy pass. Native/3x captures were inspected. See PROGRESS.md for limits. This is the current executable baseline; M5 is not started.
 
-One multi-stage restoration quest, two NPCs, waystation unlock, progression and defeat recovery. Generate changed-world art, quest UI and original procedural audio. Acceptance: fresh town-to-forest-to-capture-to-restoration playthrough; mid-quest reload; defeat recovery; clear ending without softlocks, duplicate rewards or missing art. Balance through full playthroughs before expanding.
+## M5: first complete roguelite expedition — planned, not started
 
-## M6: content and release polish
+Replace the session-wide RPG loop with the sanctuary/expedition contract in GAME_DESIGN.md. Complete this entire loop before adding more species or a campaign.
 
-Expand to six species including three growth forms; size further habitats/quests after M5. Add remapping, accessibility, audio mix and desktop export. Generate all required assets. Acceptance: complete regression, clean export smoke test, licenses/credits, supported-scale UI inspection and documented finished content boundary.
+Deliverables:
+
+- Separate permanent profile/sanctuary/journal/settings from temporary expedition party/reserve/items/XP/relics/routes. Start with one chosen companion normalized to level 5 and fixed limited supplies. Sanctuary originals survive every outcome.
+- Generate three traversable forest stages from validated authored templates and seeded route choices. Provide a camp after stage two and a final guardian. Stage encounters/rewards are finite and cannot be farmed by revisiting. Reuse the three existing species; no expansion to six yet.
+- Three original temporary relic modifiers, selection UI, visible run depth/health/supply information, camp recovery budget and camp-only reserve exchanges. Party four, reserve four; reject capture when both are full without spending resources.
+- Victory, camp retreat, defeat and confirmed abandonment all settle once and return to a usable hub. Victory/retreat can bank at most one living expedition-caught recruit; defeat/abandon cannot. Committed capture discoveries persist through every outcome. Record completed expeditions; no hub-upgrade economy in this milestone.
+- Schema v3 with profile plus optional active expedition, stable run/settlement IDs, all RNG streams and safe checkpoints. Migrate v1 through v2, preserving collection identity/species/cosmetics and settings; normalize combat state for new rules. Preserve a recoverable legacy backup and never silently discard an old collection. Continue restores the same run; no mid-turn resume or intentional rollback UI.
+- Programmatically generate all needed sanctuary, route/camp/guardian, relic, journal, checkpoint and outcome artwork using ART_DIRECTION.md. Update guidance from both existing NPCs. Audio and wider content are deferred to M6.
+
+Acceptance:
+
+- Complete hub -> starter choice -> generated exploration -> capture/build choice -> camp -> guardian victory -> recruit selection -> hub -> second expedition. Separately exercise camp retreat, defeat and abandonment; no softlocks or lost sanctuary originals.
+- Fixed seeds reproduce route options, walkable maps, encounter/reward outcomes and RNG continuation. A documented multi-seed set demonstrates variation; connectivity/spawns/exits/camp/guardian access always pass. No repeat-stage farming or bypass of recovery limits.
+- Tests verify normalization/reset boundaries, full party/reserve refusal, camp exchange limits, discovery retention, eligible/ineligible recruits, every settlement outcome and duplicate/stale settlement rejection. No duplicated recruits, completion credit or rewards on retry/reload.
+- Test schema migrations, profile/active-run round trips, unsupported versions, corruption and every checkpoint/settlement interrupted-write boundary. Persist profile and expedition together. Recovery never grants an outcome twice or silently rerolls an in-progress encounter. Actual player saves remain untouched by diagnostics.
+- Keyboard/virtual gamepad reach and leave every run/setup/reward/camp/result screen. All earlier unaffected mechanics regressions pass; update tests for deliberately replaced RPG rules. Run clean-import validation and inspect native/3x art and full-loop captures.
+- Record measured run duration, resource pressure and known balance limitations. Inspect victory and failure loops interactively before marking complete; 20-30 minutes is a tuning target, not a required unmeasured claim. Stop before M6.
+
+## M6: roguelite variety, progression and balance — planned
+
+After M5 passes, expand to six creature entries total including three growth forms. Add route/event variants, broader relic synergies and permanent sanctuary/waystation improvements that unlock choices rather than mandatory stat grinding. Growth is expedition-local; returning recruits normalize to their base-form starter definition. Add original procedural music/SFX and settings for their mix. No mandatory linear restoration campaign.
+
+Acceptance: repeated complete expeditions show multiple viable team/build plans, meaningful route choices, discoverable recruitment and lasting hub progression. Failed runs still allow immediate re-entry. No dominant mandatory unlock/grind path; migration/checkpoint/settlement regression passes for added content. Generate and inspect all creature/form/environment/relic/hub/audio assets. Document measured balance and content limits before release work.
+
+## M7: accessibility and desktop release — planned
+
+Input remapping, physical controller/accessibility review, text/motion/flash settings, supported-scale UI polish, save compatibility and desktop export. Generate missing presentation assets rather than use placeholders.
+
+Acceptance: complete expedition regression; keyboard/physical gamepad/focus/reconnect checks; clean desktop export/import/launch/continue/settlement smoke tests; licenses/credits; supported-scale inspection and documented finished-content boundary. Verify existing profiles remain usable or offer a safe, explicit migration path. Release only after complete victory and defeat-to-next-run playthroughs.

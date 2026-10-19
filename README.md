@@ -1,8 +1,14 @@
-# Lanternwild management and persistence slice
+# Lanternwild — monster-collecting roguelite
 
-Open project.godot in Godot 4.7.2 and press F5. Baked original artwork requires no generation to play. A fresh run starts with Brindlewick, Cindrel, 12 charms and six balms. Use SAVE/LOAD explicitly to preserve a run; startup does not auto-load.
+Lanternwild's target is a woodland roguelite: keep a permanent sanctuary, take one companion into a seeded expedition, build a temporary team, then return with a chosen recruit or lose the expedition. Levels, supplies and relics reset; sanctuary companions and discoveries persist. See [GAME_DESIGN.md](GAME_DESIGN.md), [ROADMAP.md](ROADMAP.md) and [ARCHITECTURE.md](ARCHITECTURE.md).
 
-## Controls and manual playtest
+The documentation pivot is complete; the roguelite implementation is not. M0-M4 provide the current playable RPG foundation. M5 will introduce three-stage expeditions, route/relic choices, limited camp care, a guardian, all return outcomes and profile/checkpoint migration. The instructions below describe the existing executable, not these planned features.
+
+## Current M4 executable
+
+Open project.godot in Godot 4.7.2 and press F5. Baked original artwork requires no generation to play. A fresh session starts with Brindlewick, Cindrel, 12 charms and six balms. Use SAVE/LOAD explicitly to preserve a run; startup does not auto-load.
+
+## Current controls and manual playtest
 
 - Arrows/WASD or D-pad/left stick walk. E/Z/Enter/Space or gamepad A confirms/interacts; Esc/X or gamepad B backs out. Tab/M or gamepad Start opens/closes the field menu while idle. Left/right changes menu pages; up/down selects rows. Use D-pad in menus.
 - PARTY: choose MAKE LEAD or SEND TO STORAGE. Highlight the desired party slot before switching right to STORE. Withdrawal fills vacancies; with four members it exchanges the highlighted slot. Capture at least three additional companions to try overflow storage. Scroll beyond four stored companions, exchange, and verify identities/HP remain intact. The last healthy partner cannot be deposited/swapped for a fainted one.
@@ -12,17 +18,17 @@ Open project.godot in Godot 4.7.2 and press F5. Baked original artwork requires 
 - Back out of every submenu with Esc/B; close with Tab/Start. Confirm movement resumes after releasing held directions. Menus cannot open mid-step, dialogue, travel or battle. Check physical controller feel, focus loss, resizing/letterboxing and native-size readability.
 - Existing battle route: talk to Mara, head east into Fernglass Wood, and walk the fern patch south of Ivo. Encounters occur within five eligible grass steps. MOVES attacks; BAG uses charms/balms; PARTY switches; LEAVE flees. Weaken before capturing. Grove beats Brook, Brook beats Ember, Ember beats Grove. Total defeat returns to town and rests the party. Check return location/HUD and the six-step encounter cooldown.
 
-One slot, explicit saving, no save during battle. No quests, audio, growth forms, shops or interiors yet; M5 has not started. Physical controller/other GPUs/platforms/exports still need hands-on verification. Settings currently cover battle pace; remapping/audio/accessibility remain later work.
+One slot, explicit saving, no save during battle. No expedition lifecycle, guardian settlement, permanent profile separation, audio, growth forms, shops or interiors yet; M5 has not started. Physical controller/other GPUs/platforms/exports still need hands-on verification. Settings currently cover battle pace; remapping/audio/accessibility remain later work.
 
 Earlier standalone scenes remain available: scenes/showcase/showcase.tscn (F6 art viewer) and scenes/world/exploration.tscn (F6 exploration without app services). F5 runs scenes/app/game.tscn.
 
-## Rebuild and validate
+## Validate the existing M4 foundation
 
 ```powershell
 .\tools\validate_m4.ps1 -Godot 'D:\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe' -Capture -CleanImport
 ```
 
-Runs M1-M3 regressions plus deterministic M4 artwork, import, field/save/input integration and startup. -Capture runs real GPU captures and exact palette/scaling checks; -CleanImport runs all six suites in a fresh source copy without imported caches. Missing success markers, nonzero exit or Godot warnings/errors fail validation. Logs/copies stay in ignored .godot/m4_validation/ and prior milestone folders.
+Runs M1-M3 regressions plus deterministic M4 artwork, import, field/save/input integration and startup. These suites validate the existing foundation; they do not establish the planned roguelite rules. -Capture runs real GPU captures and exact palette/scaling checks; -CleanImport runs all six suites in a fresh source copy without imported caches. Missing success markers, nonzero exit or Godot warnings/errors fail validation. Logs/copies stay in ignored .godot/m4_validation/ and prior milestone folders.
 
 M4 generation: Godot --headless --path . --script tools/art/generate_m4.gd; then --headless --path . --editor --quit. tests/save/test_art.gd and test_management.gd run headless. tools/art/capture_m4.gd runs graphically; test_screenshots.gd validates captures. Prefix each command with your executable. Diagnostics need a writable source checkout; runtime uses only baked assets.
 

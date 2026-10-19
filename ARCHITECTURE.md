@@ -1,5 +1,9 @@
 # Architecture
 
+## Direction and implementation boundary
+
+Target: the sanctuary-based monster-collecting roguelite in GAME_DESIGN.md. M0-M4 below describe implemented foundation code. The profile/expedition architecture is planned for M5; no roguelite runtime or new save schema exists yet. Preserve the working battle/exploration/art systems while replacing their session lifecycle.
+
 ## Baseline
 
 Verified Godot 4.7.2.stable.official.ed1daf0bf. M1 uses Compatibility/OpenGL, a 320x180 viewport, nearest filtering, integer scaling and aspect-preserving letterboxing. Real graphical launch passed on NVIDIA RTX 3070. project.godot now runs scenes/app/game.tscn. The M1 showcase and standalone M2 world remain independently runnable.
@@ -58,9 +62,36 @@ The font PNG is a white/transparent coverage mask embedded by Godot's BMFont imp
 - management_recipes.gd / generate_m4.gd save three PNG atlases and a sorted region/digest manifest under assets/generated/m4/. Runtime loads baked textures; no generator dependency. Existing font/Theme remain shared.
 - tools/validate_m4.ps1 runs M1-M3 regressions, M4 generation/import, two-build art tests, field/save/input integration, main startup, optional real screenshots and all six suites in a cache-free source copy. tests/save/ contains the three M4 runners. Evidence: artifacts/visual/m4/.
 
-## Planned after M4
+## Planned M5 profile and expedition architecture
 
-Quest stages, world changes and rewards belong to M5; no quest state is introduced speculatively. Keep services scene-owned, definitions immutable and mutations validated. Any schema extension needs a migration and round-trip/failure tests. No global event bus or autoload is necessary for this slice.
+All components remain scene-owned, with immutable Resource definitions and explicit validated services; no global event bus/autoload is required. Names below are design responsibilities, not existing files or APIs.
+
+| Component | Responsibility |
+|---|---|
+| ProfileState | Sanctuary individuals (stable ID/species/cosmetic seed), discovered species, completion/settlement ledger, later unlock IDs and settings; no accumulating expedition XP/items |
+| ExpeditionState | Unique run ID, generation version/seed, source starter ID, copied party, four-slot reserve, supplies, relic IDs, stages/choices/cleared encounters, camp budget, battle serial/claims and RNG states |
+| ExpeditionService | Validate departure; copy/normalize one starter; advance routes; apply limited camp actions; create immutable settlement intent; enforce one active run |
+| RouteGenerator | Pure seeded selection/assembly of authored room templates; validate connectivity and mandatory cells; produce map data compatible with the existing world renderer |
+| RewardService | Validate finite encounter/relic rewards and apply immutable modifier definitions; no repeated grants on revisits |
+| SanctuaryService | Validate recruit origin/health/outcome; admit at most one eligible individual; preserve original starter; commit settlement exactly once |
+| SaveCodec / SaveService | Explicit schema v3 encoding/validation/migration and verified recovery writes for profile plus optional active expedition in one transaction |
+| App and composed UI scenes | Hub/setup/explore/battle/reward/camp/settlement modes, input locks, checkpoints and readable journal/route/result views |
+
+Reuse MonsterState for mutable expedition combatants; sanctuary records do not share mutable objects/arrays with them. Clone source identity/cosmetics into a run-scoped starter ID and reset level/XP/HP/moves. Run-scoped capture IDs include run ID and battle serial so restarting the battle counter cannot collide with older sanctuary admissions. A recruit retains its capture identity/cosmetics; normalize combat state and later growth forms to its starter/base definition. Do not train or damage the sanctuary original.
+
+Replace RunSession's mixed party/storage lifecycle with ProfileState and ExpeditionState, reusing the pure battle resolver and cloning discipline. Battle results return to the expedition controller: total defeat requests settlement rather than having RunSession heal and continue the same run. Sanctuary access and free care are hub-only; expedition reserve exchange/recovery is camp-only. Guardian encounter metadata prevents capture/flee. Full party plus reserve rejects capture before cost/RNG mutation.
+
+Routes have stable stage/encounter/reward IDs and completion flags. Re-entry cannot regenerate a cleared stage's encounters or rewards. Separate seeded streams for layout, encounter selection, battle resolution and reward choices; store canonical 64-bit state strings. Derive streams from the run seed and stable IDs without language-dependent hashes. Persist generator/content version plus chosen layout/route state so Continue does not silently regenerate a different map after a recipe change. Unsupported content versions need a supported migration or a protected, clear failure.
+
+## Planned checkpoint and migration contract
+
+Schema v3 stores profile and optional active expedition in one envelope. Keep v1 -> v2 migration, then migrate v2 party/storage into sanctuary records preserving IDs/species/cosmetics and settings. Existing combat levels/XP/items are not permanent power under the new rules; preserve the legacy backup before writing the migrated profile. A migrated session starts safely at the hub with no active expedition; never infer completed runs or award migration rewards.
+
+Safe checkpoints include departure, completed battle/reward, camp operation and settlement. Before a battle, persist its encounter ID/descriptor and deterministic initial state; resume after interruption replays that encounter, not its opponent selection. M5 does not serialize an active animation or mid-turn scene. Continue uses the latest validated checkpoint; no player-facing previous-run-state picker. Confirm abandonment before clearing an active run.
+
+For settlement, validate a candidate containing the terminal outcome, selected recruit (or none), profile updates, processed run ID and cleared active expedition. Write/verify it through SaveService before presenting the settled hub; failed writes retain a retryable locked settlement. Profile/discovery/expedition updates commit together, never to independently replaceable files. Retrying or recovering an already settled run must not duplicate admissions or completion credit. Preserve the current pending/primary/backup strategy, checksum validation, unsupported-schema protection and transactional live-state replacement; extend interrupted-boundary tests rather than promise hardware durability or tamper resistance.
+
+Future hub upgrades and restoration objectives belong to M6 and reference stable unlock IDs. They must not become required raw-stat grinding. Every schema/content extension needs migration, round-trip and failure tests.
 ## Art contract and pipeline
 
 Generators depend only on shared palette, integer drawing primitives and versioned recipes. Manifest records ID, seed, generator version, palette ID, output digest, dimensions, frame rectangles/timing and anchors. Tiles additionally name collision, terrain adjacency and encounter eligibility. Runtime references named IDs rather than hardcoded atlas positions.
@@ -69,6 +100,6 @@ Generation phases: render PNGs/manifest, run Godot import, assemble reusable res
 
 ## Validation
 
-Headless runners assert behavior and return nonzero on failure. Art: two clean generations have matching pixels/metadata; palette, dimensions, anchors, glyphs and references are valid. World: collision, connectivity, spawns and exits. Battles: deterministic order, invalid actions, capture limits, defeat and exactly-once rewards. Saves: round trips, corruption, schema versions and interrupted writes.
+Headless runners assert behavior and return nonzero on failure. Art: two clean generations have matching pixels/metadata; palette, dimensions, anchors, glyphs and references are valid. World: collision, connectivity, spawns and exits. Battles: deterministic order, invalid actions, capture limits, defeat and exactly-once rewards. Saves: round trips, corruption, schema versions and interrupted writes. M5 additionally needs multi-seed route/connectivity tests, profile/expedition isolation, finite rewards/camp budgets, every settlement outcome, exactly-once admissions and deterministic checkpoint recovery. Existing counts in PROGRESS.md are M4 evidence, not proof of these planned behaviors.
 
 The verified executable is D:/Downloads/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe. README.md documents the executable-parameterized validation runner. Individual command shapes: <godot> --headless --path . --editor --quit for imports and <godot> --headless --path . --script <runner.gd> for tools/tests. Capture rendered viewport screenshots in a graphical session; headless parsing does not establish visual quality.

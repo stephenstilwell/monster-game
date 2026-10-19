@@ -1,5 +1,9 @@
 # Art direction
 
+## Implementation boundary
+
+The visual target is now a sanctuary-based woodland roguelite. M1-M4 assets/evidence below remain completed and reusable; M5/M6 art requirements at the end are planned and must be generated/validated with those milestones. Keep the established resolution, palette, original creature designs and reproducible pipeline.
+
 ## Identity
 
 Lantern-lit woodland storybook pixel art: rounded foliage, weathered timber, mossy stone, warm cloth and small luminous details. Strong silhouettes, intentional clusters, upper-left light, dark colored outlines and two or three shade steps. Avoid noisy texture and generic geometric stand-ins.
@@ -69,3 +73,23 @@ management_recipes.gd (m4.1, shared baseline seed 842031) constructs three deter
 The full-screen field journal uses the shared panel/font, amber/green focus, four-row paginated lists and persistent controls. Balm target selection displays the selected partner portrait. Town-only rest has an unavailable tab outside town. Generated state art supports focus; error/confirmation text also communicates state without relying solely on color.
 
 artifacts/visual/m4/ contains 17 native/3x interface/world views and a contact sheet (35 PNGs). Views cover all species portraits, party actions, second-page storage/exchange, both items, balm target/use, rest, settings, save, confirmed load and world return. Exact palette/dimension/nearest-scale tests pass. Native/enlarged render inspection found and corrected the target screen's misleading charm icon; no unresolved clipping was observed.
+
+## Planned M5 roguelite presentation
+
+Preserve warm sanctuary scenes and readable top-down expedition maps. Reuse original terrain/actors/creatures; build deliberate authored room templates with seeded prop clusters and route assembly. Variation must retain readable paths, object footprints, anchors and material shading. Recolored squares or generic random noise are not finished room artwork.
+
+Generate and save these additions with recipes, seed/version metadata, named regions and palette/anchor tests:
+
+- Sanctuary identity: lantern gate/departure marker, creature resting enclosure and journal/roster accents. Reuse the existing town/NPC composition, adding original fittings rather than a second unrelated art style.
+- Forest stage/template variants, branching route markers, a distinct camp lantern/rest fixture and guardian landmark. Route signs must communicate depth, risk and camp/guardian destinations through symbols and labels as well as color.
+- Guardian treatment for an existing species: original crest/markings, battle entrance/reaction effect and readable guardian icon. It is an encounter variant, not an unplanned additional species. Distinguish it from a catchable wild creature without relying on a large geometric overlay.
+- Three lantern relic icons at 16x16 or 24x24, reward-selection states, a once-used camp indicator and bounded reserve/party labels. Distinguish supplies, temporary relics, journal discoveries and permanent sanctuary membership.
+- Starter selection, compact expedition depth/supply/relic HUD, route choice, journal, camp, checkpoint status and victory/retreat/defeat/abandonment settlement interfaces. Show eligible recruit portraits, the no-recruit option and what persists/resets before confirming return or abandonment.
+
+All screens use the existing bitmap font/nine-slice Theme and stay within 320x180. Do not stack route, journal and battle details into one crowded view. Retain keyboard/gamepad focus/back hints and support empty/full reserve, no eligible recruit, spent camp budget and checkpoint-write failure states.
+
+M5 evidence must include native/3x starter/hub, seeded map overviews, route/relic choices, camp before/after use, guardian, every outcome, recruit selection and resumed expedition. Inspect multiple seeds for seams, blocked exits, visual repetition, text clipping, stable actor feet and clear destination markers. Earlier screenshots prove only the earlier slice.
+
+## Planned M6/M7 presentation
+
+M6 adds creature growth forms, more authored habitat/event variants, relic/hub upgrade art and original procedural audio with retained generation sources. Permanent unlock presentation emphasizes new options; expedition growth forms do not imply permanent starting power. M7 checks accessibility, motion/flash/text options, physical input prompts and exported presentation at supported scales. Do not generate or mark these later assets complete during the documentation pivot or M5.
