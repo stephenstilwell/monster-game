@@ -61,3 +61,11 @@ Three 384x96 atlases contain 48x48 front/back poses, each with four idle frames 
 An 80x16 icon strip provides three creature portraits, a lantern charm and balm jar. A 192x96 sheet holds four-frame impact, leaf, ember, brook, charm and healing effects at 8 fps. The 320x106 arena reuses the established detailed trees and adds grass and worn ground platforms. All assets use the shared palette and integer pixels, with no downloaded artwork.
 
 Battle menus use the existing panel/font, solid-backed hints, two-column commands and event-synchronized health bars. Player backs and enemy fronts stay clear of status panels. artifacts/visual/m3/ contains 16 native/3x interface/result/world views and native/3x art sheets (34 PNGs). All 17 stable images pass exact palette/dimension/scaling checks; front/back cycles, menus, effects, capture, storage overflow and return scenes were inspected.
+
+## M4 management artwork
+
+management_recipes.gd (m4.1, shared baseline seed 842031) constructs three deterministic atlases: portraits 144x48 (three framed 48x48 species cards), items 48x24 (24x24 braided amber charm and stoppered herbal flask), menu_states 144x20 (48x20 normal/focused/unavailable tabs). Layered woodland portraits reuse original creature recipes, adding timber frames, fern-green backgrounds and amber corner fittings. Item material highlights and leaf labels remain readable at native size. All eight named regions carry rectangles/anchors in the sorted digest manifest; PNGs are reusable and baked.
+
+The full-screen field journal uses the shared panel/font, amber/green focus, four-row paginated lists and persistent controls. Balm target selection displays the selected partner portrait. Town-only rest has an unavailable tab outside town. Generated state art supports focus; error/confirmation text also communicates state without relying solely on color.
+
+artifacts/visual/m4/ contains 17 native/3x interface/world views and a contact sheet (35 PNGs). Views cover all species portraits, party actions, second-page storage/exchange, both items, balm target/use, rest, settings, save, confirmed load and world return. Exact palette/dimension/nearest-scale tests pass. Native/enlarged render inspection found and corrected the target screen's misleading charm icon; no unresolved clipping was observed.

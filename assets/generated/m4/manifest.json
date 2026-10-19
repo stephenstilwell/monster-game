@@ -1,0 +1,134 @@
+{
+	"assets": {
+		"items": {
+			"sha256": "072e3ff65a56185d8d9c5e4e28387df910392480dd142aa22bfbd4e4e9b84e48",
+			"size": [
+				48,
+				24
+			]
+		},
+		"menu_states": {
+			"sha256": "84b69ab010872a51ade333c71726b9243ae1c8d269c2ae604b0b13f9f6e3f44b",
+			"size": [
+				144,
+				20
+			]
+		},
+		"portraits": {
+			"sha256": "d120d618e8cbda4b6ea8def4017e3b8bbc09f4c37c28c44d5a5ab127366bdec8",
+			"size": [
+				144,
+				48
+			]
+		}
+	},
+	"palette": "woodland16",
+	"regions": {
+		"balm": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "items",
+			"rect": [
+				24,
+				0,
+				24,
+				24
+			]
+		},
+		"brindlewick": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "portraits",
+			"rect": [
+				0,
+				0,
+				48,
+				48
+			]
+		},
+		"charm": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "items",
+			"rect": [
+				0,
+				0,
+				24,
+				24
+			]
+		},
+		"cindrel": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "portraits",
+			"rect": [
+				48,
+				0,
+				48,
+				48
+			]
+		},
+		"disabled": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "menu_states",
+			"rect": [
+				96,
+				0,
+				48,
+				20
+			]
+		},
+		"focused": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "menu_states",
+			"rect": [
+				48,
+				0,
+				48,
+				20
+			]
+		},
+		"normal": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "menu_states",
+			"rect": [
+				0,
+				0,
+				48,
+				20
+			]
+		},
+		"rillume": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "portraits",
+			"rect": [
+				96,
+				0,
+				48,
+				48
+			]
+		}
+	},
+	"seed": 842031,
+	"version": "m4.1"
+}

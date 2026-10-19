@@ -5,7 +5,7 @@ const Movement = preload("res://scripts/world/grid_movement.gd")
 const Dialogue = preload("res://scripts/world/dialogue_state.gd")
 const Bindings = preload("res://scripts/world/exploration_input.gd")
 const ActorScene = preload("res://scenes/actors/field_actor.tscn")
-enum Mode { EXPLORE, DIALOGUE, TRANSITION, BATTLE }
+enum Mode { EXPLORE, DIALOGUE, TRANSITION, BATTLE, MENU }
 var mode: Mode = Mode.EXPLORE
 var maps: Dictionary = {}
 var current_map: Map
@@ -180,6 +180,6 @@ func _step_completed(cell: Vector2i) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
-		for action in ["walk_up", "walk_down", "walk_left", "walk_right", "interact", "close_dialogue"]:
+		for action in ["walk_up", "walk_down", "walk_left", "walk_right", "interact", "close_dialogue", "field_menu"]:
 			Input.action_release(action)
 		require_neutral = true

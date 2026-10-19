@@ -1,5 +1,6 @@
 extends "res://scripts/ui/pixel_ui.gd"
 var world: Node2D
+var show_menu_hint: bool = false
 func _draw() -> void:
 	if font == null or world == null or world.current_map == null:
 		return
@@ -16,6 +17,7 @@ func _draw() -> void:
 		text("%s/%s" % [world.dialogue.index + 1, world.dialogue.pages.size()], 282, 167, 9)
 	else:
 		draw_rect(Rect2(0, 165, 320, 15), palette[0])
+		if show_menu_hint: text("TAB/M MENU", 246, 5, 9)
 		var target: Dictionary = world.current_map.interaction_at(world.movement.cell + world.movement.facing)
 		text("ARROWS/WASD WALK  E " + ("TALK" if target.has("id") and target.id in ["mara", "ivo"] else "READ" if not target.is_empty() else "INTERACT"), 6, 170, 9)
 	if world.mode == world.Mode.TRANSITION:

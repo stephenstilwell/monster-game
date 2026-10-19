@@ -41,7 +41,7 @@ func advance(delta: float) -> void:
 	event_clock += delta
 	if phase == Phase.ENTRY and event_clock >= 0.35:
 		command_phase()
-	elif phase == Phase.PRESENT and event_clock >= 0.55:
+	elif phase == Phase.PRESENT and event_clock >= (0.25 if session.settings.text_speed == 1 else 0.55):
 		next_event()
 	view.queue_redraw()
 

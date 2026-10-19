@@ -1,7 +1,7 @@
 extends RefCounted
 
 static func install() -> void:
-	var keys := {"walk_up": [KEY_UP, KEY_W], "walk_down": [KEY_DOWN, KEY_S], "walk_left": [KEY_LEFT, KEY_A], "walk_right": [KEY_RIGHT, KEY_D], "interact": [KEY_E, KEY_Z, KEY_ENTER, KEY_SPACE], "close_dialogue": [KEY_ESCAPE, KEY_X]}
+	var keys := {"field_menu": [KEY_TAB, KEY_M], "walk_up": [KEY_UP, KEY_W], "walk_down": [KEY_DOWN, KEY_S], "walk_left": [KEY_LEFT, KEY_A], "walk_right": [KEY_RIGHT, KEY_D], "interact": [KEY_E, KEY_Z, KEY_ENTER, KEY_SPACE], "close_dialogue": [KEY_ESCAPE, KEY_X]}
 	for action: String in keys:
 		if InputMap.has_action(action):
 			continue
@@ -10,7 +10,7 @@ static func install() -> void:
 			var event := InputEventKey.new()
 			event.keycode = code
 			InputMap.action_add_event(action, event)
-	var buttons := {"walk_up": JOY_BUTTON_DPAD_UP, "walk_down": JOY_BUTTON_DPAD_DOWN, "walk_left": JOY_BUTTON_DPAD_LEFT, "walk_right": JOY_BUTTON_DPAD_RIGHT, "interact": JOY_BUTTON_A, "close_dialogue": JOY_BUTTON_B}
+	var buttons := {"field_menu": JOY_BUTTON_START, "walk_up": JOY_BUTTON_DPAD_UP, "walk_down": JOY_BUTTON_DPAD_DOWN, "walk_left": JOY_BUTTON_DPAD_LEFT, "walk_right": JOY_BUTTON_DPAD_RIGHT, "interact": JOY_BUTTON_A, "close_dialogue": JOY_BUTTON_B}
 	for action: String in buttons:
 		var event := InputEventJoypadButton.new()
 		event.button_index = buttons[action]

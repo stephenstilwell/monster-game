@@ -31,7 +31,7 @@ The font PNG is a white/transparent coverage mask embedded by Godot's BMFont imp
 
 - scenes/app/game.tscn / scripts/core/game.gd compose the world and a single battle scene. Completed non-portal steps emit a signal; the app-owned encounter_controller.gd checks eligible grass with an independent seeded stream. Encounters occur within five eligible steps and have a six-step return cooldown. Idle frames never roll encounters.
 - ContentCatalog resolves three SpeciesDefinition, five MoveDefinition and two ItemDefinition Resources under data/. MonsterState separates unique ID, species ID, level, XP, health, moves and appearance seed from immutable definitions; instances clone their mutable arrays.
-- RunSession is scene-owned RefCounted state, not an autoload. It owns the in-memory party, overflow storage, consumable counts, battle serial and claimed-outcome ledger. No save schema or full management service is implemented yet.
+- RunSession is scene-owned RefCounted state, not an autoload. It owns the in-memory party, overflow storage, consumable counts, battle serial and claimed-outcome ledger. M4 adds the schema and field service described below.
 - BattleState holds cloned participants/items, current active index, RNG, turn/flee counters, habitat and outcome. BattleResolver validates before changing state or RNG, resolves priority/speed/seeded ties and returns ordered events. Forced replacement does not grant an enemy attack. KO/capture/flee stop further actions as appropriate.
 - BattleController owns entry, command, presentation, result and closed phases. It blocks duplicate submissions while presenting. battle_canvas.gd consumes event health/switch snapshots rather than showing final-turn damage early; effects start from their event clock. All menus use the established bitmap UI and generated party/item icons.
 - Finishing an outcome claims health/items, capture transfer and XP once. A party of four sends captures to storage. The app only unlocks the matching claimed battle; defeat has a minimal return-to-town/team-rest recovery so this slice remains playable. Other outcomes return to the same world cell. Input is neutralized and world HUD/camera restored.
@@ -48,18 +48,19 @@ The font PNG is a white/transparent coverage mask embedded by Godot's BMFont imp
 - tests/{art,world,battle,save}/: dependency-free SceneTree runners.
 - artifacts/visual/: curated screenshots/contact sheets for milestone evidence.
 
-## Planned services (M4 onward)
+## Implemented M4
 
-The implemented app/session/catalog remain scene-owned. M4 will introduce explicit serializable state mapping and party/inventory/healing/settings services as needed; avoid a global event bus or unnecessary autoloads.
+- scripts/ui/field_menu.gd is a scene-owned CanvasLayer child composed by game.gd. Party, storage, bag, rest, settings and save pages share generated bitmap UI. Four-row scrolling preserves access to all stored individuals. Keyboard/virtual gamepad events use the existing action map plus Tab/M/Start. Submenu back restores parent focus; closing requires neutral movement. Opening rejects movement, dialogue, travel and battle; simulation/input remain locked during load.
+- scripts/core/field_service.gd validates deposits, withdrawal/exchange, field balm and town healing before mutation. A healthy party member must remain. Full parties exchange with the highlighted party slot. Balm heals living members by 24; town rest revives/heals party and storage, restoring supply baselines without deleting surplus. RunSession owns these collections and a persisted normal/quick battle-event setting.
+- scripts/save/save_codec.gd maps explicit state to JSON schema v2: individual IDs/species/level/XP/HP/moves/cosmetic seeds, party/storage, consumables, battle serial/claim ledger, settings, safe map/cell/facing and encounter RNG/counters. Signed 64-bit values use canonical decimal strings. Fully validate types, bounds, references, identities, health/progression, safe non-portal cells and a healthy party before creating a candidate session. v1 migrates missing settings to normal pace. No scene/resource graphs or active battles are serialized.
+- save_service.gd uses user://saves/{slot,pending,backup}.json. Envelope contains payload text and SHA-256 digest. Write/flush/close and re-read pending before rotating a valid primary to backup and installing pending. A recovery candidate is copied to primary before a later save reuses pending. Load prefers valid primary, then valid pending, then backup; unsupported versions stop fallback and prevent overwriting. Failures return messages without replacing live state. This is recovery across file operations, not a claim of hardware power-loss durability.
+- game.gd applies only a fully decoded candidate, mounts its validated location and restores the independent encounter stream/ledger. Saves and loads are explicit field-menu commands; startup remains a fresh run. Loading asks before replacing unsaved progress. Tests/captures override the save directory under ignored .godot/m4_validation/ and never touch the player's slot.
+- management_recipes.gd / generate_m4.gd save three PNG atlases and a sorted region/digest manifest under assets/generated/m4/. Runtime loads baked textures; no generator dependency. Existing font/Theme remain shared.
+- tools/validate_m4.ps1 runs M1-M3 regressions, M4 generation/import, two-build art tests, field/save/input integration, main startup, optional real screenshots and all six suites in a cache-free source copy. tests/save/ contains the three M4 runners. Evidence: artifacts/visual/m4/.
 
-GameState owns party, storage, inventory, quest flags, location and RNG state without Node references. MonsterState references SpeciesDefinition by ID; never mutate shared definition Resources in play.
+## Planned after M4
 
-WorldRoot composes terrain, decoration, collision, actors and encounter controller. Authored map recipes generate layout and seeded decoration. Validate mandatory paths/exits; defer unrestricted random maps. M2 uses TileMapLayer; M3 encounters listen to completed world steps through the app.
-
-GridMovement validates/reserves destination cells before interpolating presentation. Facing/movement state drives sprites. Dialogue/battle input modes pause exploration explicitly.
-
-Inventory, Party and Quest services validate changes to GameState. SaveService serializes explicit versioned JSON under user:// using stable IDs. Validate schema and references, write and validate a temporary save, retain the last known good backup, then replace primary. Support migrations and recover gracefully from malformed or newer schemas. Do not serialize scene/resource graphs.
-
+Quest stages, world changes and rewards belong to M5; no quest state is introduced speculatively. Keep services scene-owned, definitions immutable and mutations validated. Any schema extension needs a migration and round-trip/failure tests. No global event bus or autoload is necessary for this slice.
 ## Art contract and pipeline
 
 Generators depend only on shared palette, integer drawing primitives and versioned recipes. Manifest records ID, seed, generator version, palette ID, output digest, dimensions, frame rectangles/timing and anchors. Tiles additionally name collision, terrain adjacency and encounter eligibility. Runtime references named IDs rather than hardcoded atlas positions.

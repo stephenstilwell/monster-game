@@ -4,40 +4,38 @@ Updated: 2026-10-19 (America/New_York).
 
 ## Status
 
-M0-M2 complete. The latest user instruction authorized M3 battles/capture. M3 is implemented and validated; stop before M4. Main scene: scenes/app/game.tscn.
+M0-M4 complete. The latest user instruction authorized the next milestone after M3: M4 party/inventory/persistence. Stop before M5. Main scene: scenes/app/game.tscn.
 
-## Delivered M3
+## Delivered M4
 
-- App-owned in-memory run state and encounter controller integrate completed eligible forest steps with battle entry. Independent seeded encounter/battle streams; no idle rolls, a five-grass-step guarantee and six-step return cooldown. Town/ordinary terrain do not encounter.
-- Typed definitions for Brindlewick/Grove, Cindrel/Ember and Rillume/Brook; five moves and two consumables. Individual monsters own IDs, health, levels, XP, copied moves and cosmetic seeds. Definitions remain unmodified.
-- Scene-independent resolver: priority/speed/seeded ties, affinity damage, accuracy, enemy moves, healthy/forced switches, balm, charm capture, flee, victory and defeat. Invalid actions preserve turn/items/HP/RNG. KO/successful capture/flee stop subsequent actions.
-- Command/presentation/result controller and generated-art UI, with separate displayed health snapshots, front/back idle/reaction frames, icons and event-clock effects. Duplicate commands during presentation and premature/stale battle closes are guarded.
-- RunSession claims outcomes once: health/items carry into the next battle; capture joins the party or storage at capacity four; victory/capture award bounded XP/level growth. Minimal defeat recovery returns to town and rests the team. General healing, management menus and persistence remain M4.
-- Six saved raster assets, 18 animation records, four SpriteFrames resources and ten content Resources; original Cindrel/Rillume designs, Brindlewick back pose, six effects and forest arena. Mara now explains fern encounters and weakening targets.
-- Documentation and validation runner updated. Earlier standalone scenes and M1/M2 regressions preserved. No M4 management or save system introduced.
+- Scene-owned field journal: party order/deposit, four-row paginated storage, vacancy withdrawal/full-party exchanges, consumable counts/targeted balm, town rest/refill, normal/quick battle pacing and explicit save/load with replacement confirmation.
+- Menu opens only at an idle exploration cell and locks movement/encounters/input. Keyboard and virtual gamepad navigate all pages/submenus, including scrolling storage and safe load cancellation. Back restores parent focus; closing restores neutral-input protection. World HUD advertises Tab/M.
+- Field service rejects invalid operations without spending items or losing individuals. At least one healthy party member remains. Balm heals living injured members by 24 HP. Free town care heals/revives party/storage and restores at least 12 charms/six balms without deleting surplus.
+- Explicit schema v2 maps stable IDs, monster progression/health/moves/cosmetics, party/storage/items, battle serial/claim ledger, settings, safe location/facing and exact encounter RNG/counters. Canonical decimal strings preserve signed 64-bit RNG/cosmetic values. v1 migrates default settings. Decode validates a complete candidate before any live-state replacement.
+- SHA-256 envelope, verified/flushed pending writes, known-good backup rotation and guarded replacement. Valid primary wins; missing/corrupt primary recovers pending then backup. Unsupported versions prevent fallback/overwrite. A recovered candidate is preserved before another save reuses pending. Failure leaves the live run intact.
+- Generated three reusable PNG atlases, eight named regions and sorted manifest: original 48px species portrait cards, 24px charm/flask icons and three menu states. Shared palette/font/panels preserved. Recipes and outputs committed together.
+- All six planning documents and README updated; validation runner composes previous milestone regressions. Earlier standalone scenes remain usable. No M5 quest/world-change/audio implementation.
 
 ## Observed validation
 
-Executed tools/validate_m3.ps1 with verified Godot 4.7.2.stable.official.ed1daf0bf, -Capture and -CleanImport. Final run passed without Godot warnings/errors:
+Executed tools/validate_m4.ps1 with Godot 4.7.2.stable.official.ed1daf0bf, -Capture and -CleanImport. Final run passes without Godot warnings/errors:
 
-- M3 battle/integration: 113 assertions PASS. Covers valid/invalid commands and RNG preservation, priority/speed/ties, deterministic replay, balm cost/healing, normal/forced switches, capture/flee success and failure, KO/defeat, full-party storage, snapshot isolation, exactly-once XP/capture, bounded progression, encounters/cooldown, viewport keyboard/gamepad navigation and grass-to-battle-to-world/town loops.
-- M3 art/data: 280 assertions PASS. Two clean builds match PNG bytes, pixel digests, sorted manifest and all ten persisted definitions. Palette/alpha, dimensions, populated frame bounds, anchors, front/back distinction and animation/resource rectangles pass.
-- All four assembled M3 resources are byte-identical across separate invocations; main app startup PASS.
-- M1 regression: 494 assertions and 18 screenshot checks PASS. M2 regression: 2,733 assertions and 33 screenshot checks PASS.
-- Fresh isolated source copy without import cache: import/startup and all four suites (494 M1, 2,733 M2, 280 M3 art, 113 M3 battle assertions) PASS.
-- Actual OpenGL 3.3/NVIDIA RTX 3070 rendering: 16 native/3x battle/interface/result/world views plus native/3x original-art sheets, 34 PNGs under artifacts/visual/m3/. All 52 M3 palette/dimension/scaling assertions PASS.
-- Inspected native/enlarged art, fronts/backs/reactions, command/move/bag/party layouts, effects, capture, victory, defeat, overflow storage and return views. No unresolved text clipping/palette drift observed. Tiny level numeral checked against its bitmap glyph. Reviewed changes and ran git diff --check before checkpointing.
+- M4 management/save/input: 168 assertions PASS. Includes malformed data/types/IDs/HP/XP/moves/settings/location/RNG, JSON round trips, exact 64-bit values, v1 migration, future-version protection, corrupt/checksum/missing saves, pending/backup interrupted arrangements, resave after recovery, I/O failure, no partial live-state mutation, preserved reward ledger, full-party exchanges, balm/healing/refills, keyboard/gamepad pages/submenus/scrolling, safe modal gates and loaded battle pace/serial.
+- M4 art: 33 assertions PASS. Two clean generation runs match PNG bytes/manifest; baked pixels/digests, shared palette/hard alpha, dimensions, region bounds and populated art agree.
+- M4 rendered screenshots: 51 assertions PASS across 17 native/3x views. Actual NVIDIA RTX 3070/OpenGL 3.3 capture produced 34 interface/world PNGs plus a contact sheet. Inspected native/enlarged menus, portraits/items, storage pages, field healing, settings, confirmations and world return.
+- M1 regression: 494 art/control assertions and 18 screenshot checks PASS. M2: 2,733 exploration assertions and 33 screenshot checks PASS. M3: 280 art/data assertions, 113 battle/integration assertions and 52 screenshot checks PASS. Prior assembled resources remain byte-identical across repeat invocations.
+- Isolated source copy without import cache: import/startup and all six suites (494, 2,733, 280, 113, 33 and 168 assertions) PASS. Test/capture saves stay under ignored .godot/m4_validation/; the player's user:// slot is untouched. Logs remain in ignored validation folders.
 
-Fixed during validation/review: inferred integer recipe type, capture-fixture health/typed-array issues, fainted action continuation/duplicate messages, malformed command rejection, unclaimed-close/input leakage guards, low-contrast submenu hints, arena style mismatch and effect timing. Logs remain under ignored .godot/m3_validation/logs/.
+Review fixes: typed dynamic boolean, quiet malformed-JSON parsing, preserve recovered pending before resave, distinguish malformed versus unsupported versions, correct balm-target portrait, restore parent focus and derive exchange target from highlighted party slot. Test corrections distinguished legal custom IDs and the neutral guard before an idle frame clears it. Reviewed staged changes and Git whitespace checks before checkpoint.
 
 ## Limits and manual playtest
 
-- F5 launches M3. Follow README.md: enter forest ferns, weaken/capture, switch, use balm, flee, win and lose; check return position/HUD/input and post-battle cooldown. Judge balance, encounter frequency and animation/message pacing interactively.
-- Two starters and fixed consumable supplies support this slice. Captures retain remaining HP. Items are battle-only, and no general healing/refill/storage viewer exists yet; restart resets the run. Minimal defeat rest is the recovery path for this milestone.
-- Virtual keyboard/gamepad events were tested; physical controller mappings, real input/focus feel, resizing/letterboxing, other GPUs/platforms and exports need manual/later verification. Prompts still display keyboard labels.
-- No save/load, full party/inventory management, quests, audio, growth forms, PP, status conditions or trainer battles. Cosmetic seeds are retained; battle art currently uses base species colors.
-- Captured visuals use controlled wounded-participant fixtures for some states; commands and outcome rules are real. Diagnostics require a writable source checkout.
+- Follow README.md: capture enough for a full party/storage, reorder/deposit/withdraw/exchange, scroll beyond four stored partners, use/refuse balm, rest in town/refuse in forest, toggle battle pace, save/restart/load and inspect restored state. Check back/cancel and held-direction/focus behavior with physical keyboard/controller.
+- One explicit slot; startup begins fresh until LOAD. Saving is restricted to idle field menus; active battles/dialogue/transitions are not resumable. Settings currently cover battle event pace only. Town rest is available through the menu anywhere in town; no interior/shop/currency/quest gate yet.
+- Crash recovery tests create actual interrupted file arrangements, not real process kills, power failures or disk faults. File flushing/recovery does not guarantee hardware durability. Saves assume one running game instance; no concurrent-writer coordination or cloud sync.
+- Collection fixtures drive some captures; field/save commands are real. Physical controller mapping/analog feel, other GPUs/platforms, exports, balance and interactive pacing remain manual/later checks.
+- No quests, audio, growth forms, PP, status conditions or trainer battles. Cosmetic seeds persist; battle art uses base species colors. No remaining observed code/asset validation errors.
 
 ## Next milestone
 
-M4 party/inventory/persistence is not started. Keep this turn at M3. The checkpoint includes this report; identify it with git log -1. Remote: origin at github.com/stephenstilwell/monster-game.
+M5 complete-first-playable quest/progression/audio work is not started. A subsequent user instruction may authorize it. This checkpoint includes the report; identify it with git log -1. Remote: origin at github.com/stephenstilwell/monster-game.

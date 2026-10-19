@@ -9,6 +9,7 @@ var storage: Array = []
 var inventory := {"charm": 12, "balm": 6}
 var claimed: Dictionary = {}
 var battle_serial: int = 0
+var settings := {"text_speed": 0}
 func _init() -> void:
 	party = [Monster.create("starter_1", catalog.species.brindlewick, 5), Monster.create("starter_2", catalog.species.cindrel, 4)]
 
