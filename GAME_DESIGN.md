@@ -1,4 +1,4 @@
-﻿# Game design — proposed
+# Game design — proposed
 
 Working title: Lanternwild. An original woodland monster-collecting RPG about restoring waystations alongside creatures shaped by local habitats. Names and scope await review.
 
@@ -23,3 +23,7 @@ Readable top-down exploration, expressive creatures, warm woodland art, and shor
 First playable: one town, one forest route, three initial species, two NPCs, one restoration quest, healing, battles, capture, party/inventory, and saves. Later target six species including three growth forms. Single-player desktop only initially; no multiplayer or open-world scope.
 
 M1 is an animated visual showcase with sample interface data. No gameplay systems are implemented until the visual direction is reviewed.
+
+## Implemented visual baseline
+
+M1 now provides field, creature, sample battle and party views with baked original artwork, shared UI, variant selection and animation preview. All displayed health, level and party values are fixtures; the systems above remain planned. Press 1-4 or Tab to review the views; README.md lists all controls. Review this visual direction before M2.

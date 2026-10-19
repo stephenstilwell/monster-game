@@ -1,8 +1,19 @@
-﻿# Architecture — proposed
+# Architecture
 
 ## Baseline
 
-Existing project: MonsterGame; project.godot declares Godot 4.7, Forward Plus, D3D12 and canvas_items stretch with expand aspect. No gameplay scripts/scenes were present in the root inspection. Preserve configuration during planning. Verify executable before using version-specific APIs. Proposed M1 renderer: Compatibility for lightweight 2D, subject to launch verification on the installed engine.
+Verified Godot 4.7.2.stable.official.ed1daf0bf. M1 uses Compatibility/OpenGL, a 320x180 viewport, nearest filtering, integer scaling and aspect-preserving letterboxing. Real graphical launch passed on NVIDIA RTX 3070. project.godot runs scenes/showcase/showcase.tscn.
+
+## Implemented M1
+
+- tools/art/art_recipes.gd: pure integer-pixel recipes, shared palette, font glyphs and local seeded variation (seed 842031, recipe m1.3).
+- tools/art/asset_pipeline.gd and generate.gd: export eight raster assets, BMFont descriptor and sorted manifest; SHA-256 pixel digests, named regions, 15 animation records and 32 tile records.
+- tools/art/assemble.gd: after import, save three SpriteFrames resources, TileSetAtlasSource-based TileSet with terrain/encounter/edge metadata and collision polygons, and a bitmap-font/nine-slice Theme. Canonical serialized IDs make repeat assemblies byte-identical.
+- scripts/showcase/showcase.gd: four visual fixtures, preview input and developer-only screenshot/animation sampling. Loads baked assets; no runtime generator dependency. Custom Node2D drawing deliberately avoids implementing gameplay controllers or interactive battle menus.
+- tests/art/: deterministic generation/resource/preview-control tests and real-render screenshot palette/scaling checks. tools/validate_m1.ps1 orchestrates phases and optional fresh-cache/source-copy checks; logs stay under .godot/m1_validation/.
+- artifacts/visual/: native/3x screenshots and atlas/rendered animation sheets. artifacts/.gdignore keeps evidence out of game imports. Capture diagnostics require a writable source checkout.
+
+The font PNG is a white/transparent coverage mask embedded by Godot's BMFont importer, which marks the PNG as skipped. Runtime/assembler load the FontFile, not that PNG. The descriptor includes the mask digest to invalidate stale font imports.
 
 ## Structure
 
@@ -14,7 +25,7 @@ Existing project: MonsterGame; project.godot declares Godot 4.7, Forward Plus, D
 - tests/{art,world,battle,save}/: dependency-free SceneTree runners.
 - artifacts/visual/: curated screenshots/contact sheets for milestone evidence.
 
-## Ownership and dependencies
+## Planned gameplay ownership and dependencies (M2 onward)
 
 App composes WorldRoot or BattleRoot and a UI CanvasLayer. A coordinator owns transitions and input modes. Minimal Session autoload owns serializable GameState; ContentCatalog resolves stable IDs. Avoid a global event bus or unrelated autoloads.
 
@@ -38,4 +49,4 @@ Generation phases: render PNGs/manifest, run Godot import, assemble reusable res
 
 Headless runners assert behavior and return nonzero on failure. Art: two clean generations have matching pixels/metadata; palette, dimensions, anchors, glyphs and references are valid. World: collision, connectivity, spawns and exits. Battles: deterministic order, invalid actions, capture limits, defeat and exactly-once rewards. Saves: round trips, corruption, schema versions and interrupted writes.
 
-Record exact executable/commands after discovery. Expected shapes: <godot> --headless --path . --editor --quit for imports and <godot> --headless --path . --script <runner.gd> for tools/tests. Capture rendered viewport screenshots in a graphical session; headless parsing does not establish visual quality.
+The verified executable is D:/Downloads/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe. README.md documents the executable-parameterized validation runner. Individual command shapes: <godot> --headless --path . --editor --quit for imports and <godot> --headless --path . --script <runner.gd> for tools/tests. Capture rendered viewport screenshots in a graphical session; headless parsing does not establish visual quality.

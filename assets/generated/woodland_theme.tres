@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/generated/ui.png" id="stable_0"]
+[ext_resource type="FontFile" path="res://assets/generated/lanternwild.fnt" id="stable_1"]
+
+[sub_resource type="AtlasTexture" id="stable_2"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="StyleBoxTexture" id="stable_3"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = SubResource("stable_2")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[resource]
+default_font = ExtResource("stable_1")
+default_font_size = 8
+Label/colors/font_color = Color(0.92941177, 0.9411765, 0.8352941, 1)
+Panel/styles/panel = SubResource("stable_3")

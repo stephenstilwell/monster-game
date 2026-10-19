@@ -1,28 +1,24 @@
-; Engine configuration file.
-; It's best edited using the editor UI and not directly,
-; since the parameters that go here are not all obvious.
-;
-; Format:
-;   [section] ; section goes between []
-;   param=value ; assign values to parameters
-
+; Lanternwild M1: native pixel viewport, integer scaling, desktop Compatibility renderer.
 config_version=5
 
 [application]
-
-config/name="MonsterGame"
-config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/name="Lanternwild - Visual Study"
+run/main_scene="res://scenes/showcase/showcase.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://assets/generated/icon.png"
 
 [display]
-
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
-
-[physics]
-
-3d/physics_engine="Jolt Physics"
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+window/stretch/scale_mode="integer"
 
 [rendering]
-
-rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.12549, 0.15686, 0.23922, 1)

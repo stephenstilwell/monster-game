@@ -1,4 +1,4 @@
-﻿# Art direction — proposed
+# Art direction
 
 ## Identity
 
@@ -22,7 +22,7 @@ Lantern-lit woodland storybook pixel art: rounded foliage, weathered timber, mos
 | Lantern | #D99145, #F4D47E |
 | Cloth and bloom | #975779, #D58C93 |
 
-No antialiasing, smooth gradients or arbitrary palette additions. Variants swap named ramps and bounded markings while preserving contrast. Species remain distinguishable in monochrome; state uses icons/text as well as color.
+The font atlas is a white/transparent coverage mask; text is tinted to this palette at draw time. All six rendered views pass exact 16-color membership tests. No antialiasing, smooth gradients or arbitrary palette additions. Variants swap named ramps and bounded markings while preserving contrast. Species remain distinguishable in monochrome; state uses icons/text as well as color.
 
 ## Deterministic construction
 
@@ -41,3 +41,7 @@ Render shared skeleton/anchor frames; pack deterministic atlases; save PNGs and 
 ## Acceptance
 
 Inspect native and 3x nearest-scaled screenshots, atlas contact sheets and actual animation playback. Check readable silhouettes, consistent shading, terrain seams, stable foot anchors, frame bounds, transparency, long-label clipping and visible traversal affordances. Hashes cannot establish art quality. Revise until these pass; temporary geometry does not qualify as complete artwork.
+
+## M1 evidence
+
+Recipes and all outputs are saved under tools/art/ and assets/generated/. The default application icon is replaced by an original generated lantern emblem. artifacts/visual/ contains six native/3x views, atlas contact sheets and animation_playback sheets. Playback-sheet left rows show south/north/west/east walk samples; right rows show amber/moss idle and amber/moss reactions. Bottom rows show lantern, leaf and charm effects sampled from rendered views. Native and enlarged evidence was inspected; no unresolved frame clipping, terrain seams or text overflow was observed. User aesthetic review remains pending before exploration work.

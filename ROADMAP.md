@@ -1,14 +1,14 @@
-﻿# Roadmap — awaiting review
+# Roadmap
 
 Sequential milestones; each requires generated art, meaningful tests, visual evidence, concise documentation and a reviewed Git checkpoint. No later milestone begins before its gate passes.
 
-## M0: planning and baseline — current
+## M0: planning and baseline — complete
 
 Create the six requested documents, inspect project/instructions, verify installed Godot, establish Git and checkpoint planning. Stop for roadmap review. No gameplay or art-generation implementation in this task.
 
-## M1: visual proof of concept
+## M1: visual proof of concept — implemented and validated
 
-After roadmap review, verify/pin engine and establish generator/import/resource-build workflow. Generate every M1 asset specified in ART_DIRECTION.md and save reusable outputs and manifests.
+Authorized by the user after planning. Verify/pin engine and establish generator/import/resource-build workflow. Generate every M1 asset specified in ART_DIRECTION.md and save reusable outputs and manifests.
 
 Build a composed town-edge/forest vignette, animated character, creature/variant viewer, dialogue, sample party summary and sample battle layout. Label sample data. Interactive scope is only showcase navigation, animation playback and variant selection.
 
@@ -16,7 +16,9 @@ Acceptance: two clean generation runs match pixel/metadata digests; frame bounds
 
 Excludes movement simulation, encounters, battle/capture rules, inventory, quests and saves.
 
-## M2: exploration slice
+Observed result: Godot 4.7.2; eight raster assets, 15 animations, 32 tiles, three SpriteFrames resources, TileSet and Theme. 494 asset/control assertions pass in both current and fresh-cache source copies; 18 screenshot checks pass; all five assembled resources repeat byte-identically. Native/scaled views, atlas sheets and rendered animation samples were inspected. See PROGRESS.md and artifacts/visual/. Visual review with the user is the remaining gate before M2; no M2 work has begun.
+
+## M2: exploration slice — not started
 
 Grid movement, collision, camera, town/forest maps, travel, NPC interaction and dialogue. Generate NPC sprites, route objects and transitions. Acceptance: traverse both maps with keyboard/gamepad, block invalid cells, lock movement in dialogue, validate spawn/exits and required connectivity; inspect movement and map visuals.
 
