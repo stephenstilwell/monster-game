@@ -1,0 +1,186 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/generated/m2/mara.png" id="stable_0"]
+
+[sub_resource type="AtlasTexture" id="stable_1"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_2"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_3"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_4"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_5"]
+atlas = ExtResource("stable_0")
+region = Rect2(16, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_6"]
+atlas = ExtResource("stable_0")
+region = Rect2(32, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_7"]
+atlas = ExtResource("stable_0")
+region = Rect2(48, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_8"]
+atlas = ExtResource("stable_0")
+region = Rect2(64, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_9"]
+atlas = ExtResource("stable_0")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_10"]
+atlas = ExtResource("stable_0")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_11"]
+atlas = ExtResource("stable_0")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_12"]
+atlas = ExtResource("stable_0")
+region = Rect2(64, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_13"]
+atlas = ExtResource("stable_0")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_14"]
+atlas = ExtResource("stable_0")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_15"]
+atlas = ExtResource("stable_0")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_16"]
+atlas = ExtResource("stable_0")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_17"]
+atlas = ExtResource("stable_0")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_18"]
+atlas = ExtResource("stable_0")
+region = Rect2(32, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_19"]
+atlas = ExtResource("stable_0")
+region = Rect2(48, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="stable_20"]
+atlas = ExtResource("stable_0")
+region = Rect2(64, 48, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_1")
+}],
+"loop": 1,
+"name": &"mara_idle_east",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_2")
+}],
+"loop": 1,
+"name": &"mara_idle_north",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_3")
+}],
+"loop": 1,
+"name": &"mara_idle_south",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_4")
+}],
+"loop": 1,
+"name": &"mara_idle_west",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_7")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_8")
+}],
+"loop": 1,
+"name": &"mara_walk_east",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_9")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_10")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_11")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_12")
+}],
+"loop": 1,
+"name": &"mara_walk_north",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_13")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_14")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_15")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_16")
+}],
+"loop": 1,
+"name": &"mara_walk_south",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_17")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_18")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_19")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_20")
+}],
+"loop": 1,
+"name": &"mara_walk_west",
+"speed": 8.0
+}]

@@ -1,0 +1,285 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://scripts/world/map_definition.gd" id="stable_0"]
+
+[resource]
+script = ExtResource("stable_0")
+id = "forest"
+title = "FERNGLASS WOOD"
+size = Vector2i(36, 28)
+tiles = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 17, 9, 9, 11, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 16, 7, 6, 10, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 16, 6, 7, 10, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 16, 7, 6, 10, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 16, 6, 7, 10, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 2, 3, 2, 3, 2, 3, 32, 32, 32, 32, 2, 3, 2, 3, 2, 3, 2, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 3, 2, 3, 2, 3, 2, 33, 33, 33, 33, 3, 2, 3, 2, 3, 2, 3, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 2, 3, 0, 1, 0, 1, 16, 7, 6, 10, 1, 1, 1, 1, 0, 3, 2, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 3, 2, 1, 1, 1, 1, 16, 6, 7, 10, 1, 0, 1, 1, 0, 2, 3, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 1, 0, 1, 16, 7, 6, 10, 0, 1, 1, 0, 0, 3, 2, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 3, 2, 1, 1, 0, 0, 16, 6, 7, 10, 1, 4, 5, 4, 1, 2, 3, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 3, 1, 0, 1, 1, 16, 7, 6, 10, 0, 5, 4, 5, 0, 3, 2, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 3, 2, 0, 0, 0, 0, 16, 6, 7, 10, 1, 4, 5, 4, 0, 2, 3, 0, 0, 1, 0, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 0, 0, 0, 0, 16, 7, 6, 10, 0, 5, 4, 5, 0, 3, 2, 1, 1, 1, 1, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 0, 1, 1, 0, 16, 6, 7, 10, 1, 0, 0, 1, 0, 2, 3, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 16, 7, 6, 10, 0, 0, 1, 1, 1, 3, 2, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 5, 4, 5, 4, 5, 4, 0, 0, 1, 0, 0, 0, 1, 1, 16, 6, 7, 10, 1, 0, 0, 1, 1, 2, 3, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 4, 5, 4, 5, 4, 5, 0, 1, 0, 0, 1, 0, 1, 1, 16, 7, 6, 10, 0, 0, 0, 0, 0, 3, 2, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 5, 4, 5, 4, 5, 4, 1, 1, 1, 1, 1, 0, 1, 1, 16, 6, 7, 10, 0, 1, 0, 1, 1, 2, 3, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 4, 5, 4, 5, 4, 5, 1, 1, 0, 0, 0, 1, 1, 1, 16, 7, 6, 10, 0, 0, 1, 0, 1, 3, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 5, 4, 5, 4, 5, 4, 0, 0, 1, 0, 0, 1, 1, 1, 16, 6, 7, 10, 1, 1, 0, 1, 0, 2, 3, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 16, 7, 6, 10, 0, 1, 2, 3, 2, 3, 2, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 16, 6, 7, 10, 1, 1, 3, 2, 3, 2, 3, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 16, 7, 6, 10, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 16, 6, 7, 10, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 20, 12, 12, 14, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+blocked_cells = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0), Vector2i(10, 0), Vector2i(11, 0), Vector2i(12, 0), Vector2i(13, 0), Vector2i(14, 0), Vector2i(15, 0), Vector2i(16, 0), Vector2i(17, 0), Vector2i(18, 0), Vector2i(19, 0), Vector2i(20, 0), Vector2i(21, 0), Vector2i(22, 0), Vector2i(23, 0), Vector2i(24, 0), Vector2i(25, 0), Vector2i(26, 0), Vector2i(27, 0), Vector2i(28, 0), Vector2i(29, 0), Vector2i(30, 0), Vector2i(31, 0), Vector2i(32, 0), Vector2i(33, 0), Vector2i(34, 0), Vector2i(35, 0), Vector2i(0, 27), Vector2i(1, 27), Vector2i(2, 27), Vector2i(3, 27), Vector2i(4, 27), Vector2i(5, 27), Vector2i(6, 27), Vector2i(7, 27), Vector2i(8, 27), Vector2i(9, 27), Vector2i(10, 27), Vector2i(11, 27), Vector2i(12, 27), Vector2i(13, 27), Vector2i(14, 27), Vector2i(15, 27), Vector2i(16, 27), Vector2i(17, 27), Vector2i(18, 27), Vector2i(19, 27), Vector2i(20, 27), Vector2i(21, 27), Vector2i(22, 27), Vector2i(23, 27), Vector2i(24, 27), Vector2i(25, 27), Vector2i(26, 27), Vector2i(27, 27), Vector2i(28, 27), Vector2i(29, 27), Vector2i(30, 27), Vector2i(31, 27), Vector2i(32, 27), Vector2i(33, 27), Vector2i(34, 27), Vector2i(35, 27), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(0, 4), Vector2i(0, 5), Vector2i(0, 6), Vector2i(0, 7), Vector2i(0, 8), Vector2i(0, 9), Vector2i(0, 10), Vector2i(0, 11), Vector2i(0, 12), Vector2i(0, 13), Vector2i(0, 16), Vector2i(0, 17), Vector2i(0, 18), Vector2i(0, 19), Vector2i(0, 20), Vector2i(0, 21), Vector2i(0, 22), Vector2i(0, 23), Vector2i(0, 24), Vector2i(0, 25), Vector2i(0, 26), Vector2i(35, 1), Vector2i(35, 2), Vector2i(35, 3), Vector2i(35, 4), Vector2i(35, 5), Vector2i(35, 6), Vector2i(35, 7), Vector2i(35, 8), Vector2i(35, 9), Vector2i(35, 10), Vector2i(35, 11), Vector2i(35, 12), Vector2i(35, 13), Vector2i(35, 14), Vector2i(35, 15), Vector2i(35, 16), Vector2i(35, 17), Vector2i(35, 18), Vector2i(35, 19), Vector2i(35, 20), Vector2i(35, 21), Vector2i(35, 22), Vector2i(35, 23), Vector2i(35, 24), Vector2i(35, 25), Vector2i(35, 26), Vector2i(25, 19), Vector2i(26, 19), Vector2i(27, 19), Vector2i(28, 19), Vector2i(25, 20), Vector2i(26, 20), Vector2i(27, 20), Vector2i(28, 20), Vector2i(25, 21), Vector2i(26, 21), Vector2i(27, 21), Vector2i(28, 21), Vector2i(4, 5), Vector2i(7, 5), Vector2i(10, 5), Vector2i(13, 5), Vector2i(16, 5), Vector2i(25, 5), Vector2i(28, 5), Vector2i(31, 5), Vector2i(4, 8), Vector2i(7, 8), Vector2i(10, 8), Vector2i(4, 11), Vector2i(7, 11), Vector2i(10, 11), Vector2i(4, 20), Vector2i(16, 20), Vector2i(16, 23), Vector2i(4, 26), Vector2i(7, 26), Vector2i(10, 26), Vector2i(13, 26), Vector2i(5, 12), Vector2i(11, 10), Vector2i(16, 17), Vector2i(32, 12), Vector2i(25, 8), Vector2i(18, 5), Vector2i(27, 24)])
+props = Array[Dictionary]([{
+"origin": Vector2i(25, 18),
+"region": "waystation"
+}, {
+"origin": Vector2i(3, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(6, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(9, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(12, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(15, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(24, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(27, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(30, 2),
+"region": "tree"
+}, {
+"origin": Vector2i(3, 5),
+"region": "tree"
+}, {
+"origin": Vector2i(6, 5),
+"region": "tree"
+}, {
+"origin": Vector2i(9, 5),
+"region": "tree"
+}, {
+"origin": Vector2i(3, 8),
+"region": "tree"
+}, {
+"origin": Vector2i(6, 8),
+"region": "tree"
+}, {
+"origin": Vector2i(9, 8),
+"region": "tree"
+}, {
+"origin": Vector2i(3, 17),
+"region": "tree"
+}, {
+"origin": Vector2i(15, 17),
+"region": "tree"
+}, {
+"origin": Vector2i(15, 20),
+"region": "tree"
+}, {
+"origin": Vector2i(3, 23),
+"region": "tree"
+}, {
+"origin": Vector2i(6, 23),
+"region": "tree"
+}, {
+"origin": Vector2i(9, 23),
+"region": "tree"
+}, {
+"origin": Vector2i(12, 23),
+"region": "tree"
+}, {
+"origin": Vector2i(5, 12),
+"region": "stump"
+}, {
+"origin": Vector2i(11, 10),
+"region": "stump"
+}, {
+"origin": Vector2i(16, 17),
+"region": "stump"
+}, {
+"origin": Vector2i(32, 12),
+"region": "stump"
+}, {
+"origin": Vector2i(25, 8),
+"region": "stump"
+}, {
+"origin": Vector2i(3, 16),
+"region": "flowers"
+}, {
+"origin": Vector2i(10, 16),
+"region": "flowers"
+}, {
+"origin": Vector2i(13, 9),
+"region": "flowers"
+}, {
+"origin": Vector2i(26, 5),
+"region": "flowers"
+}, {
+"origin": Vector2i(31, 22),
+"region": "flowers"
+}, {
+"origin": Vector2i(19, 10),
+"region": "reeds"
+}, {
+"origin": Vector2i(24, 10),
+"region": "reeds"
+}, {
+"origin": Vector2i(19, 16),
+"region": "reeds"
+}, {
+"origin": Vector2i(24, 16),
+"region": "reeds"
+}, {
+"origin": Vector2i(19, 22),
+"region": "reeds"
+}, {
+"origin": Vector2i(24, 22),
+"region": "reeds"
+}, {
+"origin": Vector2i(18, 4),
+"region": "lantern_post"
+}, {
+"origin": Vector2i(25, 4),
+"region": "lantern_post"
+}, {
+"origin": Vector2i(27, 23),
+"region": "route_sign"
+}, {
+"origin": Vector2i(-1, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(-1, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(2, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(2, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(5, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(5, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(8, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(8, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(11, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(11, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(14, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(14, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(17, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(17, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(20, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(23, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(23, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(26, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(26, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(29, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(29, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(32, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(32, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(35, -2),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 25),
+"region": "tree"
+}, {
+"origin": Vector2i(-2, 1),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 1),
+"region": "tree"
+}, {
+"origin": Vector2i(-2, 4),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 4),
+"region": "tree"
+}, {
+"origin": Vector2i(-2, 7),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 7),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 10),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 13),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 16),
+"region": "tree"
+}, {
+"origin": Vector2i(-2, 19),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 19),
+"region": "tree"
+}, {
+"origin": Vector2i(-2, 22),
+"region": "tree"
+}, {
+"origin": Vector2i(35, 22),
+"region": "tree"
+}])
+npcs = Array[Dictionary]([{
+"cell": Vector2i(12, 13),
+"id": "ivo",
+"name": "IVO / BRIDGE WARDEN",
+"pages": ["THE BRIDGE IS SOLID. THE SHALLOWS ARE NOT A PATH. KEEP YOUR BOOTS DRY.", "FOLLOW THE STREAM NORTH, THEN CROSS EAST. AN OLD WAYSTATION WAITS BEYOND THE FERNS."]
+}])
+interactions = Array[Dictionary]([{
+"cell": Vector2i(27, 24),
+"id": "old_sign",
+"name": "OLD WAYSTATION",
+"pages": ["THE TIMBER IS QUIET, BUT ONE SMALL LANTERN STILL WATCHES THE WATER."]
+}, {
+"cell": Vector2i(27, 21),
+"cells": [Vector2i(26, 21), Vector2i(27, 21)],
+"id": "old_door",
+"name": "MOSSY DOOR",
+"pages": ["FERNS CURL AROUND THE LOCK. SOMEONE HAS LEFT A FRESH SPRIG ON THE STEP."]
+}])
+portals = Array[Dictionary]([{
+"cell": Vector2i(0, 14),
+"map": "town",
+"spawn": Vector2i(29, 12)
+}, {
+"cell": Vector2i(0, 15),
+"map": "town",
+"spawn": Vector2i(29, 12)
+}])
+landmarks = {
+"bridge_east": Vector2i(24, 6),
+"bridge_west": Vector2i(19, 6),
+"door": Vector2i(27, 22),
+"gate": Vector2i(0, 14),
+"ivo": Vector2i(12, 14),
+"sign": Vector2i(27, 23)
+}
+start = Vector2i(2, 14)

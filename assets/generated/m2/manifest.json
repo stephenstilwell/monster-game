@@ -1,0 +1,494 @@
+{
+	"animations": {
+		"ivo_idle_east": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					72,
+					16,
+					24
+				]
+			]
+		},
+		"ivo_idle_north": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					24,
+					16,
+					24
+				]
+			]
+		},
+		"ivo_idle_south": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					0,
+					16,
+					24
+				]
+			]
+		},
+		"ivo_idle_west": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					48,
+					16,
+					24
+				]
+			]
+		},
+		"ivo_walk_east": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					72,
+					16,
+					24
+				],
+				[
+					32,
+					72,
+					16,
+					24
+				],
+				[
+					48,
+					72,
+					16,
+					24
+				],
+				[
+					64,
+					72,
+					16,
+					24
+				]
+			]
+		},
+		"ivo_walk_north": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					24,
+					16,
+					24
+				],
+				[
+					32,
+					24,
+					16,
+					24
+				],
+				[
+					48,
+					24,
+					16,
+					24
+				],
+				[
+					64,
+					24,
+					16,
+					24
+				]
+			]
+		},
+		"ivo_walk_south": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					0,
+					16,
+					24
+				],
+				[
+					32,
+					0,
+					16,
+					24
+				],
+				[
+					48,
+					0,
+					16,
+					24
+				],
+				[
+					64,
+					0,
+					16,
+					24
+				]
+			]
+		},
+		"ivo_walk_west": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "ivo",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					48,
+					16,
+					24
+				],
+				[
+					32,
+					48,
+					16,
+					24
+				],
+				[
+					48,
+					48,
+					16,
+					24
+				],
+				[
+					64,
+					48,
+					16,
+					24
+				]
+			]
+		},
+		"mara_idle_east": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					72,
+					16,
+					24
+				]
+			]
+		},
+		"mara_idle_north": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					24,
+					16,
+					24
+				]
+			]
+		},
+		"mara_idle_south": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					0,
+					16,
+					24
+				]
+			]
+		},
+		"mara_idle_west": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 1,
+			"rects": [
+				[
+					0,
+					48,
+					16,
+					24
+				]
+			]
+		},
+		"mara_walk_east": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					72,
+					16,
+					24
+				],
+				[
+					32,
+					72,
+					16,
+					24
+				],
+				[
+					48,
+					72,
+					16,
+					24
+				],
+				[
+					64,
+					72,
+					16,
+					24
+				]
+			]
+		},
+		"mara_walk_north": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					24,
+					16,
+					24
+				],
+				[
+					32,
+					24,
+					16,
+					24
+				],
+				[
+					48,
+					24,
+					16,
+					24
+				],
+				[
+					64,
+					24,
+					16,
+					24
+				]
+			]
+		},
+		"mara_walk_south": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					0,
+					16,
+					24
+				],
+				[
+					32,
+					0,
+					16,
+					24
+				],
+				[
+					48,
+					0,
+					16,
+					24
+				],
+				[
+					64,
+					0,
+					16,
+					24
+				]
+			]
+		},
+		"mara_walk_west": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "mara",
+			"fps": 8,
+			"rects": [
+				[
+					16,
+					48,
+					16,
+					24
+				],
+				[
+					32,
+					48,
+					16,
+					24
+				],
+				[
+					48,
+					48,
+					16,
+					24
+				],
+				[
+					64,
+					48,
+					16,
+					24
+				]
+			]
+		}
+	},
+	"assets": {
+		"ivo": {
+			"pixel_sha256": "27851ce5292e29437474fecba92a749fe2aae7b4da5fe30d9d05762376a608b3",
+			"size": [
+				80,
+				96
+			]
+		},
+		"mara": {
+			"pixel_sha256": "90ecf5453046adb55bfabe54477cc4bf3ae16635b305f993b96a0dadb38f20eb",
+			"size": [
+				80,
+				96
+			]
+		},
+		"props": {
+			"pixel_sha256": "6eb878d9259515f9a906fedcc01b2af3365b9a1814256e5fc0a3a012a1d5781e",
+			"size": [
+				96,
+				48
+			]
+		},
+		"route_tiles": {
+			"pixel_sha256": "b33fbc1be088db19b077ea54e965a11d68b5e6ab2680128dada63952d3f42eb2",
+			"size": [
+				32,
+				16
+			]
+		}
+	},
+	"map_seeds": {
+		"forest": 612431,
+		"town": 91207
+	},
+	"regions": {
+		"lantern_post": {
+			"anchor": [
+				6,
+				31
+			],
+			"asset": "props",
+			"rect": [
+				24,
+				0,
+				16,
+				32
+			]
+		},
+		"reeds": {
+			"anchor": [
+				8,
+				23
+			],
+			"asset": "props",
+			"rect": [
+				64,
+				0,
+				16,
+				24
+			]
+		},
+		"route_sign": {
+			"anchor": [
+				10,
+				23
+			],
+			"asset": "props",
+			"rect": [
+				0,
+				0,
+				24,
+				24
+			]
+		},
+		"stump": {
+			"anchor": [
+				12,
+				21
+			],
+			"asset": "props",
+			"rect": [
+				40,
+				0,
+				24,
+				24
+			]
+		}
+	},
+	"seed": 611942,
+	"version": "m2.1"
+}

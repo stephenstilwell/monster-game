@@ -40,21 +40,21 @@ foreach ($name in $resourceNames) {
 }
 Write-Output 'PASS byte-identical repeated assembly (5 resources)'
 Invoke-GodotStep 'art-tests' @('--headless','--path',$projectRoot,'--script','tests/art/test_assets.gd','--quit-after','300') 'ART/SHOWCASE PASS:'
-Invoke-GodotStep 'scene-smoke' @('--headless','--path',$projectRoot,'--quit-after','5') ''
+Invoke-GodotStep 'scene-smoke' @('--headless','--path',$projectRoot,'scenes/showcase/showcase.tscn','--quit-after','5') ''
 if ($Capture) {
-    Invoke-GodotStep 'capture' @('--path',$projectRoot,'--quit-after','300','--','--capture') 'CAPTURE PASS:'
+    Invoke-GodotStep 'capture' @('--path',$projectRoot,'scenes/showcase/showcase.tscn','--quit-after','300','--','--capture') 'CAPTURE PASS:'
     Invoke-GodotStep 'screenshots' @('--headless','--path',$projectRoot,'--script','tests/art/test_screenshots.gd','--quit-after','300') 'SCREENSHOT PASS:'
 }
 if ($CleanImport) {
     # A new isolated source copy proves startup without any existing import cache.
     $cleanRoot = Join-Path $projectRoot ('.godot/m1_validation/clean_' + [guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory -Path $cleanRoot | Out-Null
-    foreach ($entry in 'project.godot','icon.svg','icon.svg.import','assets','tools','scripts','scenes','tests') {
+    foreach ($entry in 'project.godot','icon.svg','icon.svg.import','data','assets','tools','scripts','scenes','tests') {
         Copy-Item -LiteralPath (Join-Path $projectRoot $entry) -Destination $cleanRoot -Recurse
     }
     Invoke-GodotStep 'clean-import' @('--headless','--path',$cleanRoot,'--editor','--quit') ''
     Invoke-GodotStep 'clean-art-tests' @('--headless','--path',$cleanRoot,'--script','tests/art/test_assets.gd','--quit-after','300') 'ART/SHOWCASE PASS:'
-    Invoke-GodotStep 'clean-scene-smoke' @('--headless','--path',$cleanRoot,'--quit-after','5') ''
+    Invoke-GodotStep 'clean-scene-smoke' @('--headless','--path',$cleanRoot,'scenes/showcase/showcase.tscn','--quit-after','5') ''
     Write-Output ('Clean source copy: ' + $cleanRoot)
 }
 Write-Output ('M1 VALIDATION PASSED. Logs: ' + $logRoot)

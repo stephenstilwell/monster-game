@@ -44,4 +44,12 @@ Inspect native and 3x nearest-scaled screenshots, atlas contact sheets and actua
 
 ## M1 evidence
 
-Recipes and all outputs are saved under tools/art/ and assets/generated/. The default application icon is replaced by an original generated lantern emblem. artifacts/visual/ contains six native/3x views, atlas contact sheets and animation_playback sheets. Playback-sheet left rows show south/north/west/east walk samples; right rows show amber/moss idle and amber/moss reactions. Bottom rows show lantern, leaf and charm effects sampled from rendered views. Native and enlarged evidence was inspected; no unresolved frame clipping, terrain seams or text overflow was observed. User aesthetic review remains pending before exploration work.
+Recipes and all outputs are saved under tools/art/ and assets/generated/. The default application icon is replaced by an original generated lantern emblem. artifacts/visual/ contains six native/3x views, atlas contact sheets and animation_playback sheets. Playback-sheet left rows show south/north/west/east walk samples; right rows show amber/moss idle and amber/moss reactions. Bottom rows show lantern, leaf and charm effects sampled from rendered views. Native and enlarged evidence was inspected; no unresolved frame clipping, terrain seams or text overflow was observed. The subsequent M2 instruction authorized using this visual baseline for exploration.
+
+## M2 artwork and composition
+
+assets/generated/m2/ contains Mara and Ivo at 80x96 each (four facings, one idle plus four walk frames per facing), a 96x48 prop atlas and a 32x16 bridge atlas. Mara has a fern hood/green coat and satchel; Ivo has silver hair/beard and a timber apron. Both retain the shared actor anchor and 8 fps walks. NPCs stand and turn for conversation; walking art is saved for reuse.
+
+New props: carved trail sign, hanging lantern post, ringed mossy stump and shore reeds. Two bridge lanes connect the forest banks. Existing houses, trees, flowers and fences compose the maps. Tall objects sort by their bases; their collision footprints preserve required routes. Foliage bounds the maps; lanterns frame the town gate.
+
+artifacts/visual/m2/ contains eight native/3x views, two native/2x full-map overviews and a native/3x NPC/prop sheet (22 PNGs). All 11 stable images pass exact palette and integer-scale checks. Inspected views cover both maps/NPC dialogues, mid-step presentation, bridge, old waystation and town return. A river-overlapping border tree was removed during review.

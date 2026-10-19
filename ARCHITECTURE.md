@@ -2,7 +2,7 @@
 
 ## Baseline
 
-Verified Godot 4.7.2.stable.official.ed1daf0bf. M1 uses Compatibility/OpenGL, a 320x180 viewport, nearest filtering, integer scaling and aspect-preserving letterboxing. Real graphical launch passed on NVIDIA RTX 3070. project.godot runs scenes/showcase/showcase.tscn.
+Verified Godot 4.7.2.stable.official.ed1daf0bf. M1 uses Compatibility/OpenGL, a 320x180 viewport, nearest filtering, integer scaling and aspect-preserving letterboxing. Real graphical launch passed on NVIDIA RTX 3070. project.godot now runs scenes/world/exploration.tscn. The M1 showcase remains independently runnable.
 
 ## Implemented M1
 
@@ -15,6 +15,18 @@ Verified Godot 4.7.2.stable.official.ed1daf0bf. M1 uses Compatibility/OpenGL, a 
 
 The font PNG is a white/transparent coverage mask embedded by Godot's BMFont importer, which marks the PNG as skipped. Runtime/assembler load the FontFile, not that PNG. The descriptor includes the mask digest to invalidate stale font imports.
 
+## Implemented M2
+
+- scenes/world/exploration.tscn composes TileMapLayer, y-sorted props/actors, Camera2D and a CanvasLayer HUD. scripts/world/exploration.gd owns exploration/dialogue/transition modes and mounts baked maps. No Session autoload or encounter system is needed yet.
+- scripts/world/map_definition.gd is a typed Resource for tiles, blocked cells, props/NPCs, dialogue, landmarks and portals. data/maps/town.tres and forest.tres are baked from tools/art/map_recipes.gd with independent local seeds. Runtime neither invokes generators nor mutates definitions.
+- grid_movement.gd reserves one cardinal destination, commits the cell after 0.16 seconds and provides rounded foot positions. Map.can_enter combines bounds, terrain, prop footprints and stationary NPC occupancy. TileMap physics is disabled; tests compare terrain collision against the TileSet so a competing solver cannot disagree with grid movement.
+- scenes/actors/field_actor.tscn wraps AnimatedSprite2D with the shared (8,23) anchor. Player animation follows movement; stationary NPCs face the player for conversation. Their generated walk/idle atlases remain reusable.
+- exploration_input.gd installs idempotent keyboard/D-pad/left-stick bindings. One 35-percent deadzone and dominant-axis selection avoid diagonal movement. Focus loss clears action state. Dialogue close and travel require a neutral direction before another step.
+- dialogue_state.gd owns speaker/pages. scripts/ui/pixel_ui.gd provides bitmap text, wrapping and panels; exploration_hud.gd uses the existing generated Theme/font. Facing-based interaction is rejected mid-step; doors accept both visibly occupied cells.
+- Travel validates the destination and finds a safe non-portal spawn before locking input for a 0.28-second fade. Missing/unusable maps are rejected. Duplicate requests and stale dialogue closes cannot unlock a transition. Map mounts dispose old actors and refresh camera limits.
+- exploration_recipes.gd, exploration_pipeline.gd, generate_m2.gd and assemble_m2.gd under tools/art/ generate four rasters, 16 NPC animations, two SpriteFrames resources and a 34-tile TileSet under assets/generated/m2/. stable_resource.gd canonicalizes newly generated resource IDs.
+- tools/validate_m2.ps1 runs M1 regression, M2 generation/import/assembly/tests, real capture and optional fresh-cache checks. tests/world/ covers connectivity, collision, spawn/input/movement/dialogue/travel. tools/art/capture_m2.gd saves evidence under artifacts/visual/m2/.
+
 ## Structure
 
 - tools/art/: GDScript raster generators, palette, recipes, deterministic packer, resource assembler.
@@ -25,13 +37,13 @@ The font PNG is a white/transparent coverage mask embedded by Godot's BMFont imp
 - tests/{art,world,battle,save}/: dependency-free SceneTree runners.
 - artifacts/visual/: curated screenshots/contact sheets for milestone evidence.
 
-## Planned gameplay ownership and dependencies (M2 onward)
+## Planned gameplay services (M3 onward)
 
 App composes WorldRoot or BattleRoot and a UI CanvasLayer. A coordinator owns transitions and input modes. Minimal Session autoload owns serializable GameState; ContentCatalog resolves stable IDs. Avoid a global event bus or unrelated autoloads.
 
 GameState owns party, storage, inventory, quest flags, location and RNG state without Node references. MonsterState references SpeciesDefinition by ID; never mutate shared definition Resources in play.
 
-WorldRoot composes terrain, decoration, collision, actors and encounter controller. Authored map recipes generate layout and seeded decoration. Validate mandatory paths/exits; defer unrestricted random maps. Select the installed engine's supported tile-layer API in M1.
+WorldRoot composes terrain, decoration, collision, actors and encounter controller. Authored map recipes generate layout and seeded decoration. Validate mandatory paths/exits; defer unrestricted random maps. M2 uses TileMapLayer; encounter behavior remains M3 work.
 
 GridMovement validates/reserves destination cells before interpolating presentation. Facing/movement state drives sprites. Dialogue/battle input modes pause exploration explicitly.
 

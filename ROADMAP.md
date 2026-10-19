@@ -16,13 +16,15 @@ Acceptance: two clean generation runs match pixel/metadata digests; frame bounds
 
 Excludes movement simulation, encounters, battle/capture rules, inventory, quests and saves.
 
-Observed result: Godot 4.7.2; eight raster assets, 15 animations, 32 tiles, three SpriteFrames resources, TileSet and Theme. 494 asset/control assertions pass in both current and fresh-cache source copies; 18 screenshot checks pass; all five assembled resources repeat byte-identically. Native/scaled views, atlas sheets and rendered animation samples were inspected. See PROGRESS.md and artifacts/visual/. Visual review with the user is the remaining gate before M2; no M2 work has begun.
+Observed result: Godot 4.7.2; eight raster assets, 15 animations, 32 tiles, three SpriteFrames resources, TileSet and Theme. 494 asset/control assertions pass in both current and fresh-cache source copies; 18 screenshot checks pass; all five assembled resources repeat byte-identically. Native/scaled views, atlas sheets and rendered animation samples were inspected. See PROGRESS.md and artifacts/visual/. The subsequent user implementation instruction authorized M2 using this visual baseline.
 
-## M2: exploration slice — not started
+## M2: exploration slice — complete
 
 Grid movement, collision, camera, town/forest maps, travel, NPC interaction and dialogue. Generate NPC sprites, route objects and transitions. Acceptance: traverse both maps with keyboard/gamepad, block invalid cells, lock movement in dialogue, validate spawn/exits and required connectivity; inspect movement and map visuals.
 
-## M3: battles and capture
+Observed result: two baked maps (32x24 town, 36x28 forest), four-direction movement, collision, clamped scrolling camera, two facing NPCs, signs/door dialogue and safe two-way gate travel. Four new raster assets and 16 NPC animation records were generated. 2,733 exploration assertions and 33 screenshot assertions pass; clean-cache tests/startup and M1 regression pass. Input/action-driven walking and virtual gamepad traversal/dialogue were exercised. Screenshots, full-map overviews and NPC/prop sheets were inspected. Physical controller feel and interactive pacing remain manual review items in PROGRESS.md. M3 has not started.
+
+## M3: battles and capture — not started
 
 Definitions, individual creatures, three initial species, encounters, turn resolution, moves, items, capture and results. Generate creature sprites, icons, reactions and effects. Acceptance: deterministic tests cover commands, ordering, invalid actions, flee, defeat, capture success/failure, full party and exactly-once rewards; complete exploration-to-battle-to-world flow.
 

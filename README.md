@@ -1,23 +1,29 @@
-# Lanternwild visual study
+# Lanternwild exploration slice
 
-Open project.godot with Godot 4.7.2 and press F6 on scenes/showcase/showcase.tscn, or F5 for the main scene. All art is already baked; generation is a developer step, never a startup requirement.
+Open project.godot in Godot 4.7.2 and press F5. M2 now launches a playable town/forest exploration slice. Art and maps are already baked; no generation is needed to play. Close the game window to exit.
 
-Keyboard: 1-4 or Tab/Shift-Tab change views; arrows preview character facing; I toggles idle/walk; Space pauses/resumes; V swaps amber/moss; A plays a reaction; R holds effects at a low-stimulation sample frame; Esc quits. There is no player movement or functional battle menu in M1.
+## Controls and manual playtest
 
-Gamepad: LB/RB change views, D-pad changes facing, A swaps variant, B toggles idle/walk, X reacts, Y toggles calm effects, Start pauses. Button names follow Godot's standard layout; physical hardware still needs manual checking.
+- Move with arrows/WASD or gamepad D-pad/left stick.
+- Face someone or a sign/door and press E, Z, Enter, Space or gamepad A to interact/advance.
+- Esc/X or gamepad B closes dialogue. Release movement after dialogue or gate travel before walking again.
+- Talk to Mara just northeast of the start. Walk east between the lanterns to enter Fernglass Wood. Talk to Ivo, follow the trail north, cross the bridge east, then go south to the old waystation and read its door/sign. Return along the trail and leave the forest west to reach town.
+- Try water, NPCs, walls and tree trunks. Hold movement during dialogue and confirm the character stays still. Check camera scrolling, text, resize/letterboxing, animation pacing, controller feel and focus loss/recovery.
 
-Check all four views, sprite animation/anchors, long labels, palette contrast, and pixel scaling when resizing the window. Check both variants and calm mode. The field and battle data are visual samples.
+NPCs stand and face the player. Doors provide notes; there are no interiors, encounters, battles, capture, quests, inventory, audio or saves yet. Physical controllers still need hands-on verification; virtual controller events are tested automatically.
+
+The M1 showcase remains at scenes/showcase/showcase.tscn: open it and press F6. Its controls: 1-4/Tab views, arrows facing, I idle/walk, Space pause, V variant, A reaction, R calm effects and Esc quit.
 
 ## Rebuild and validate
 
-From this directory in PowerShell (substitute your local executable):
+From this directory in PowerShell (substitute your executable):
 
 ```powershell
-.\tools\validate_m1.ps1 -Godot 'D:\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe' -Capture -CleanImport
+.\tools\validate_m2.ps1 -Godot 'D:\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe' -Capture -CleanImport
 ```
 
-The runner verifies the engine, generates PNGs/manifest/font, imports, assembles SpriteFrames/TileSet/Theme, runs automated checks, launches the scene, optionally captures real rendered views, and optionally imports/tests a fresh source copy with no cache. Failures or Godot error/warning output stop the runner. Logs and clean test copies remain under ignored .godot/m1_validation/.
+Runs M1 regression, M2 deterministic generation/import/assembly, repeated-resource byte comparisons, world/input/dialogue/travel tests, main-scene startup, optional real screenshots and optional fresh-cache source-copy tests. Failures, missing success markers or Godot warnings/errors stop the runner. Logs/copies remain in ignored .godot/m1_validation/ and .godot/m2_validation/.
 
-Individual phases can be run with --headless --path . --script tools/art/generate.gd, then --headless --path . --editor --quit, then --headless --path . --script tools/art/assemble.gd. Tests live under tests/art/. Godot --path . -- --capture writes native and 3x screenshot/contact-sheet evidence under artifacts/visual/. Capture tooling targets a writable source checkout, not exported builds.
+M2 phases: Godot --headless --path . --script tools/art/generate_m2.gd; then --headless --path . --editor --quit; then --headless --path . --script tools/art/assemble_m2.gd. tests/world/test_exploration.gd runs headless tests. Run tools/art/capture_m2.gd without --headless for screenshots. Prefix commands with the installed Godot executable.
 
-The monochrome font PNG is a white/transparent coverage mask, embedded by Godot's BMFont importer. Its descriptor contains the pixel digest so mask changes force font reimport. Rendered art and text use only the shared 16-color palette; screenshot tests enforce this. artifacts/.gdignore keeps evidence out of game imports.
+Evidence: artifacts/visual/m2/ (22 PNGs), plus artifacts/visual/ (M1). Diagnostics target a writable source checkout, not exports. artifacts/.gdignore excludes evidence from game imports. The font PNG is an embedded white/transparent mask; rendered text uses the shared 16-color palette, checked by screenshot tests.

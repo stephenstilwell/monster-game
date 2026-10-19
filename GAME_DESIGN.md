@@ -27,3 +27,9 @@ M1 is an animated visual showcase with sample interface data. No gameplay system
 ## Implemented visual baseline
 
 M1 now provides field, creature, sample battle and party views with baked original artwork, shared UI, variant selection and animation preview. All displayed health, level and party values are fixtures; the systems above remain planned. Press 1-4 or Tab to review the views; README.md lists all controls. Review this visual direction before M2.
+
+## Implemented exploration slice
+
+M2 opens in Lantern Rest, a town linked by its east lantern gate to Fernglass Wood. Speak to Mara in town and Ivo in the forest; follow the trail north, cross the bridge east, and read the old waystation door/sign before returning west to town. Buildings provide exterior notes only. Dialogue freezes exploration. Release movement after conversations/gate travel before walking again.
+
+Arrows/WASD and gamepad D-pad/left stick move; E/Z/Enter/Space or gamepad A interact/advance; Esc/X or gamepad B closes dialogue. NPCs are stationary. Battle/encounter/capture, inventory, save and quest/reward systems remain later milestones.
