@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://scripts/monsters/species_definition.gd" id="stable_0"]
+
+[resource]
+script = ExtResource("stable_0")
+id = "rillume"
+title = "RILLUME"
+affinity = "brook"
+base_hp = 22
+base_speed = 7
+catch_rate = 0.22
+moves = Array[String](["quickstep", "rill"])

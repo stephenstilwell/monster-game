@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://scripts/battle/move_definition.gd" id="stable_0"]
+
+[resource]
+script = ExtResource("stable_0")
+id = "rill"
+title = "RILL"
+affinity = "brook"
+power = 8
+accuracy = 0.95
+effect = "brook"

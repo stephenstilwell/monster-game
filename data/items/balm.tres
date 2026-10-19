@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://scripts/battle/item_definition.gd" id="stable_0"]
+
+[resource]
+script = ExtResource("stable_0")
+id = "balm"
+title = "TRAIL BALM"
+effect = "heal"
+value = 24

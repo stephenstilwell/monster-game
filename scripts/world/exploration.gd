@@ -1,10 +1,11 @@
 extends Node2D
+signal completed_step(map_id: String, cell: Vector2i)
 const Map = preload("res://scripts/world/map_definition.gd")
 const Movement = preload("res://scripts/world/grid_movement.gd")
 const Dialogue = preload("res://scripts/world/dialogue_state.gd")
 const Bindings = preload("res://scripts/world/exploration_input.gd")
 const ActorScene = preload("res://scenes/actors/field_actor.tscn")
-enum Mode { EXPLORE, DIALOGUE, TRANSITION }
+enum Mode { EXPLORE, DIALOGUE, TRANSITION, BATTLE }
 var mode: Mode = Mode.EXPLORE
 var maps: Dictionary = {}
 var current_map: Map
@@ -174,6 +175,8 @@ func _step_completed(cell: Vector2i) -> void:
 	var portal := current_map.portal_at(cell)
 	if not portal.is_empty():
 		begin_travel(portal.map, portal.spawn)
+	else:
+		completed_step.emit(current_map.id, cell)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:

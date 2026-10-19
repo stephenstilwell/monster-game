@@ -1,9 +1,9 @@
-; Lanternwild M2: native pixel viewport, integer scaling, desktop Compatibility renderer.
+; Lanternwild M3: native pixel viewport, integer scaling, desktop Compatibility renderer.
 config_version=5
 
 [application]
 config/name="Lanternwild"
-run/main_scene="res://scenes/world/exploration.tscn"
+run/main_scene="res://scenes/app/game.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://assets/generated/icon.png"
 

@@ -53,3 +53,11 @@ assets/generated/m2/ contains Mara and Ivo at 80x96 each (four facings, one idle
 New props: carved trail sign, hanging lantern post, ringed mossy stump and shore reeds. Two bridge lanes connect the forest banks. Existing houses, trees, flowers and fences compose the maps. Tall objects sort by their bases; their collision footprints preserve required routes. Foliage bounds the maps; lanterns frame the town gate.
 
 artifacts/visual/m2/ contains eight native/3x views, two native/2x full-map overviews and a native/3x NPC/prop sheet (22 PNGs). All 11 stable images pass exact palette and integer-scale checks. Inspected views cover both maps/NPC dialogues, mid-step presentation, bridge, old waystation and town return. A river-overlapping border tree was removed during review.
+
+## M3 battle art
+
+Three 384x96 atlases contain 48x48 front/back poses, each with four idle frames at 4 fps and four reaction frames at 10 fps. Brindlewick retains its original front recipe and gains a bark-plate back. Cindrel is a ceramic lantern moth with rose wings and ember-tipped antennae; Rillume is a low brook creature with reed gills and a pebble sail. Battle uses base species colors; M1's moss variant remains in its showcase.
+
+An 80x16 icon strip provides three creature portraits, a lantern charm and balm jar. A 192x96 sheet holds four-frame impact, leaf, ember, brook, charm and healing effects at 8 fps. The 320x106 arena reuses the established detailed trees and adds grass and worn ground platforms. All assets use the shared palette and integer pixels, with no downloaded artwork.
+
+Battle menus use the existing panel/font, solid-backed hints, two-column commands and event-synchronized health bars. Player backs and enemy fronts stay clear of status panels. artifacts/visual/m3/ contains 16 native/3x interface/result/world views and native/3x art sheets (34 PNGs). All 17 stable images pass exact palette/dimension/scaling checks; front/back cycles, menus, effects, capture, storage overflow and return scenes were inspected.

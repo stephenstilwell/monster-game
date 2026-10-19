@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://scripts/monsters/species_definition.gd" id="stable_0"]
+
+[resource]
+script = ExtResource("stable_0")
+id = "cindrel"
+title = "CINDREL"
+affinity = "ember"
+base_hp = 22
+base_attack = 6
+base_defense = 5
+base_speed = 8
+catch_rate = 0.2
+moves = Array[String](["nudge", "cinder"])

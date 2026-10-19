@@ -1,0 +1,138 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/generated/m3/brindlewick.png" id="stable_0"]
+
+[sub_resource type="AtlasTexture" id="stable_1"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_2"]
+atlas = ExtResource("stable_0")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_3"]
+atlas = ExtResource("stable_0")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_4"]
+atlas = ExtResource("stable_0")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_5"]
+atlas = ExtResource("stable_0")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_6"]
+atlas = ExtResource("stable_0")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_7"]
+atlas = ExtResource("stable_0")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_8"]
+atlas = ExtResource("stable_0")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_9"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_10"]
+atlas = ExtResource("stable_0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_11"]
+atlas = ExtResource("stable_0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_12"]
+atlas = ExtResource("stable_0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_13"]
+atlas = ExtResource("stable_0")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_14"]
+atlas = ExtResource("stable_0")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_15"]
+atlas = ExtResource("stable_0")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_16"]
+atlas = ExtResource("stable_0")
+region = Rect2(336, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_4")
+}],
+"loop": 1,
+"name": &"brindlewick_back_idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_7")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_8")
+}],
+"loop": 0,
+"name": &"brindlewick_back_react",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_9")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_10")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_11")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_12")
+}],
+"loop": 1,
+"name": &"brindlewick_front_idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_13")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_14")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_15")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_16")
+}],
+"loop": 0,
+"name": &"brindlewick_front_react",
+"speed": 10.0
+}]

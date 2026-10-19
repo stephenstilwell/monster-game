@@ -22,13 +22,15 @@ Observed result: Godot 4.7.2; eight raster assets, 15 animations, 32 tiles, thre
 
 Grid movement, collision, camera, town/forest maps, travel, NPC interaction and dialogue. Generate NPC sprites, route objects and transitions. Acceptance: traverse both maps with keyboard/gamepad, block invalid cells, lock movement in dialogue, validate spawn/exits and required connectivity; inspect movement and map visuals.
 
-Observed result: two baked maps (32x24 town, 36x28 forest), four-direction movement, collision, clamped scrolling camera, two facing NPCs, signs/door dialogue and safe two-way gate travel. Four new raster assets and 16 NPC animation records were generated. 2,733 exploration assertions and 33 screenshot assertions pass; clean-cache tests/startup and M1 regression pass. Input/action-driven walking and virtual gamepad traversal/dialogue were exercised. Screenshots, full-map overviews and NPC/prop sheets were inspected. Physical controller feel and interactive pacing remain manual review items in PROGRESS.md. M3 has not started.
+Observed result: two baked maps (32x24 town, 36x28 forest), four-direction movement, collision, clamped scrolling camera, two facing NPCs, signs/door dialogue and safe two-way gate travel. Four new raster assets and 16 NPC animation records were generated. 2,733 exploration assertions and 33 screenshot assertions pass; clean-cache tests/startup and M1 regression pass. Input/action-driven walking and virtual gamepad traversal/dialogue were exercised. Screenshots, full-map overviews and NPC/prop sheets were inspected. Physical controller feel and interactive pacing remain manual review items in PROGRESS.md. The subsequent user instruction authorized M3.
 
-## M3: battles and capture — not started
+## M3: battles and capture — complete
 
 Definitions, individual creatures, three initial species, encounters, turn resolution, moves, items, capture and results. Generate creature sprites, icons, reactions and effects. Acceptance: deterministic tests cover commands, ordering, invalid actions, flee, defeat, capture success/failure, full party and exactly-once rewards; complete exploration-to-battle-to-world flow.
 
-## M4: party, inventory and persistence
+Observed result: grass encounters, three species, five moves, two consumables, battle command/presentation UI, switching/forced replacement, fleeing, capture, overflow storage, XP and exactly-once outcomes are integrated with exploration. Generated six rasters, 18 animation records, four SpriteFrames resources and ten content definitions. 113 battle/integration assertions, 280 art/data assertions and 52 screenshot assertions pass; M1/M2 regressions and all four suites in a fresh-cache copy pass. Rendered battle/result/world views and original art were inspected. Session state is memory-only; full party/inventory management and persistence remain M4. No M4 work started.
+
+## M4: party, inventory and persistence — not started
 
 Party/storage UI, inventory, healing, settings and versioned save/load. Generate item icons, portraits and menu states. Acceptance: round trips, corruption, unsupported schema and interrupted-write recovery; full-party storage behavior; keyboard/gamepad focus without traps.
 

@@ -73,7 +73,7 @@ static func town() -> Map:
 	prop(map, "route_sign", Vector2i(23, 9), Rect2i(23, 10, 1, 1))
 	prop(map, "lantern_post", Vector2i(29, 9), Rect2i(29, 10, 1, 1))
 	prop(map, "lantern_post", Vector2i(29, 13), Rect2i(29, 14, 1, 1))
-	map.npcs.append({"id": "mara", "name": "MARA / TRAIL KEEPER", "cell": Vector2i(13, 11), "pages": ["THE EAST GATE LEADS TO FERNGLASS WOOD. FOLLOW THE LANTERNS AND THE STREAM.", "IVO IS REPAIRING THE OLD BRIDGE. HE ALWAYS HAS A TRAIL STORY TO SHARE."]})
+	map.npcs.append({"id": "mara", "name": "MARA / TRAIL KEEPER", "cell": Vector2i(13, 11), "pages": ["THE EAST GATE LEADS TO FERNGLASS WOOD. FOLLOW THE LANTERNS AND THE STREAM.", "STEP INTO TALL FERNS TO MEET WILD COMPANIONS. WEAKEN THEM BEFORE USING A CHARM."]})
 	map.interactions.append({"id": "east_sign", "name": "FERNGLASS WOOD", "cell": Vector2i(23, 10), "pages": ["EAST: FERNGLASS WOOD. WEST: LANTERN REST. STAY ON THE PALE WOODEN BRIDGE."]})
 	map.interactions.append({"id": "town_door", "name": "KEEPERS' LODGE", "cell": Vector2i(7, 10), "cells": [Vector2i(6, 10), Vector2i(7, 10)], "pages": ["A NOTE ON THE DOOR: OUT ON THE TRAIL. THE LANTERN IS LIT FOR YOUR RETURN."]})
 	for y in [11, 12, 13]:

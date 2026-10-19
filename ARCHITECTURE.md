@@ -2,7 +2,7 @@
 
 ## Baseline
 
-Verified Godot 4.7.2.stable.official.ed1daf0bf. M1 uses Compatibility/OpenGL, a 320x180 viewport, nearest filtering, integer scaling and aspect-preserving letterboxing. Real graphical launch passed on NVIDIA RTX 3070. project.godot now runs scenes/world/exploration.tscn. The M1 showcase remains independently runnable.
+Verified Godot 4.7.2.stable.official.ed1daf0bf. M1 uses Compatibility/OpenGL, a 320x180 viewport, nearest filtering, integer scaling and aspect-preserving letterboxing. Real graphical launch passed on NVIDIA RTX 3070. project.godot now runs scenes/app/game.tscn. The M1 showcase and standalone M2 world remain independently runnable.
 
 ## Implemented M1
 
@@ -27,6 +27,17 @@ The font PNG is a white/transparent coverage mask embedded by Godot's BMFont imp
 - exploration_recipes.gd, exploration_pipeline.gd, generate_m2.gd and assemble_m2.gd under tools/art/ generate four rasters, 16 NPC animations, two SpriteFrames resources and a 34-tile TileSet under assets/generated/m2/. stable_resource.gd canonicalizes newly generated resource IDs.
 - tools/validate_m2.ps1 runs M1 regression, M2 generation/import/assembly/tests, real capture and optional fresh-cache checks. tests/world/ covers connectivity, collision, spawn/input/movement/dialogue/travel. tools/art/capture_m2.gd saves evidence under artifacts/visual/m2/.
 
+## Implemented M3
+
+- scenes/app/game.tscn / scripts/core/game.gd compose the world and a single battle scene. Completed non-portal steps emit a signal; the app-owned encounter_controller.gd checks eligible grass with an independent seeded stream. Encounters occur within five eligible steps and have a six-step return cooldown. Idle frames never roll encounters.
+- ContentCatalog resolves three SpeciesDefinition, five MoveDefinition and two ItemDefinition Resources under data/. MonsterState separates unique ID, species ID, level, XP, health, moves and appearance seed from immutable definitions; instances clone their mutable arrays.
+- RunSession is scene-owned RefCounted state, not an autoload. It owns the in-memory party, overflow storage, consumable counts, battle serial and claimed-outcome ledger. No save schema or full management service is implemented yet.
+- BattleState holds cloned participants/items, current active index, RNG, turn/flee counters, habitat and outcome. BattleResolver validates before changing state or RNG, resolves priority/speed/seeded ties and returns ordered events. Forced replacement does not grant an enemy attack. KO/capture/flee stop further actions as appropriate.
+- BattleController owns entry, command, presentation, result and closed phases. It blocks duplicate submissions while presenting. battle_canvas.gd consumes event health/switch snapshots rather than showing final-turn damage early; effects start from their event clock. All menus use the established bitmap UI and generated party/item icons.
+- Finishing an outcome claims health/items, capture transfer and XP once. A party of four sends captures to storage. The app only unlocks the matching claimed battle; defeat has a minimal return-to-town/team-rest recovery so this slice remains playable. Other outcomes return to the same world cell. Input is neutralized and world HUD/camera restored.
+- tools/art/battle_recipes.gd and battle_pipeline.gd generate six M3 rasters, front/back idle/reaction metadata, six effects and ten typed content Resources. generate_m3.gd, import, then assemble_m3.gd save four reusable SpriteFrames under assets/generated/m3/.
+- tools/validate_m3.ps1 runs prior regressions, deterministic art/data tests, pure battle cases, viewport input/world-loop tests, repeat assembly, rendered capture and optional fresh-source import. Evidence: artifacts/visual/m3/. Details and limitations: PROGRESS.md.
+
 ## Structure
 
 - tools/art/: GDScript raster generators, palette, recipes, deterministic packer, resource assembler.
@@ -37,17 +48,15 @@ The font PNG is a white/transparent coverage mask embedded by Godot's BMFont imp
 - tests/{art,world,battle,save}/: dependency-free SceneTree runners.
 - artifacts/visual/: curated screenshots/contact sheets for milestone evidence.
 
-## Planned gameplay services (M3 onward)
+## Planned services (M4 onward)
 
-App composes WorldRoot or BattleRoot and a UI CanvasLayer. A coordinator owns transitions and input modes. Minimal Session autoload owns serializable GameState; ContentCatalog resolves stable IDs. Avoid a global event bus or unrelated autoloads.
+The implemented app/session/catalog remain scene-owned. M4 will introduce explicit serializable state mapping and party/inventory/healing/settings services as needed; avoid a global event bus or unnecessary autoloads.
 
 GameState owns party, storage, inventory, quest flags, location and RNG state without Node references. MonsterState references SpeciesDefinition by ID; never mutate shared definition Resources in play.
 
-WorldRoot composes terrain, decoration, collision, actors and encounter controller. Authored map recipes generate layout and seeded decoration. Validate mandatory paths/exits; defer unrestricted random maps. M2 uses TileMapLayer; encounter behavior remains M3 work.
+WorldRoot composes terrain, decoration, collision, actors and encounter controller. Authored map recipes generate layout and seeded decoration. Validate mandatory paths/exits; defer unrestricted random maps. M2 uses TileMapLayer; M3 encounters listen to completed world steps through the app.
 
 GridMovement validates/reserves destination cells before interpolating presentation. Facing/movement state drives sprites. Dialogue/battle input modes pause exploration explicitly.
-
-BattleController runs entry, command, resolution, presentation and result states. Scene-independent BattleResolver validates commands and produces ordered events from explicit state and RNG. UI presents outcomes and never computes rules. Rewards and capture transfers apply exactly once independently of animation completion.
 
 Inventory, Party and Quest services validate changes to GameState. SaveService serializes explicit versioned JSON under user:// using stable IDs. Validate schema and references, write and validate a temporary save, retain the last known good backup, then replace primary. Support migrations and recover gracefully from malformed or newer schemas. Do not serialize scene/resource graphs.
 
