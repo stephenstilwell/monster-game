@@ -47,6 +47,11 @@ func save_game(data: Dictionary, maps: Dictionary) -> String:
 		if not FileAccess.file_exists(directory + "/legacy_v2.json"):
 			if DirAccess.copy_absolute(primary, directory + "/legacy_v2.json") != OK: return "CANNOT PRESERVE LEGACY SAVE."
 		if read_file(directory + "/legacy_v2.json", maps).has("error"): return "LEGACY BACKUP FAILED VALIDATION."
+	if previous.get("migrated", false):
+		var original := directory + "/legacy_v3.json"
+		if not FileAccess.file_exists(original):
+			if DirAccess.copy_absolute(primary, original) != OK: return "CANNOT PRESERVE V3 SAVE."
+		if read_file(original, maps).has("error"): return "V3 BACKUP FAILED VALIDATION."
 	var payload := JSON.stringify(data, "", true)
 	var pending := directory + "/pending.json"
 	var file := FileAccess.open(pending, FileAccess.WRITE)

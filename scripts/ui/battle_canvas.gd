@@ -11,6 +11,7 @@ func _ready() -> void:
 		frames[id] = load("res://assets/generated/m3/" + id + "_frames.tres")
 
 func animation(group: String, name: String, position: Vector2) -> void:
+	if not frames.has(group): frames[group] = load("res://assets/generated/m6/" + group + "_frames.tres")
 	var resource: SpriteFrames = frames[group]
 	var index: int = int(battle.clock * resource.get_animation_speed(name)) % resource.get_frame_count(name)
 	if name.ends_with("react"): index = mini(int(battle.event_clock * 10), 3)
@@ -73,7 +74,7 @@ func _draw() -> void:
 			var y: int = 134 + index / 2 * 15
 			if index == battle.selected: text(">", x - 9, y, 13)
 			if battle.menu in ["party", "bag"] and options[index] != "BACK":
-				var icon_index: int = ["brindlewick", "cindrel", "rillume"].find(state.party[index].species_id) if battle.menu == "party" else 3 + index
+				var icon_index: int = ["brindlewick", "cindrel", "rillume"].find(preload("res://scripts/progression/meta_service.gd").base(state.party[index].species_id)) if battle.menu == "party" else 3 + index
 				draw_texture_rect_region(icons, Rect2(x, y - 2, 16, 16), Rect2(icon_index * 16, 0, 16, 16))
 				x += 18
 			text(options[index], x, y, 13 if index == battle.selected else 3)

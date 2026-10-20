@@ -3,7 +3,7 @@ var species: Dictionary = {}
 var moves: Dictionary = {}
 var items: Dictionary = {}
 func _init() -> void:
-	for id in ["brindlewick", "cindrel", "rillume"]:
+	for id in ["brindlewick", "cindrel", "rillume", "briarwarden", "pyrelace", "tideveil"]:
 		species[id] = load("res://data/species/" + id + ".tres")
 	for id in ["nudge", "leaf_arc", "cinder", "rill", "quickstep"]:
 		moves[id] = load("res://data/moves/" + id + ".tres")

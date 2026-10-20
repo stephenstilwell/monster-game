@@ -35,7 +35,7 @@ func run() -> void:
 	print("M3 BATTLE %s: %s assertions for rules, ordering, items, capture/storage, rewards, encounters, UI and world round trips" % ["FAIL" if failed else "PASS", checks])
 	quit(1 if failed else 0)
 func test_rules() -> void:
-	verify(content.species.size() == 3 and content.moves.size() == 5 and content.items.size() == 2, "Complete content")
+	verify(content.species.size() == 6 and content.moves.size() == 5 and content.items.size() == 2, "Complete content")
 	for species: Resource in content.species.values():
 		for move: String in species.moves: verify(content.moves.has(move), "Move IDs resolve")
 	verify(Rules.affinity_multiplier("grove", "brook") == 1.5 and Rules.affinity_multiplier("grove", "ember") == 0.75 and Rules.affinity_multiplier("plain", "grove") == 1.0, "Affinity cycle")

@@ -19,3 +19,8 @@ func first_healthy() -> int:
 		if party[index].hp > 0:
 			return index
 	return -1
+
+var foe_damage_bonus: int = 0
+var risk_bonus: int = 0
+var opening_bonus: int = 0
+var capture_bonus: float = 0.0

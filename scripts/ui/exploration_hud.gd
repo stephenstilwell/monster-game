@@ -5,6 +5,7 @@ var status_text: String = ""
 var health_text: String = ""
 var status_relics: Array = []
 var relic_texture: Texture2D
+var extended_relic_texture: Texture2D
 func _draw() -> void:
 	if font == null or world == null or world.current_map == null:
 		return
@@ -36,5 +37,6 @@ func _draw() -> void:
 		if not status_relics.is_empty():
 			if relic_texture == null: relic_texture = load("res://assets/generated/m5/relics.png")
 			for i in range(status_relics.size()):
-				var index: int = ["thorn", "shell", "hearth"].find(status_relics[i])
-				draw_texture_rect_region(relic_texture, Rect2(265 + i * 16, 138, 14, 14), Rect2(index * 24, 0, 24, 24))
+				var index: int = ["thorn", "shell", "hearth", "emberglass", "swift", "charmleaf"].find(status_relics[i])
+				if index >= 3 and extended_relic_texture == null: extended_relic_texture = load("res://assets/generated/m6/relics.png")
+				draw_texture_rect_region(extended_relic_texture if index >= 3 else relic_texture, Rect2(265 + i * 16, 138, 14, 14), Rect2(index * 24, 0, 24, 24))

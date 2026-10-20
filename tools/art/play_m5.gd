@@ -1,6 +1,6 @@
 extends SceneTree
 ## Runs a real-time graphical playthrough. No player save or combat-stat fixtures.
-const App = preload("res://scenes/app/game.tscn")
+const App = preload("res://tests/fixtures/m5_game.tscn")
 const Driver = preload("res://tests/expedition/play_driver.gd")
 var app: Node
 var driver := Driver.new()

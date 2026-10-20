@@ -145,4 +145,9 @@ func finish_result() -> void:
 			result_text += " HEARTH HEALED YOUR TEAM."
 			for i in range(session.party.size()):
 				if i < display_hp.size(): display_hp[i] = session.party[i].hp
+	if reward.get("grew", false):
+		result_text = "A COMPANION GREW! SEE YOUR PARTY ON THE TRAIL."
+		for i in range(state.party.size()):
+			state.party[i] = session.party[i].clone()
+			display_hp[i] = session.party[i].hp
 	message = result_text

@@ -78,7 +78,7 @@ func title(monster: RefCounted) -> String:
 func capture_chance(state: RefCounted) -> float:
 	var species: Resource = catalog.species[state.enemy.species_id]
 	var missing: float = 1.0 - float(state.enemy.hp) / state.enemy.max_hp(species)
-	return clampf(species.catch_rate + missing * 0.6 + (0.10 if state.habitat == "forest" and species.affinity in ["grove", "brook"] else 0.0), 0.1, 0.95)
+	return clampf(species.catch_rate + state.capture_bonus + missing * 0.6 + (0.10 if state.habitat == "forest" and species.affinity in ["grove", "brook"] else 0.0), 0.1, 0.95)
 
 func apply_command(state: RefCounted, command: Dictionary, events: Array[Dictionary]) -> void:
 	var ally: RefCounted = state.party[state.active]
@@ -114,7 +114,10 @@ func attack(state: RefCounted, attacker: RefCounted, defender: RefCounted, move_
 	var d: Resource = catalog.species[defender.species_id]
 	var multiplier := affinity_multiplier(move.affinity, d.affinity)
 	var damage := maxi(1, floori((move.power + attacker.attack(a) * 0.7 - defender.defense(d) * 0.45) * multiplier * (1.15 if move.affinity == a.affinity else 1.0) * state.rng.randf_range(0.9, 1.05)))
-	damage = maxi(1, damage + state.ally_damage_bonus) if side == "ally" else maxi(1, damage - state.foe_damage_reduction)
+	if side == "ally":
+		if attacker.hp * 2 <= attacker.max_hp(a): damage += state.risk_bonus
+		if state.turn == 1: damage += state.opening_bonus
+	damage = maxi(1, damage + state.ally_damage_bonus) if side == "ally" else maxi(1, damage + state.foe_damage_bonus - state.foe_damage_reduction)
 	defender.hp = maxi(0, defender.hp - damage)
 	events.append({"kind": "hit", "side": side, "index": state.active, "hp": defender.hp, "effect": move.effect, "message": "%s USED %s. %s DAMAGE!" % [title(attacker), move.title, damage]})
 

@@ -1,6 +1,6 @@
 # Lanternwild — monster-collecting roguelite
 
-An original woodland monster-collecting roguelite with top-down exploration, turn-based battles and a permanent sanctuary. Short expeditions build temporary teams; returning home grows the collection and future choices. This direction supersedes the linear restoration-quest campaign. M5 now implements this first expedition loop. Earlier M0-M4 behavior is retained as historical foundation documentation and diagnostic fixtures below. M6 content/progression/audio remains planned.
+An original woodland monster-collecting roguelite with top-down exploration, turn-based battles and a permanent sanctuary. Short expeditions build temporary teams; returning home grows the collection and future choices. This direction supersedes the linear restoration-quest campaign. M6 now extends the expedition loop with research, projects, growth forms and mastery. Earlier M0-M4 behavior is retained as historical foundation documentation and diagnostic fixtures below. M7 release/accessibility remains planned.
 
 ## Core loop
 
@@ -10,7 +10,7 @@ An original woodland monster-collecting roguelite with top-down exploration, tur
 4. Defeat the expedition guardian to complete the run, or lose the expedition when no party member can fight.
 5. Resolve the outcome once, return to the sanctuary and start a new expedition with a different seed and team plan.
 
-Keep classic handheld field exploration inside each stage. Route choices connect playable tile maps; the game is not exclusively a menu of battles. The eventual first-expedition target is 20-30 minutes. The compact M5 slice measured 55.28 seconds in a scripted GPU playthrough at real movement/message clocks; this excludes human decisions/exploration and is not a human playtime estimate. More variety and pacing work belongs to M6. No copied creature designs, names, maps or interfaces.
+Keep classic handheld field exploration inside each stage. Route choices connect playable tile maps; the game is not exclusively a menu of battles. The eventual first-expedition target is 20-30 minutes. The compact M5 slice measured 55.28 seconds in a scripted GPU playthrough at real movement/message clocks; this excludes human decisions/exploration and is not a human playtime estimate. M6 adds variety; its measured pacing limits are documented below. No copied creature designs, names, maps or interfaces.
 
 ## What persists and what resets
 
@@ -18,13 +18,13 @@ Keep classic handheld field exploration inside each stage. Route choices connect
 |---|---|
 | Sanctuary individuals and their stable identities/species/cosmetics | Permanent; the chosen starter is never deleted or modified by expedition damage |
 | Discovery journal | Records species successfully captured, including on failed expeditions; discovery alone does not grant a sanctuary starter |
-| Town services, route/relic pool unlocks and completion records | Permanent as introduced by later milestones; favor more choices over stacking raw stats |
+| Town services, route/relic pool unlocks and completion records | Permanent in M6; projects unlock choices rather than stacking raw stats |
 | Settings | Permanent and independent of expedition success |
 | Expedition party/reserve, levels, XP, health and evolved forms | Temporary; start again from the expedition baseline |
 | Expedition consumables, relics, route state and run rewards | Temporary; no supplies or relics accumulate in the sanctuary |
 | Selected returning recruit | One eligible individual is admitted to the sanctuary after victory or camp retreat; preserve identity/cosmetics, not expedition combat growth |
 
-The sanctuary is a collection of individuals, not a team whose levels can be ground indefinitely between runs. Bring exactly one companion, initially at level 5 with zero expedition XP, healthy and using its species' starting moves. Initial supply target: four capture charms and two balms. These are the implemented M5 defaults; broader balance remains M6 work. Start a fresh profile with Brindlewick and Cindrel available to choose from; Rillume is first obtained through expeditions.
+The sanctuary is a collection of individuals, not a team whose levels can be ground indefinitely between runs. Bring exactly one companion, initially at level 5 with zero expedition XP, healthy and using its species' starting moves. Initial supply target: four capture charms and two balms. These are the implemented M5 defaults; M6 adds alternative kits and records the remaining balance limits. Start a fresh profile with Brindlewick and Cindrel available to choose from; Rillume is first obtained through expeditions.
 
 ## Captures, storage and outcomes
 
@@ -57,7 +57,7 @@ M5 provides discovery, sanctuary recruitment and completion records. M6 introduc
 
 ## Scope and presentation
 
-Implemented M5 first roguelite playable: one sanctuary hub, three existing base species, three connected forest stages with route choices, one camp, three temporary relics, one guardian, recruitment/settlement and resumable checkpoints. Later target six creature entries total, including three growth forms, with broader route/build variety after the core loop works. Single-player desktop; no multiplayer, breeding, gacha, open-world scope or real-time combat.
+Implemented M5 first roguelite playable: one sanctuary hub, three existing base species, three connected forest stages with route choices, one camp, three temporary relics, one guardian, recruitment/settlement and resumable checkpoints. M6 now provides six entries total, including three growth forms, with temporary relic pools, research/projects and optional challenges. Single-player desktop; no multiplayer, breeding, gacha, open-world scope or real-time combat.
 
 Preserve the 320x180 viewport, 16px tiles, original 16-color woodland palette and procedural asset pipeline. Generate sanctuary fixtures, route/camp/guardian markers, relic icons, expedition status and outcome screens. Keyboard/gamepad navigation remains required; release remapping/accessibility and procedural audio follow the roadmap.
 
@@ -101,6 +101,12 @@ BAG shows charm/balm counts. Charms remain battle-only; field balm targets a liv
 
 SAVE provides one explicit slot and confirmed LOAD. Save from idle field menus only; no autosave or suspended battle. Restart starts fresh, then LOAD restores your run. Persist collection/health/items/XP/settings, world position/facing, encounter stream and exactly-once reward ledger. Corrupt or interrupted saves can recover a validated pending/backup copy; unsupported schemas remain protected. Loading failure leaves the live run intact. Schema v1 migrates default settings to v2. This paragraph describes legacy M4 saving. The default M5 app uses v3 profile/expedition checkpoints above; audio and release accessibility remain planned.
 
-## Planned meta-progression contract
+## Implemented M6 meta-progression contract
 
-[META_PROGRESSION.md](META_PROGRESSION.md) specifies M6's reward loop: permanent research objectives, Research Marks from finite stage clears and victory, three sanctuary projects that unlock preparation choices, growth-form research, starter medals and optional challenge tiers. Defeat/abandonment retain committed research and stage marks; victory/retreat retain the existing one-recruit rule. No permanent attack/health upgrades or supply stockpiles. These systems are planned, not part of M5. M6 remains unimplemented; this documentation update does not authorize gameplay work.
+[META_PROGRESSION.md](META_PROGRESSION.md) specifies M6's reward loop: permanent research objectives, Research Marks from finite stage clears and victory, three sanctuary projects that unlock preparation choices, growth-form research, starter medals and optional challenge tiers. Defeat/abandonment retain committed research and stage marks; victory/retreat retain the existing one-recruit rule. No permanent attack/health upgrades or supply stockpiles. These systems are implemented in M6 under the subsequent user implementation request. Stop before M7. Costs and difficulty values remain initial tuning values, with observed limits in PROGRESS.md.
+
+New M6 expeditions award 16 + 8 times wild level XP to the active recipient after victory/capture (twice the foundation rate), so focused partners can reach level-7 growth before the guardian. Migrated active M5 runs retain their inherited XP rate. This growth is temporary. M6 uses the same three base species and adds Briarwarden, Pyrelace and Tideveil as expedition-local growth forms at level 7 after Shelter plus three active non-guardian victory studies. Discovery/Shelter/Study each grant one mark once. Initial Brindlewick/Cindrel shelter objectives grant two starting marks. Completed stages one/two grant one mark each; guardian victory commits stage three, then settlement grants its one-mark bonus. Previously committed progress survives every outcome. Project costs are Trail Desk 4, Packing Bench 5 and Lantern Workshop 6.
+
+Workshop mixed pools contain six relics; optional focus uses Ember Glass (+7 damage at half HP or less), Dawn Feather (+6 first-turn damage) and Charm Leaf (+15 percentage points capture chance, capped at 95%). At most three relics can be selected from two-choice rewards; declining still advances. Surveys favor one disclosed species in the first stage-two light. Three authored trail stops offer first-living-ally healing, living-team herbs or a balm-for-charms shrine trade; all offer a charm-for-balm alternative and can be spent once per stage. Supplies cap at five each. Tier 1 grants the guardian +4 damage; tier 2 also limits camp recovery to 50% maximum HP (without lowering higher HP). Challenges give recognition, not bonus currency/power.
+
+The current executable still has only three forest templates, six wild encounters and one guardian. The 20-30 minute target is unmet; M6 scripted real-clock victory/retreat/defeat took about 55/31/15 seconds. Replay comes from finite research/projects, growth and different temporary builds; content quantity, human pacing and challenge balance remain disclosed limits, not claims of a long campaign.

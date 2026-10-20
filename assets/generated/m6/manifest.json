@@ -1,0 +1,715 @@
+{
+	"animations": {
+		"briarwarden_back_idle": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "briarwarden",
+			"first": 0,
+			"fps": 4,
+			"frames": 4,
+			"row": 1,
+			"size": [
+				48,
+				48
+			]
+		},
+		"briarwarden_back_react": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "briarwarden",
+			"first": 4,
+			"fps": 10,
+			"frames": 4,
+			"row": 1,
+			"size": [
+				48,
+				48
+			]
+		},
+		"briarwarden_front_idle": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "briarwarden",
+			"first": 0,
+			"fps": 4,
+			"frames": 4,
+			"row": 0,
+			"size": [
+				48,
+				48
+			]
+		},
+		"briarwarden_front_react": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "briarwarden",
+			"first": 4,
+			"fps": 10,
+			"frames": 4,
+			"row": 0,
+			"size": [
+				48,
+				48
+			]
+		},
+		"pyrelace_back_idle": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "pyrelace",
+			"first": 0,
+			"fps": 4,
+			"frames": 4,
+			"row": 1,
+			"size": [
+				48,
+				48
+			]
+		},
+		"pyrelace_back_react": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "pyrelace",
+			"first": 4,
+			"fps": 10,
+			"frames": 4,
+			"row": 1,
+			"size": [
+				48,
+				48
+			]
+		},
+		"pyrelace_front_idle": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "pyrelace",
+			"first": 0,
+			"fps": 4,
+			"frames": 4,
+			"row": 0,
+			"size": [
+				48,
+				48
+			]
+		},
+		"pyrelace_front_react": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "pyrelace",
+			"first": 4,
+			"fps": 10,
+			"frames": 4,
+			"row": 0,
+			"size": [
+				48,
+				48
+			]
+		},
+		"tideveil_back_idle": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "tideveil",
+			"first": 0,
+			"fps": 4,
+			"frames": 4,
+			"row": 1,
+			"size": [
+				48,
+				48
+			]
+		},
+		"tideveil_back_react": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "tideveil",
+			"first": 4,
+			"fps": 10,
+			"frames": 4,
+			"row": 1,
+			"size": [
+				48,
+				48
+			]
+		},
+		"tideveil_front_idle": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "tideveil",
+			"first": 0,
+			"fps": 4,
+			"frames": 4,
+			"row": 0,
+			"size": [
+				48,
+				48
+			]
+		},
+		"tideveil_front_react": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "tideveil",
+			"first": 4,
+			"fps": 10,
+			"frames": 4,
+			"row": 0,
+			"size": [
+				48,
+				48
+			]
+		}
+	},
+	"assets": {
+		"briarwarden": {
+			"sha256": "47c7ae74125662945373ad5846a8b3730a50e24c73bc56473ceb5c83fb4a5080",
+			"size": [
+				384,
+				96
+			]
+		},
+		"fixtures": {
+			"sha256": "fe1870c578e454c77df6935b8fabdaa25884cf9649be5fe80012dfa2d616f8ae",
+			"size": [
+				432,
+				48
+			]
+		},
+		"pyrelace": {
+			"sha256": "d3af3e1fbfd6e46cde8e2b85e828e771100c79fac6b4932a6b2b5bd405b4185e",
+			"size": [
+				384,
+				96
+			]
+		},
+		"relics": {
+			"sha256": "cdfa760e523e9758d6012370c70c70d137a53104a1d9213db7b34510d4d18cf6",
+			"size": [
+				144,
+				24
+			]
+		},
+		"shelter": {
+			"sha256": "40fa0a255ff7361ec600259552eb6a08af777008fae2c9571f2c1c2b7e1397a6",
+			"size": [
+				72,
+				24
+			]
+		},
+		"springs": {
+			"sha256": "aa3aba677e403ede2ec7130f0193d598c80341182a3fc937ad2c879cabf06f8d",
+			"size": [
+				192,
+				32
+			]
+		},
+		"tideveil": {
+			"sha256": "910b6cb9eeb9a375c9fafc45c37bf453c4d8ded3779969c228aca180bbf4796c",
+			"size": [
+				384,
+				96
+			]
+		},
+		"tokens": {
+			"sha256": "29020fff687aede3356ee1d618fbc55b6375315180c167ecf247de3718087adf",
+			"size": [
+				240,
+				32
+			]
+		}
+	},
+	"audio": {
+		"battle": {
+			"loop": true,
+			"peak": 6740,
+			"rate": 22050,
+			"samples": 176400,
+			"sha256": "afcb06a8ea98555d95de6a3bcea15ba03615096eadebb855da4a8a091e69fa54"
+		},
+		"capture": {
+			"loop": false,
+			"peak": 5959,
+			"rate": 22050,
+			"samples": 7938,
+			"sha256": "bb385dfbaa02b4ec52f1f5a44beffa1919b8a9fdfa7162eca2d3e38feaaa983c"
+		},
+		"confirm": {
+			"loop": false,
+			"peak": 5964,
+			"rate": 22050,
+			"samples": 3969,
+			"sha256": "b3ca8863645a7c1eef6ea9ff30f41765c05a34ccaca6ce9ea6d981d7e8beafd7"
+		},
+		"defeat": {
+			"loop": false,
+			"peak": 5923,
+			"rate": 22050,
+			"samples": 7938,
+			"sha256": "d925a4e7085eeea4a0952ce2105ab2c0d9e11bf8d0e38753004bd6e7913ecdbd"
+		},
+		"forest": {
+			"loop": true,
+			"peak": 6746,
+			"rate": 22050,
+			"samples": 176400,
+			"sha256": "4ab31d9271ab52b33923ee47000b0a5cd94220bb5b2adfd2d7feacaae2d1d6a4"
+		},
+		"growth": {
+			"loop": false,
+			"peak": 5929,
+			"rate": 22050,
+			"samples": 11907,
+			"sha256": "d694c4e42407ce473f15d98c2db59decc46b4a0fff7810c4dcb3ac054724427d"
+		},
+		"hit": {
+			"loop": false,
+			"peak": 5863,
+			"rate": 22050,
+			"samples": 3969,
+			"sha256": "86e2fc725121da2a7123a8d24390d1f0f922ece6c5002ec4d6bb644407b0f18b"
+		},
+		"hub": {
+			"loop": true,
+			"peak": 6740,
+			"rate": 22050,
+			"samples": 176400,
+			"sha256": "77d074f686b9aafd67e1d235dcda8fcff9494919ce0f3826c4614f9aa4fa6254"
+		},
+		"victory": {
+			"loop": false,
+			"peak": 5988,
+			"rate": 22050,
+			"samples": 11907,
+			"sha256": "a8d8a4675c61f2f519f724df9215360176089f3e89c6dc7c5dc47a361dcf1e39"
+		}
+	},
+	"palette": "woodland16",
+	"regions": {
+		"charmleaf": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				120,
+				0,
+				24,
+				24
+			]
+		},
+		"emberglass": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				72,
+				0,
+				24,
+				24
+			]
+		},
+		"hearth": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				48,
+				0,
+				24,
+				24
+			]
+		},
+		"m6_packing_0": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				144,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_packing_1": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				192,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_packing_2": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				240,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_stop_0": {
+			"anchor": [
+				16,
+				31
+			],
+			"asset": "springs",
+			"rect": [
+				0,
+				0,
+				32,
+				32
+			]
+		},
+		"m6_stop_0_spent": {
+			"anchor": [
+				16,
+				31
+			],
+			"asset": "springs",
+			"rect": [
+				32,
+				0,
+				32,
+				32
+			]
+		},
+		"m6_stop_1": {
+			"anchor": [
+				16,
+				31
+			],
+			"asset": "springs",
+			"rect": [
+				64,
+				0,
+				32,
+				32
+			]
+		},
+		"m6_stop_1_spent": {
+			"anchor": [
+				16,
+				31
+			],
+			"asset": "springs",
+			"rect": [
+				96,
+				0,
+				32,
+				32
+			]
+		},
+		"m6_stop_2": {
+			"anchor": [
+				16,
+				31
+			],
+			"asset": "springs",
+			"rect": [
+				128,
+				0,
+				32,
+				32
+			]
+		},
+		"m6_stop_2_spent": {
+			"anchor": [
+				16,
+				31
+			],
+			"asset": "springs",
+			"rect": [
+				160,
+				0,
+				32,
+				32
+			]
+		},
+		"m6_trail_0": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				0,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_trail_1": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				48,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_trail_2": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				96,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_workshop_0": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				288,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_workshop_1": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				336,
+				0,
+				48,
+				48
+			]
+		},
+		"m6_workshop_2": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "fixtures",
+			"rect": [
+				384,
+				0,
+				48,
+				48
+			]
+		},
+		"mark": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "tokens",
+			"rect": [
+				0,
+				0,
+				32,
+				32
+			]
+		},
+		"medal_0": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "tokens",
+			"rect": [
+				32,
+				0,
+				32,
+				32
+			]
+		},
+		"medal_1": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "tokens",
+			"rect": [
+				64,
+				0,
+				32,
+				32
+			]
+		},
+		"medal_2": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "tokens",
+			"rect": [
+				96,
+				0,
+				32,
+				32
+			]
+		},
+		"shell": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				24,
+				0,
+				24,
+				24
+			]
+		},
+		"shelter_brindlewick": {
+			"anchor": [
+				12,
+				23
+			],
+			"asset": "shelter",
+			"rect": [
+				0,
+				0,
+				24,
+				24
+			]
+		},
+		"shelter_cindrel": {
+			"anchor": [
+				12,
+				23
+			],
+			"asset": "shelter",
+			"rect": [
+				24,
+				0,
+				24,
+				24
+			]
+		},
+		"shelter_rillume": {
+			"anchor": [
+				12,
+				23
+			],
+			"asset": "shelter",
+			"rect": [
+				48,
+				0,
+				24,
+				24
+			]
+		},
+		"stamp": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "tokens",
+			"rect": [
+				128,
+				0,
+				32,
+				32
+			]
+		},
+		"swift": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				96,
+				0,
+				24,
+				24
+			]
+		},
+		"thorn": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				0,
+				0,
+				24,
+				24
+			]
+		},
+		"tier_1": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "tokens",
+			"rect": [
+				160,
+				0,
+				32,
+				32
+			]
+		},
+		"tier_2": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "tokens",
+			"rect": [
+				192,
+				0,
+				32,
+				32
+			]
+		}
+	},
+	"seed": 842031,
+	"version": "m6.1"
+}

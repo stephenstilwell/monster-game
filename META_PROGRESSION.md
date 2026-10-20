@@ -1,6 +1,6 @@
 # Meta progression and reasons to return
 
-Design target for M6; not implemented in the M5 executable. GAME_DESIGN.md owns the core expedition rules; this document specifies their permanent reward loop. Numbers below are initial tuning hypotheses, not measured balance. No gameplay implementation is authorized by this documentation change.
+Implemented M6 progression contract. M5 behavior below is the historical baseline. GAME_DESIGN.md owns the core expedition rules; this document specifies their permanent reward loop. Numbers below are initial tuning hypotheses, not measured balance. The subsequent user implementation request authorized M6; M7 remains outside scope.
 
 ## Player promise
 
@@ -8,7 +8,7 @@ Build a woodland sanctuary, understand its creatures, and unlock new ways to exp
 
 The repeating loop is: choose a visible goal -> choose starter/loadout/route -> make a temporary team and build -> secure discoveries and milestones -> settle rewards -> see what changed at home -> choose the next experiment. The player should leave the results screen knowing what they earned, how close their next unlock is, and what they can try now.
 
-## Current game versus target
+## Historical baseline and M6 contract
 
 M5 retains sanctuary individuals, capture discoveries, completion records and settings. Victory/camp retreat can bring home one living capture. Defeat/abandonment bring none; originals always survive. Levels, XP, health, supplies, relics and route progress reset. There are three base species and three relics, all obtainable within a completed run. These rules provide a collection foundation, but little long-term replay variety.
 
@@ -34,7 +34,7 @@ Use three visible, one-time objectives per base species:
 2. Shelter: admit that species after victory or camp retreat. Unlock its expedition growth-form research and a small sanctuary display. Existing sanctuary species satisfy this automatically.
 3. Field study: win three distinct non-guardian encounters with that species active when the battle ends, across any number of runs. Captures/flee do not count. A repeated/recovered encounter never counts twice. Unlock its growth form for future expeditions once Shelter is also complete.
 
-Field study can progress using captured expedition teammates before Shelter is complete. Growth is expedition-local and requires a published level threshold; the research unlock permits growth, it does not start the companion evolved. Returning recruits normalize to their base definition. Three base species plus their three growth forms make the six entries already planned for M6; adding more base species is later scope.
+Field study can progress using captured expedition teammates before Shelter is complete. Growth is expedition-local at level 7 after a victory/capture XP claim; the research unlock permits growth, it does not start the companion evolved. Returning recruits normalize to their base definition. Three base species plus their three growth forms make the six entries already planned for M6; adding more base species is later scope.
 
 Capture/discovery and battle-study progress commit with their battle checkpoint and survive every outcome. Objectives award at most one Research Mark each, including Discover/Shelter/Field study: nine marks total from the initial roster. Tasks, counts, prerequisites and exact reward are visible before departure; no hidden checklist or random research drops.
 
@@ -103,3 +103,11 @@ Acceptance requires:
 - Measure complete/failed/retreated runs for duration, resource pressure, marks per minute, project-unlock timing, starter wins and build diversity. Compare at least 16 seeds per starter, then request human review of pacing. Record observations rather than claim the 20-30 minute target is met.
 
 Optional later ideas: more base species/biomes, authored guardian variety, cosmetic sanctuary decorating and nonstat challenge objectives. They require a separately approved scope; no daily streaks, battle passes or paid progression.
+
+## M6 implementation and observed limits
+
+The initial slice above is implemented. Default profiles start with two Shelter marks. The Workshop mixed pool offers two unowned relics per reward (or the remaining one), while focus restricts the pool to Ember Glass, Dawn Feather and Charm Leaf; decline is always available. Surveys set the first stage-two light to the selected species and leave the other slot unchanged. Tier 1 adds four guardian damage; tier 2 also heals/revives at camp to 50% maximum HP without lowering healthier members. Normal remains available and free. New runs award 16 + 8 times wild level XP to the active recipient; a focused researched partner can grow before guardian combat. Already-active v3 runs keep their original rate. No project is needed for measured fresh-profile wins.
+
+Three forest template themes now have finite spring, herb patch and shrine choices; rewards never add permanent combat power. Existing v3 profiles backfill research once and preserve active encounters/RNG with legacy growth permissions empty; no past stage marks, field studies or medals are invented. v1/v2 and v3 originals retain independent recovery copies.
+
+Real-clock scripted GPU runs measured 54.882 seconds for victory (+6 marks including two research), 30.701 for retreat (+4 including two research), and 14.451 for deliberate defeat (+0). Removing one-time research gives approximately 4.37 repeatable marks/minute for victory versus 3.91 for retreat in these samples. This arithmetic is diagnostic, not a human efficiency or duration claim. The first project became affordable about 15.47 seconds into the victory script. The compact game remains far below the 20-30 minute target and has a deliberately finite fifteen-mark project arc; more expensive grind tiers were not added. See PROGRESS.md for the final seed sample, validation and manual review needs.

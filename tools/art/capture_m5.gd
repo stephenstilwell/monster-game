@@ -1,5 +1,5 @@
 extends SceneTree
-const App = preload("res://scenes/app/game.tscn")
+const App = preload("res://tests/fixtures/m5_game.tscn")
 const Driver = preload("res://tests/expedition/play_driver.gd")
 const Model = preload("res://scripts/expedition/expedition_service.gd")
 const Routes = preload("res://scripts/expedition/route_generator.gd")
