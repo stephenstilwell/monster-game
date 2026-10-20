@@ -71,3 +71,9 @@ Acceptance: repeated complete expeditions show multiple viable team/build plans,
 Input remapping, physical controller/accessibility review, text/motion/flash settings, supported-scale UI polish, save compatibility and desktop export. Generate missing presentation assets rather than use placeholders.
 
 Acceptance: complete expedition regression; keyboard/physical gamepad/focus/reconnect checks; clean desktop export/import/launch/continue/settlement smoke tests; licenses/credits; supported-scale inspection and documented finished-content boundary. Verify existing profiles remain usable or offer a safe, explicit migration path. Release only after complete victory and defeat-to-next-run playthroughs.
+
+## M6 progression specification and scope gate
+
+The documentation-only progression design is [META_PROGRESSION.md](META_PROGRESSION.md). Its bounded initial scope supplements M6 above: three base-species research tracks and three growth forms (six entries total), Research Marks, three one-tier sanctuary projects, six temporary relics total, starter medals and two optional challenge tiers. Keep the previously planned route/event variety, procedural audio and measured balance work. No added biome/base-species expansion, equipment or permanent combat-stat grind.
+
+M6 acceptance also includes the specification's outcome reward table, versioned backfill, exactly-once mark/research/purchase grants, departure snapshots, readable goals/results and measured reward pacing. Full normal victories without projects must remain viable; currency cannot gate another departure. All numbers are initial tuning targets. M6 remains unstarted; the user's current request authorizes documentation only. A later implementation request may authorize M6, which must be completed before M7.

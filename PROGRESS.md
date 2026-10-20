@@ -44,3 +44,9 @@ Follow README.md: choose each starter; walk both lights and gate on all stages; 
 ## Next milestone
 
 M6 roguelite variety/progression/balance/audio is unstarted. A later implementation request may authorize it. Identify the reviewed M5 checkpoint with git log -1; remote origin is github.com/stephenstilwell/monster-game.
+
+## Meta-progression design update (documentation only)
+
+Added [META_PROGRESSION.md](META_PROGRESSION.md) after the user requested concrete lasting goals and reasons to start another run. It defines collection/research/project/mastery rewards, all-outcome retention, three choice-oriented sanctuary projects with provisional costs, growth-form unlocks, six-relic build variety, optional challenge tiers, visible next goals, finite completion and migration/transaction tests. Related design, architecture, roadmap, art and README guidance now link to the same contract.
+
+M5 executable and prior observed test results are unchanged. M6 remains unstarted; no game code/assets were changed or Godot tests rerun for this documentation task. Verified Markdown links, balanced fences and Git whitespace hygiene. Economy values, challenge strength and progression duration are design hypotheses requiring implementation and measured balance; no new gameplay results are claimed.

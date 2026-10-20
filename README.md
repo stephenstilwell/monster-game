@@ -38,3 +38,5 @@ Evidence: artifacts/visual/m5/ (71 PNGs and views.json). Captures use real comma
 Earlier scenes remain available for diagnostics: scenes/showcase/showcase.tscn (M1 viewer), scenes/world/exploration.tscn (M2 standalone) and tests/fixtures/legacy_game.tscn (former M3/M4 app). Earlier integration/capture tests intentionally use the legacy fixture; M5 flow tests use the actual default scenes/app/game.tscn. These historical fixtures do not define current expedition rules.
 
 Design and boundaries: [GAME_DESIGN.md](GAME_DESIGN.md), [ROADMAP.md](ROADMAP.md), [ARCHITECTURE.md](ARCHITECTURE.md), [PROGRESS.md](PROGRESS.md).
+
+Meta-progression planning: [META_PROGRESSION.md](META_PROGRESSION.md) describes the intended research, sanctuary projects, lasting rewards and replay goals. These are M6 targets, not features available in the current M5 build.

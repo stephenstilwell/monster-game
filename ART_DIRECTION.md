@@ -95,3 +95,7 @@ artifacts/visual/m5/ contains 31 native/3x interface/world views, three native/2
 ## Planned M6/M7 presentation
 
 M6 adds creature growth forms, more authored habitat/event variants, relic/hub upgrade art and original procedural audio with retained generation sources. Permanent unlock presentation emphasizes new options; expedition growth forms do not imply permanent starting power. M7 checks accessibility, motion/flash/text options, physical input prompts and exported presentation at supported scales. Do not generate or mark these later assets complete during the documentation pivot or M5.
+
+## Planned M6 progression presentation
+
+[META_PROGRESSION.md](META_PROGRESSION.md) adds generated art requirements for three visible one-tier sanctuary projects (Trail Desk, Packing Bench, Lantern Workshop), Research Mark and project icons, research stamps, starter medals/challenge pennants and three additional relics. Growth art remains the three forms already assigned to M6; no additional base species or biome is implied. Use the established 16-color palette, 320x180 layouts and reusable baked resources. Inspect unpaid/available/completed project states, goals and result summaries at native size. These assets have not been generated in this documentation-only change.
