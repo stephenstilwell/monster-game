@@ -1,0 +1,148 @@
+{
+	"effects": {
+		"back": {
+			"channels": 2,
+			"frames": 14112,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.129341016521514,
+			"seconds": 0.64,
+			"sha256": "a44a66ec326a126ea2740e79143f5db51e99e041dd9b8a18d6ac5231382b5df4"
+		},
+		"capture": {
+			"channels": 2,
+			"frames": 22050,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.162979067190909,
+			"seconds": 1.0,
+			"sha256": "8aa003155fee130271c68f0403cf684f7f613db23f8f6c815d6ce23f04dcad5c"
+		},
+		"confirm": {
+			"channels": 2,
+			"frames": 14112,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.130980912560867,
+			"seconds": 0.64,
+			"sha256": "7055a730aedb1e4d530a45d9b176cb4cf47e84f139e5589e4545ffe9ad5ebfdf"
+		},
+		"defeat": {
+			"channels": 2,
+			"frames": 19404,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.151589073305085,
+			"seconds": 0.88,
+			"sha256": "b7f0d47493a7d2a2cfb9c1b202c5f9ba84569045f5dce3dac97ef46d75155082"
+		},
+		"growth": {
+			"channels": 2,
+			"frames": 27342,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.169938661984635,
+			"seconds": 1.24,
+			"sha256": "e1816fa8c28e3ccfc3e3ca0b1807356f6335a63fa33fb1833b4940918d84ba9a"
+		},
+		"hit": {
+			"channels": 2,
+			"frames": 11246,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.122472895611111,
+			"seconds": 0.510022675736961,
+			"sha256": "21f55ca2a7910618d1c605c4e08c7f852ee785bcfab8467dbfe55119a5d6ab7e"
+		},
+		"navigate": {
+			"channels": 2,
+			"frames": 10033,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.0853222415409368,
+			"seconds": 0.455011337868481,
+			"sha256": "ceaa7888cc3add2ccce726c9022f4625b73d975186423f95c552b52d3b386c73"
+		},
+		"victory": {
+			"channels": 2,
+			"frames": 27342,
+			"loop": false,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.170678777227183,
+			"seconds": 1.24,
+			"sha256": "4c246a7cec876e15735049daadb15a54768212e73fd037ee115147d02c71953a"
+		}
+	},
+	"seed": 842032,
+	"tracks": {
+		"battle": {
+			"bars": 16,
+			"bpm": 132,
+			"channels": 2,
+			"frames": 641455,
+			"loop": true,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.180056226789237,
+			"seconds": 29.0909297052154,
+			"sha256": "c27c868d201472953da8500c9cac669a119d5b1c9e363bf7da1cf5ec02fd70f9"
+		},
+		"camp": {
+			"bars": 16,
+			"bpm": 80,
+			"channels": 2,
+			"frames": 1058400,
+			"loop": true,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.213887664643445,
+			"seconds": 48.0,
+			"sha256": "11d39bfbab2190c8cecc1592e96429685fb49547f74940c2000157deff7e2e92"
+		},
+		"forest": {
+			"bars": 16,
+			"bpm": 108,
+			"channels": 2,
+			"frames": 784000,
+			"loop": true,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.164572139403624,
+			"seconds": 35.5555555555556,
+			"sha256": "323c83c2dc569601293a9d7a5b33e5ff21af25c6b23ac31a52e321b10715a093"
+		},
+		"guardian": {
+			"bars": 16,
+			"bpm": 144,
+			"channels": 2,
+			"frames": 588000,
+			"loop": true,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.179501741407881,
+			"seconds": 26.6666666666667,
+			"sha256": "d496820c7f81c3a6351f80598e562c4c04899a0e361189a6b7c32615c2814b14"
+		},
+		"hub": {
+			"bars": 16,
+			"bpm": 96,
+			"channels": 2,
+			"frames": 882000,
+			"loop": true,
+			"peak": 0.62,
+			"rate": 22050,
+			"rms": 0.179016760577803,
+			"seconds": 40.0,
+			"sha256": "6d2dd56aab4052de4fa597fad2abbb2e88070417332a879728e936c487994226"
+		}
+	},
+	"version": "audio.1"
+}

@@ -123,7 +123,7 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("interact", false): confirm()
 	elif event.is_action_pressed("close_dialogue", false) or event.is_action_pressed("field_menu", false): back()
 	else: used = false
-	if used: app.audio.cue("confirm"); get_viewport().set_input_as_handled(); queue_redraw()
+	if used: app.audio.cue("navigate" if event.is_action_pressed("walk_up") or event.is_action_pressed("walk_down") else "back" if event.is_action_pressed("close_dialogue") or event.is_action_pressed("field_menu") else "confirm"); get_viewport().set_input_as_handled(); queue_redraw()
 
 func execute(action: String, args: Dictionary = {}, render: bool = false) -> bool:
 	if not app.perform(action, args): message = app.last_error; return false

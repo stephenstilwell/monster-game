@@ -113,3 +113,7 @@ Six tree silhouettes: rounded broadleaf, pale birch, layered fir, hanging willow
 Trees and flowers have four baked poses. Wind moves only selected upper foliage or flower tips by one pixel, with fixed roots/trunks and unchanged footprints. A twelve-step resting cycle uses 0.6-second tree steps (7.2-second loop) and 0.8-second flower steps (9.6-second loop); coordinate-derived phases avoid synchronized movement. Hidden worlds pause local animation. No flickering light, screen distortion, global random state or runtime raster generation.
 
 artifacts/visual/environment/ contains before/after town overviews, three route overviews, the actual game viewport, complete asset/animation contact sheets and eight rendered wind samples (24 PNGs). Native/enlarged views and distinct rendered poses were inspected. validate_environment.ps1 checks reproducible pixels/metadata, palette/alpha, frame bounds, pinned roots, stable selection, collision/data isolation, actual idle processing, exact scaling and a clean import. M7 has not started.
+
+## Post-M6 audio replacement
+
+The current executable supersedes the historical eight-second mono score described above with five original sixteen-bar stereo compositions and eight effects. [AUDIO_DIRECTION.md](AUDIO_DIRECTION.md) defines instruments, arrangements, mixing and reproduction. Audio recipes live separately under tools/audio/; the old M6 art/audio fixtures remain reproducible. No visual palette, save/content version or milestone scope changes.

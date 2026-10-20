@@ -178,11 +178,12 @@ func mount_hub() -> void:
 func render_state() -> void:
 	dispose_menu()
 	awaiting_continue = false
-	audio.play_theme("forest")
 	world.visible = true
 	world.get_node("HUD").visible = true
 	if data.run.is_empty(): mount_hub(); return
 	var r: Dictionary = data.run
+	if r.phase != "field" or r.pending.is_empty():
+		audio.play_theme("camp" if r.phase in ["camp", "settle"] else "forest")
 	if r.choices.size() > int(r.stage):
 		world.maps.expedition = Model.map_for(r)
 		world._mount_map("expedition", Vector2i(int(r.cell[0]), int(r.cell[1])))
@@ -276,7 +277,7 @@ func spawn_battle() -> void:
 	world.get_node("HUD").visible = false
 	battle = Battle.instantiate()
 	battle.configure(state, session)
-	audio.play_theme("battle")
+	audio.play_theme("guardian" if state.guardian else "battle")
 	battle.closed.connect(_battle_closed)
 	add_child(battle)
 
@@ -295,6 +296,6 @@ func _battle_closed(state: RefCounted) -> void:
 	render_state()
 func _process(_delta: float) -> void:
 	if battle == null: return
-	var id: String = "%s/%s/%s" % [battle.state.id, battle.state.turn, battle.event.get("kind", "")]
+	var id: String = "%s/%s/%s" % [battle.state.id, battle.state.turn, JSON.stringify(battle.event)]
 	if id != audio.last_event and battle.event.get("kind", "") == "hit": audio.cue("hit")
 	audio.last_event = id

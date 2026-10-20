@@ -50,3 +50,13 @@ Evidence: artifacts/visual/m6/. Historical apps: tests/fixtures/legacy_game.tscn
 Design and boundaries: [GAME_DESIGN.md](GAME_DESIGN.md), [ROADMAP.md](ROADMAP.md), [ARCHITECTURE.md](ARCHITECTURE.md), [ART_DIRECTION.md](ART_DIRECTION.md), [PROGRESS.md](PROGRESS.md).
 
 Scenery polish: the current app uses varied tree silhouettes and house facades, sparse ground plants and slow ambient foliage/flower animation. Stand still for several seconds in town or on a route to see the breeze. Source/evidence: tools/art/environment_recipes.gd and artifacts/visual/environment/. Validate with tools/validate_environment.ps1 -Godot <your Godot executable> -Capture -CleanImport; this checks the art, renderer isolation, world/current expedition/save flow and clean imports. M7 remains unstarted.
+
+## Music rework
+
+Five original stereo themes now cover sanctuary, forest, camp, wild battles and guardians; sixteen-bar arrangements replace the early eight-second loops. Crossfades resume exploration music, and reward jingles have their own voice and temporarily soften music. SETTINGS retains independent music/SFX mute and three levels. Sources and mix contract: [AUDIO_DIRECTION.md](AUDIO_DIRECTION.md).
+
+```powershell
+& tools/validate_audio.ps1 -Godot 'D:\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe' -Playback -CleanImport
+```
+
+This regenerates/reimports the score, validates repeatable PCM/mixing and app flow/settings, records real playback, then runs checks in a cache-free copy. -Playback needs a graphical/audio session. Logs and a short recorded transition/loop preview are under .godot/audio_validation/; individual full tracks are assets/generated/audio/*.wav. Listen to a whole loop in each location, compare wild/guardian energy, return from battles, trigger capture/growth/victory, and test all music/SFX levels. Subjective mix and melody review still needs human listening.

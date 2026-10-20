@@ -51,7 +51,9 @@ func stage() -> void:
 	for slot in range(2):
 		check(driver.walk(app, app.world.current_map.landmarks["encounter_%s" % slot]), "walk to encounter")
 		check(app.battle != null, "enters actual battle")
+		check(app.audio.theme == "battle", "wild battle music")
 		check(driver.fight(app) in ["victory", "capture"], "resolver wins or captures")
+		check(app.audio.theme == "forest", "exploration music returns")
 	check(driver.walk(app, app.world.current_map.landmarks.exit), "walk to gate")
 	check(app.field_menu.screen == "reward", "relic offer")
 	check(app.data.run.offers.size() <= 2, "mutually exclusive reward")
@@ -98,12 +100,15 @@ func run() -> void:
 			check(not checkpoint.has("error") and checkpoint.data == app.data, "actual checkpoint roundtrip")
 		if depth == 1:
 			check(app.field_menu.screen == "camp", "camp")
+			check(app.audio.theme == "camp", "camp music")
 			app.field_menu.confirm()
 			check(app.data.run.camp_used, "one rest")
 			app.field_menu.selected = 3
 			app.field_menu.confirm()
 	check(app.battle != null and app.battle.state.guardian, "guardian")
+	check(app.audio.theme == "guardian", "guardian music")
 	check(driver.fight(app) == "victory", "guardian victory")
+	check(app.audio.theme == "camp", "settlement calm music")
 	check(app.data.run.secured == 3, "third stage mark committed before settlement")
 	var result: Dictionary = app.data.duplicate(true)
 	var obstruction := directory + "/blocked"
@@ -117,6 +122,7 @@ func run() -> void:
 	app.field_menu.selected = 1 if not Model.eligible(app.data.run).is_empty() else 0
 	app.field_menu.confirm()
 	check(app.data.profile.completed == 1 and app.data.run.is_empty(), "return/admit")
+	check(app.audio.theme == "hub", "home music")
 	check(app.data.profile.roster.slice(0, 2) == original, "originals safe")
 	check(app.data.profile.last.bonus == 1 and app.data.profile.last.secured == 3, "separate bonus and secured")
 	app.field_menu.go("projects")
@@ -149,6 +155,7 @@ func run() -> void:
 	check(app.open_menu(), "open Continue")
 	app.field_menu.confirm()
 	check(app.battle != null and app.data.run.pending == pending and app.data.run.rules == snapshot, "Continue same enemy and snapshot")
+	check(app.audio.theme == "battle", "Continue selects battle without forest detour")
 	check(driver.fight(app) in ["victory", "capture"], "resumed battle")
 	check(app.open_menu(), "abandon menu")
 	check(app.perform("end", {"outcome": "abandon"}), "abandon")

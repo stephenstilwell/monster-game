@@ -114,3 +114,7 @@ The current executable still has only three forest templates, six wild encounter
 ## Environment presentation refinement
 
 The user-requested post-M6 polish adds varied tree silhouettes, distinct town facades, sparse ground plants and very slow one-pixel foliage/flower animation. It is a renderer-only extension: houses keep their doors/footprints, landmarks and encounters stay readable, and traversal, run rules, rewards and progression remain unchanged. Follow ART_DIRECTION.md for the deterministic baked-art and fixed-anchor motion contract. No M7 work is included.
+
+## Current music presentation
+
+The separately authorized post-M6 score gives the sanctuary a warm welcome, forest a curious minor/modal theme, camp/settlement a quiet resting piece, and wild/guardian battles distinct urgent themes. Five original sixteen-bar stereo tracks resume between encounters and crossfade; separate reward jingles duck the music. Existing saved music/SFX controls remain independent. See [AUDIO_DIRECTION.md](AUDIO_DIRECTION.md). No gameplay rules or M7 work are added by this pass.

@@ -83,3 +83,7 @@ Observed M6 result: nine species research objectives, Research Marks, three one-
 ## User-requested post-M6 scenery polish
 
 Authorized separately on 2026-10-20: replace repeated background presentation with six tree silhouettes, four reusable house designs (distinct existing town facades), four flower varieties, sparse ground dressing and subtle baked animation. Acceptance: repeatable art/selection, fixed trunks/roots and collision, native-size review, actual rendered motion, current exploration/save/expedition regression and clean-import validation. This visual refinement does not begin M7 or add gameplay/content milestones. Evidence and observed results are in PROGRESS.md and artifacts/visual/environment/.
+
+## Separately authorized music polish after M6
+
+Scope: replace the short mono soundtrack with five sixteen-bar original stereo context themes, improved synthesized SFX, crossfades/resume, independent effect voices and outcome ducking. Acceptance: reproducible baked assets, lossless import/valid loop frames, signal and mixer tests, real audio playback/loop/mute checks, actual app context checks, saved-settings regressions and cache-free validation. See AUDIO_DIRECTION.md and PROGRESS.md for evidence and human listening limits. This pass does not start M7 or change expedition/progression scope.
