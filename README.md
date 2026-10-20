@@ -48,3 +48,5 @@ M6 generation phases: --headless --path . --script tools/art/generate_m6.gd; --h
 Evidence: artifacts/visual/m6/. Historical apps: tests/fixtures/legacy_game.tscn (M3/M4), tests/fixtures/m5_game.tscn (M5); tests/progression/ exercises the actual default M6 app. Earlier captures preserve their historical rules.
 
 Design and boundaries: [GAME_DESIGN.md](GAME_DESIGN.md), [ROADMAP.md](ROADMAP.md), [ARCHITECTURE.md](ARCHITECTURE.md), [ART_DIRECTION.md](ART_DIRECTION.md), [PROGRESS.md](PROGRESS.md).
+
+Scenery polish: the current app uses varied tree silhouettes and house facades, sparse ground plants and slow ambient foliage/flower animation. Stand still for several seconds in town or on a route to see the breeze. Source/evidence: tools/art/environment_recipes.gd and artifacts/visual/environment/. Validate with tools/validate_environment.ps1 -Godot <your Godot executable> -Capture -CleanImport; this checks the art, renderer isolation, world/current expedition/save flow and clean imports. M7 remains unstarted.

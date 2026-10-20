@@ -15,6 +15,8 @@ var dialogue := Dialogue.new()
 var player: Node2D
 var npc_actors: Dictionary = {}
 var regions: Dictionary = {}
+var environment_polish: bool = false
+var environment_style: RefCounted
 var textures: Dictionary = {}
 var require_neutral: bool = false
 var transition_elapsed: float = 0.0
@@ -28,6 +30,7 @@ var transition_swapped: bool = false
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	if environment_polish: environment_style = preload("res://scripts/world/environment_style.gd").new()
 	Bindings.install()
 	for id in ["town", "forest"]:
 		maps[id] = load("res://data/maps/" + id + ".tres")
@@ -57,7 +60,15 @@ func _mount_map(id: String, at: Vector2i) -> void:
 		for x in range(current_map.size.x):
 			var tile: int = current_map.tile_at(Vector2i(x, y))
 			terrain.set_cell(Vector2i(x, y), 0 if tile < 32 else 1, Vector2i(tile % 8, tile / 8) if tile < 32 else Vector2i(tile - 32, 0))
+	var scenery_seed: int = environment_style.map_seed(current_map) if environment_style != null else 0
+	var house_index := 0
 	for prop: Dictionary in current_map.props:
+		if environment_style != null:
+			var id_override: String = environment_style.variant(prop, current_map, house_index, scenery_seed)
+			if prop.region == "waystation": house_index += 1
+			if not id_override.is_empty():
+				objects.add_child(environment_style.sprite(id_override, Vector2(prop.origin), environment_style.stable(str(prop.origin))))
+				continue
 		var spec: Dictionary = regions[prop.region]
 		var rect: Array = spec.rect
 		var anchor := Vector2(spec.anchor[0], spec.anchor[1])
@@ -71,6 +82,9 @@ func _mount_map(id: String, at: Vector2i) -> void:
 		sprite.offset = -anchor
 		sprite.position = Vector2(prop.origin) * 16 + anchor
 		objects.add_child(sprite)
+	if environment_style != null:
+		for prop: Dictionary in environment_style.scatter(current_map, regions, scenery_seed):
+			objects.add_child(environment_style.sprite(prop.region, Vector2(prop.origin), int(prop.seed)))
 	for npc: Dictionary in current_map.npcs:
 		var actor := ActorScene.instantiate()
 		objects.add_child(actor)

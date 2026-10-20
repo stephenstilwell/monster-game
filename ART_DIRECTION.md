@@ -2,7 +2,7 @@
 
 ## Implementation boundary
 
-The visual baseline is a sanctuary-based woodland roguelite. M1-M5 assets/evidence below are generated and reusable. M6/M7 additions remain planned and require their own generation/validation. Keep the established resolution, palette, original creature designs and reproducible pipeline.
+The visual baseline is a sanctuary-based woodland roguelite. M1-M6 assets and the user-requested environment polish below are generated and reusable. M7 accessibility/export work remains planned. Keep the established resolution, palette, original creature designs and reproducible pipeline.
 
 ## Identity
 
@@ -103,3 +103,13 @@ M6 adds creature growth forms, more authored habitat/event variants, relic/hub u
 M6 outputs: eight raster atlases (three 384x96 growth sheets, 432x48 fixture states, 240x32 research/mastery tokens, 192x32 trail stops, 144x24 relics, 72x24 resting companions), 31 named regions and 12 animation records, three SpriteFrames resources, plus nine original 22,050-Hz mono 16-bit WAVs. Growth silhouettes add a moss mantle/branch crown, scalloped ember wings, and brook-ray ribbons; all have four front/back idle frames at 4 fps and four reactions at 10 fps. One seed/versioned recipe (842031 / m6.1) reproduces pixels and PCM. Three eight-second musical phrases accompany sanctuary, trail and battle; six envelope-shaped effects cover input, hits, capture, growth, victory and defeat.
 
 Fixtures distinguish unavailable, affordable and built states with shape/lighting/check marks; three affinity medals and two numbered pennants are distinct. World companions use 24x24 resting art to fit the enclosure. Project benches occupy cleared ground with collision rather than overlapping border trees. Existing bitmap panels retain four-row pagination; results show recruit, total earned marks, stage/bonus breakdown and research separately. Native/3x UI and native/2x full maps are captured under artifacts/visual/m6/. Human audio mix and physical-device feel remain manual review items.
+
+## Post-M6 scenery polish (2026-10-20)
+
+The user requested more varied houses/trees and subtle ground/foliage animation. tools/art/environment_recipes.gd (environment.1, seed 20261020) generates four reusable atlases under assets/generated/environment/: trees 192x384, houses 256x64, flowers 96x64 and ground cover 64x16. Eighteen named regions preserve the original anchors: trees (24,60), houses (32,61), flowers (12,14); ground uses (8,15). No new colors or filtered transforms.
+
+Six tree silhouettes: rounded broadleaf, pale birch, layered fir, hanging willow, copper-leaf crown and branching sapling. Four original facades vary roof shape/material, dormers/chimneys, shutters, ivy, window boxes and stored timber; the two existing town buildings use distinct lodge/hip-roof designs. Four flower varieties and sparse fern/clover/mushroom/leaf-litter clumps break up grass. Ground dressing excludes paths, water, landmarks, NPCs and existing prop bounds.
+
+Trees and flowers have four baked poses. Wind moves only selected upper foliage or flower tips by one pixel, with fixed roots/trunks and unchanged footprints. A twelve-step resting cycle uses 0.6-second tree steps (7.2-second loop) and 0.8-second flower steps (9.6-second loop); coordinate-derived phases avoid synchronized movement. Hidden worlds pause local animation. No flickering light, screen distortion, global random state or runtime raster generation.
+
+artifacts/visual/environment/ contains before/after town overviews, three route overviews, the actual game viewport, complete asset/animation contact sheets and eight rendered wind samples (24 PNGs). Native/enlarged views and distinct rendered poses were inspected. validate_environment.ps1 checks reproducible pixels/metadata, palette/alpha, frame bounds, pinned roots, stable selection, collision/data isolation, actual idle processing, exact scaling and a clean import. M7 has not started.

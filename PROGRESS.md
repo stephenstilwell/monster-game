@@ -1,6 +1,6 @@
 # Progress
 
-Updated: 2026-10-19 (America/New_York).
+Updated: 2026-10-20 (America/New_York).
 
 ## Status
 
@@ -66,3 +66,13 @@ Review fixes included correct JSON/snapshot validation, unchanged migrated XP/RN
 - Ordinary walking is not saved every tile; interrupted battles replay from their saved start, not mid-turn. Saves assume a single writer; file-arrangement tests do not establish physical power-loss/concurrent-write durability. No cloud sync or tamper-proof promise. Cosmetics retain seeds but still use base species colors.
 
 Manual review: follow README controls; capture/admit Rillume, complete a species' three study wins, then depart again and focus XP until level-7 growth before the guardian. Buy projects in different orders and inspect the southern hub; test standard/catcher/care kits, stage-two surveys, mixed/focus relics, all trail choices and declined rewards. Compare normal/tier 1/tier 2 including half/spent camp rest. Try victory, retreat, defeat and abandonment; check mark/recruit/reset behavior and another free departure. Restart with an active run/pending battle and Continue. Check gamepad cancel/focus, held directions, native-size text and music/SFX mute/mix. M7 has not begun.
+
+## User-requested scenery polish - 2026-10-20
+
+Added six distinct original tree silhouettes, four reusable house facades (the town's two buildings now differ), four flower varieties and sparse fern/clover/mushroom/leaf-litter dressing. Slow, desynchronized baked poses move upper leaves and flower tips by one pixel while trunks/roots stay pinned. Hidden worlds pause animation. Selection/scattering is deterministic and renderer-only: no map/collision/save/RNG or progression changes, and no M7 expansion. Recipes, four PNG atlases, eighteen named regions and before/after/animation evidence are saved in-project.
+
+Validation with Godot 4.7.2: environment suite 1,226 assertions PASS; world 2,733 PASS; current M6 expedition flow 88 PASS; M6 state/save 831 PASS. GPU capture on NVIDIA RTX 3070 produced the actual viewport, before/after town, three route overviews, variant/animation sheets and eight wind samples (24 PNGs); screenshot checks pass 34 assertions for dimensions, palette, exact scaling and actual changing rendered poses. Inspected native/scaled composition and animation. A preview capture initially froze nodes before scene entry, allowing automatic processing to override sampled poses; corrected the capture order and verified distinct rendered frames. Static scenery disables processing after scene entry.
+
+Run tools/validate_environment.ps1 -Capture -CleanImport with the documented Godot argument to repeat the checks; the same four suites, startup and import pass in a cache-free source copy. Detailed logs and isolated saves are under .godot/environment_validation/. The user's pre-existing project.godot editor/settings change is preserved and excluded from this checkpoint.
+
+Manual review: F5, compare the lodge and blue-roof house, walk around the southern sanctuary and river/ridge/road routes, then stand still for 7-10 seconds to watch gentle crown and flower-tip movement. Check character/tree occlusion and doorway/trunk collision. The scenery retains the 320x180 woodland palette; this is a small visual refinement, not a new biome or gameplay milestone. Palette, movement amplitude and sparse dressing are intentional; physical-display comfort and whether the backdrop feels varied enough still benefit from human review.

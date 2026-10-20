@@ -1,7 +1,7 @@
 # Agent workflow
 
 - Scope: this project. Read these instructions and inspect Git before editing. Preserve unrelated work.
-- Direction: Lanternwild is a sanctuary-based monster-collecting roguelite; GAME_DESIGN.md is the design contract. The user authorized M6 implementation after reviewing META_PROGRESSION.md. Finish and validate M6 only; stop before M7. A subsequent implementation request may authorize the next incomplete milestone in ROADMAP.md. Never expand milestones implicitly.
+- Direction: Lanternwild is a sanctuary-based monster-collecting roguelite; GAME_DESIGN.md is the design contract. The user authorized M6 implementation after reviewing META_PROGRESSION.md. Finish and validate M6 only; stop before M7. A subsequent implementation request may authorize the next incomplete milestone in ROADMAP.md. Never expand milestones implicitly. The user separately authorized post-M6 scenery variety and subtle ambient animation; this does not begin M7.
 - Use typed GDScript, snake_case files/functions, PascalCase classes, explicit signals, and composed scenes. Keep definitions separate from mutable state.
 - Verified baseline: Godot 4.7.2 stable, Compatibility renderer. Recheck --version before implementation; do not silently upgrade or change rendering settings.
 - Complete one milestone at a time, including its artwork, validation, documentation, and Git checkpoint. Do not begin later milestones early.

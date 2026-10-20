@@ -24,6 +24,7 @@ func _ready() -> void:
 	add_child(audio)
 	saves.codec = Codec
 	world = World.instantiate()
+	world.environment_polish = true
 	add_child(world)
 	world.maps.town = Routes.hub()
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/generated/m5/manifest.json"))

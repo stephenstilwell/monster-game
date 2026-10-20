@@ -1,0 +1,307 @@
+{
+	"assets": {
+		"flowers": {
+			"sha256": "02cf996f1351447328fce6520cb61b6330002d03f49d97e4de8df297aaac9e72",
+			"size": [
+				96,
+				64
+			]
+		},
+		"ground": {
+			"sha256": "130fba854498c381aebe0a913a05493edaafc7005847c2dfd47d9952df24010f",
+			"size": [
+				64,
+				16
+			]
+		},
+		"houses": {
+			"sha256": "13cf592f291456fe601c43d6123b9bb7347a1b61045cac446be52278c09979e2",
+			"size": [
+				256,
+				64
+			]
+		},
+		"trees": {
+			"sha256": "24df3025e988403fdf793c349603e9d78e91f2187d955ef039832489592c95e6",
+			"size": [
+				192,
+				384
+			]
+		}
+	},
+	"palette": "woodland16",
+	"regions": {
+		"flower_0": {
+			"anchor": [
+				12,
+				14
+			],
+			"asset": "flowers",
+			"frames": 4,
+			"rect": [
+				0,
+				0,
+				24,
+				16
+			],
+			"step": 0.8
+		},
+		"flower_1": {
+			"anchor": [
+				12,
+				14
+			],
+			"asset": "flowers",
+			"frames": 4,
+			"rect": [
+				0,
+				16,
+				24,
+				16
+			],
+			"step": 0.8
+		},
+		"flower_2": {
+			"anchor": [
+				12,
+				14
+			],
+			"asset": "flowers",
+			"frames": 4,
+			"rect": [
+				0,
+				32,
+				24,
+				16
+			],
+			"step": 0.8
+		},
+		"flower_3": {
+			"anchor": [
+				12,
+				14
+			],
+			"asset": "flowers",
+			"frames": 4,
+			"rect": [
+				0,
+				48,
+				24,
+				16
+			],
+			"step": 0.8
+		},
+		"ground_0": {
+			"anchor": [
+				8,
+				15
+			],
+			"asset": "ground",
+			"frames": 1,
+			"rect": [
+				0,
+				0,
+				16,
+				16
+			],
+			"step": 1.0
+		},
+		"ground_1": {
+			"anchor": [
+				8,
+				15
+			],
+			"asset": "ground",
+			"frames": 1,
+			"rect": [
+				16,
+				0,
+				16,
+				16
+			],
+			"step": 1.0
+		},
+		"ground_2": {
+			"anchor": [
+				8,
+				15
+			],
+			"asset": "ground",
+			"frames": 1,
+			"rect": [
+				32,
+				0,
+				16,
+				16
+			],
+			"step": 1.0
+		},
+		"ground_3": {
+			"anchor": [
+				8,
+				15
+			],
+			"asset": "ground",
+			"frames": 1,
+			"rect": [
+				48,
+				0,
+				16,
+				16
+			],
+			"step": 1.0
+		},
+		"house_0": {
+			"anchor": [
+				32,
+				61
+			],
+			"asset": "houses",
+			"frames": 1,
+			"rect": [
+				0,
+				0,
+				64,
+				64
+			],
+			"step": 1.0
+		},
+		"house_1": {
+			"anchor": [
+				32,
+				61
+			],
+			"asset": "houses",
+			"frames": 1,
+			"rect": [
+				64,
+				0,
+				64,
+				64
+			],
+			"step": 1.0
+		},
+		"house_2": {
+			"anchor": [
+				32,
+				61
+			],
+			"asset": "houses",
+			"frames": 1,
+			"rect": [
+				128,
+				0,
+				64,
+				64
+			],
+			"step": 1.0
+		},
+		"house_3": {
+			"anchor": [
+				32,
+				61
+			],
+			"asset": "houses",
+			"frames": 1,
+			"rect": [
+				192,
+				0,
+				64,
+				64
+			],
+			"step": 1.0
+		},
+		"tree_0": {
+			"anchor": [
+				24,
+				60
+			],
+			"asset": "trees",
+			"frames": 4,
+			"rect": [
+				0,
+				0,
+				48,
+				64
+			],
+			"step": 0.6
+		},
+		"tree_1": {
+			"anchor": [
+				24,
+				60
+			],
+			"asset": "trees",
+			"frames": 4,
+			"rect": [
+				0,
+				64,
+				48,
+				64
+			],
+			"step": 0.6
+		},
+		"tree_2": {
+			"anchor": [
+				24,
+				60
+			],
+			"asset": "trees",
+			"frames": 4,
+			"rect": [
+				0,
+				128,
+				48,
+				64
+			],
+			"step": 0.6
+		},
+		"tree_3": {
+			"anchor": [
+				24,
+				60
+			],
+			"asset": "trees",
+			"frames": 4,
+			"rect": [
+				0,
+				192,
+				48,
+				64
+			],
+			"step": 0.6
+		},
+		"tree_4": {
+			"anchor": [
+				24,
+				60
+			],
+			"asset": "trees",
+			"frames": 4,
+			"rect": [
+				0,
+				256,
+				48,
+				64
+			],
+			"step": 0.6
+		},
+		"tree_5": {
+			"anchor": [
+				24,
+				60
+			],
+			"asset": "trees",
+			"frames": 4,
+			"rect": [
+				0,
+				320,
+				48,
+				64
+			],
+			"step": 0.6
+		}
+	},
+	"seed": 20261020,
+	"version": "environment.1"
+}
