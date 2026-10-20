@@ -1,5 +1,5 @@
 extends SceneTree
-const App = preload("res://scenes/app/game.tscn")
+const App = preload("res://tests/fixtures/legacy_game.tscn")
 const Monster = preload("res://scripts/monsters/monster_state.gd")
 const OUTPUT := "res://artifacts/visual/m3"
 var app: Node

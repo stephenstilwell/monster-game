@@ -1,5 +1,6 @@
 extends Node2D
 signal completed_step(map_id: String, cell: Vector2i)
+signal action_requested(action: String)
 const Map = preload("res://scripts/world/map_definition.gd")
 const Movement = preload("res://scripts/world/grid_movement.gd")
 const Dialogue = preload("res://scripts/world/dialogue_state.gd")
@@ -137,6 +138,9 @@ func interact() -> bool:
 	var entry := current_map.interaction_at(movement.cell + movement.facing)
 	if entry.is_empty():
 		return false
+	if entry.has("action"):
+		action_requested.emit(entry.action)
+		return true
 	dialogue.open(entry)
 	if not dialogue.active:
 		return false
@@ -174,7 +178,8 @@ func begin_travel(id: String, requested: Vector2i) -> bool:
 func _step_completed(cell: Vector2i) -> void:
 	var portal := current_map.portal_at(cell)
 	if not portal.is_empty():
-		begin_travel(portal.map, portal.spawn)
+		if portal.has("action"): action_requested.emit(portal.action)
+		else: begin_travel(portal.map, portal.spawn)
 	else:
 		completed_step.emit(current_map.id, cell)
 

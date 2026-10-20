@@ -1,0 +1,106 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/generated/m5/effects.png" id="stable_0"]
+[ext_resource type="Texture2D" path="res://assets/generated/m5/guardian.png" id="stable_1"]
+
+[sub_resource type="AtlasTexture" id="stable_2"]
+atlas = ExtResource("stable_0")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="stable_3"]
+atlas = ExtResource("stable_0")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="stable_4"]
+atlas = ExtResource("stable_0")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="stable_5"]
+atlas = ExtResource("stable_0")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="stable_6"]
+atlas = ExtResource("stable_1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_7"]
+atlas = ExtResource("stable_1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_8"]
+atlas = ExtResource("stable_1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_9"]
+atlas = ExtResource("stable_1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_10"]
+atlas = ExtResource("stable_1")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_11"]
+atlas = ExtResource("stable_1")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_12"]
+atlas = ExtResource("stable_1")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="stable_13"]
+atlas = ExtResource("stable_1")
+region = Rect2(336, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_5")
+}],
+"loop": 1,
+"name": &"guardian_entry",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_7")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_8")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_9")
+}],
+"loop": 1,
+"name": &"guardian_front_idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("stable_10")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_11")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_12")
+}, {
+"duration": 1.0,
+"texture": SubResource("stable_13")
+}],
+"loop": 1,
+"name": &"guardian_front_react",
+"speed": 10.0
+}]

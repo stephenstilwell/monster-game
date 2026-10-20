@@ -2,7 +2,7 @@
 
 ## Implementation boundary
 
-The visual target is now a sanctuary-based woodland roguelite. M1-M4 assets/evidence below remain completed and reusable; M5/M6 art requirements at the end are planned and must be generated/validated with those milestones. Keep the established resolution, palette, original creature designs and reproducible pipeline.
+The visual baseline is a sanctuary-based woodland roguelite. M1-M5 assets/evidence below are generated and reusable. M6/M7 additions remain planned and require their own generation/validation. Keep the established resolution, palette, original creature designs and reproducible pipeline.
 
 ## Identity
 
@@ -74,11 +74,11 @@ The full-screen field journal uses the shared panel/font, amber/green focus, fou
 
 artifacts/visual/m4/ contains 17 native/3x interface/world views and a contact sheet (35 PNGs). Views cover all species portraits, party actions, second-page storage/exchange, both items, balm target/use, rest, settings, save, confirmed load and world return. Exact palette/dimension/nearest-scale tests pass. Native/enlarged render inspection found and corrected the target screen's misleading charm icon; no unresolved clipping was observed.
 
-## Planned M5 roguelite presentation
+## Implemented M5 roguelite presentation
 
 Preserve warm sanctuary scenes and readable top-down expedition maps. Reuse original terrain/actors/creatures; build deliberate authored room templates with seeded prop clusters and route assembly. Variation must retain readable paths, object footprints, anchors and material shading. Recolored squares or generic random noise are not finished room artwork.
 
-Generate and save these additions with recipes, seed/version metadata, named regions and palette/anchor tests:
+Generated additions follow these requirements, with recipes, seed/version metadata, named regions and palette/anchor tests:
 
 - Sanctuary identity: lantern gate/departure marker, creature resting enclosure and journal/roster accents. Reuse the existing town/NPC composition, adding original fittings rather than a second unrelated art style.
 - Forest stage/template variants, branching route markers, a distinct camp lantern/rest fixture and guardian landmark. Route signs must communicate depth, risk and camp/guardian destinations through symbols and labels as well as color.
@@ -88,7 +88,9 @@ Generate and save these additions with recipes, seed/version metadata, named reg
 
 All screens use the existing bitmap font/nine-slice Theme and stay within 320x180. Do not stack route, journal and battle details into one crowded view. Retain keyboard/gamepad focus/back hints and support empty/full reserve, no eligible recruit, spent camp budget and checkpoint-write failure states.
 
-M5 evidence must include native/3x starter/hub, seeded map overviews, route/relic choices, camp before/after use, guardian, every outcome, recruit selection and resumed expedition. Inspect multiple seeds for seams, blocked exits, visual repetition, text clipping, stable actor feet and clear destination markers. Earlier screenshots prove only the earlier slice.
+M5 outputs under assets/generated/m5/: props 240x48; relics 72x24; guardian 384x48; entry effects 192x32; four outcome emblems 128x32; journal border 320x180. Thirteen named regions and three animation records use recipe/content version m5.1 and art seed 842031. A reusable SpriteFrames resource contains four idle frames at 4 fps, four reactions at 10 fps and four entry-effect frames at 8 fps. Three baked .tres template maps demonstrate the runtime layouts. Generation/assembly remain reproducible; all artwork is original integer-pixel construction using the established palette.
+
+artifacts/visual/m5/ contains 31 native/3x interface/world views, three native/2x map overviews, native/3x art sheets and an interface contact sheet (71 PNGs, plus views.json). Inspected sanctuary, route choices, river/ridge/road composition, cleared fern markers, camp fresh/spent, party/reserve/exchange, companion-specific release confirmation, crowned guardian/reactions, recruit portraits, all outcomes and resumed expedition. Border ornaments were moved away from text; tree clusters/stumps/reeds reduce empty terrain while preserving paths. Screenshot tests pass 175 assertions; deterministic art tests pass 111. Prior milestone screenshots remain historical evidence.
 
 ## Planned M6/M7 presentation
 

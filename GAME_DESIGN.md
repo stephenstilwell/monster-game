@@ -1,6 +1,6 @@
 # Lanternwild — monster-collecting roguelite
 
-An original woodland monster-collecting roguelite with top-down exploration, turn-based battles and a permanent sanctuary. Short expeditions build temporary teams; returning home grows the collection and future choices. This direction supersedes the linear restoration-quest campaign. The implemented M0-M4 baseline is documented below; these expedition rules are the target for M5, not current functionality.
+An original woodland monster-collecting roguelite with top-down exploration, turn-based battles and a permanent sanctuary. Short expeditions build temporary teams; returning home grows the collection and future choices. This direction supersedes the linear restoration-quest campaign. M5 now implements this first expedition loop. Earlier M0-M4 behavior is retained as historical foundation documentation and diagnostic fixtures below. M6 content/progression/audio remains planned.
 
 ## Core loop
 
@@ -10,7 +10,7 @@ An original woodland monster-collecting roguelite with top-down exploration, tur
 4. Defeat the expedition guardian to complete the run, or lose the expedition when no party member can fight.
 5. Resolve the outcome once, return to the sanctuary and start a new expedition with a different seed and team plan.
 
-Keep classic handheld field exploration inside each stage. Route choices connect playable tile maps; the game is not exclusively a menu of battles. Target an eventual 20-30 minute first expedition; measure and tune this rather than claim the duration before playtesting. No copied creature designs, names, maps or interfaces.
+Keep classic handheld field exploration inside each stage. Route choices connect playable tile maps; the game is not exclusively a menu of battles. The eventual first-expedition target is 20-30 minutes. The compact M5 slice measured 55.28 seconds in a scripted GPU playthrough at real movement/message clocks; this excludes human decisions/exploration and is not a human playtime estimate. More variety and pacing work belongs to M6. No copied creature designs, names, maps or interfaces.
 
 ## What persists and what resets
 
@@ -24,11 +24,11 @@ Keep classic handheld field exploration inside each stage. Route choices connect
 | Expedition consumables, relics, route state and run rewards | Temporary; no supplies or relics accumulate in the sanctuary |
 | Selected returning recruit | One eligible individual is admitted to the sanctuary after victory or camp retreat; preserve identity/cosmetics, not expedition combat growth |
 
-The sanctuary is a collection of individuals, not a team whose levels can be ground indefinitely between runs. Bring exactly one companion, initially at level 5 with zero expedition XP, healthy and using its species' starting moves. Initial supply target: four capture charms and two balms. Numbers are tuning defaults for M5, not established balance. Start a fresh profile with Brindlewick and Cindrel available to choose from; Rillume is first obtained through expeditions.
+The sanctuary is a collection of individuals, not a team whose levels can be ground indefinitely between runs. Bring exactly one companion, initially at level 5 with zero expedition XP, healthy and using its species' starting moves. Initial supply target: four capture charms and two balms. These are the implemented M5 defaults; broader balance remains M6 work. Start a fresh profile with Brindlewick and Cindrel available to choose from; Rillume is first obtained through expeditions.
 
 ## Captures, storage and outcomes
 
-Party capacity remains four. Captures fill the party, then a temporary expedition reserve of four. When both are full, refuse capture before spending items, turns or RNG; the player must make room at a camp. No silent replacement or deletion. Reserve companions cannot fight or exchange with the party outside a camp. Sanctuary storage is separate and inaccessible during an expedition. Invalid management operations must leave at least one healthy party member.
+Party capacity remains four. Captures fill the party, then a temporary expedition reserve of four. When both are full, refuse capture before spending items, turns or RNG; the player may explicitly release a captured companion at camp to make room. Release asks for confirmation, preserves discoveries, protects the starter copy and retains one healthy party member. No silent replacement or deletion. Reserve companions cannot fight or exchange with the party outside a camp. Sanctuary storage is separate and inaccessible during an expedition. Invalid management operations must leave at least one healthy party member.
 
 A successful capture updates the discovery journal when its battle result is committed. It does not immediately add that individual to the sanctuary. On victory or voluntary camp retreat, choose at most one living expedition-caught individual from party/reserve to bring home; the starter copy is ineligible. Show an explicit no-recruit option. Others remain in the wild. Defeat or confirmed abandonment admits no recruits, but keeps committed discoveries and earlier permanent unlocks. Fainting ends participation until recovery; there is no permanent death of sanctuary companions.
 
@@ -47,7 +47,7 @@ Retain four-direction grid movement, completed-step encounters, immutable specie
 
 Use small authored map templates with seeded arrangements, encounter tables and route choices. Validate exits, camp/guardian access and walkable spawns. Independent RNG streams isolate map layout, encounters, battle and rewards. No unrestricted random terrain generation.
 
-Temporary lantern relics offer run-specific build choices. M5 introduces three small, distinct modifiers and a visible reward selection; do not add a large loot system before the expedition loop is tested. Camp recovery has a visible once-per-camp budget that persists across re-entry; no free full healing or item refill on every menu open. Town care is free, but reaching town settles the expedition, so it cannot refill an active run. Balm remains a limited 24-HP field/battle heal for living partners.
+Temporary lantern relics offer run-specific build choices. M5 provides Thorn Lantern (+3 attack damage), River Shell (3 less damage taken, minimum 1) and Hearth Seed (6 HP to each living party member after victory/capture), with visible reward selection; do not add a large loot system before the expedition loop is tested. Camp recovery has a visible once-per-camp budget that persists across re-entry; no free full healing or item refill on every menu open. Town care is free, but reaching town settles the expedition, so it cannot refill an active run. Balm remains a limited 24-HP field/battle heal for living partners.
 
 ## Persistence and progression
 
@@ -57,13 +57,13 @@ M5 provides discovery, sanctuary recruitment and completion records. M6 introduc
 
 ## Scope and presentation
 
-M5 first roguelite playable: one sanctuary hub, three existing base species, three connected forest stages with route choices, one camp, three temporary relics, one guardian, recruitment/settlement and resumable checkpoints. Later target six creature entries total, including three growth forms, with broader route/build variety after the core loop works. Single-player desktop; no multiplayer, breeding, gacha, open-world scope or real-time combat.
+Implemented M5 first roguelite playable: one sanctuary hub, three existing base species, three connected forest stages with route choices, one camp, three temporary relics, one guardian, recruitment/settlement and resumable checkpoints. Later target six creature entries total, including three growth forms, with broader route/build variety after the core loop works. Single-player desktop; no multiplayer, breeding, gacha, open-world scope or real-time combat.
 
 Preserve the 320x180 viewport, 16px tiles, original 16-color woodland palette and procedural asset pipeline. Generate sanctuary fixtures, route/camp/guardian markers, relic icons, expedition status and outcome screens. Keyboard/gamepad navigation remains required; release remapping/accessibility and procedural audio follow the roadmap.
 
-## Current implementation: M0-M4 baseline
+## Historical M0-M4 foundation
 
-The following describes the existing RPG slice, not the roguelite target. M5 must replace its shared session storage, unlimited forest loops, free town refill during play, defeat return and freely reloadable session with the contracts above. Keep useful battle, asset, movement and save validation coverage; revise tests when the intended rules change rather than retaining obsolete behavior.
+The following describes the earlier RPG slice, available through tests/fixtures/legacy_game.tscn for regression diagnostics. The default app now uses isolated profile/expedition state, finite marked encounters, camp care, terminal defeats and Continue checkpoints. Foundation rules/tests remain useful; old integration fixtures are not claims about the current lifecycle.
 
 ## Implemented visual baseline
 
@@ -77,7 +77,7 @@ Arrows/WASD and gamepad D-pad/left stick move; E/Z/Enter/Space or gamepad A inte
 
 ## Implemented M3 rules
 
-The current M4 app starts each session with Brindlewick (Grove, level 5), Cindrel (Ember, level 4), 12 charms and six balms. Rillume (Brook) completes the three-species set. Wild levels are 3-5. Step through either forest fern patch for encounters; normal terrain/town never rolls them. A five-eligible-step guarantee and six-step post-battle cooldown bound encounter pacing.
+The legacy M4 fixture starts each session with Brindlewick (Grove, level 5), Cindrel (Ember, level 4), 12 charms and six balms. Rillume (Brook) completes the three-species set. Wild levels are 3-5. Step through either forest fern patch for encounters; normal terrain/town never rolls them. A five-eligible-step guarantee and six-step post-battle cooldown bound encounter pacing.
 
 Priority: flee 7, items 6, switch 5, Quickstep 1, other moves 0; speed breaks equal priority and seeded randomness breaks ties. A forced healthy replacement after fainting is free. Invalid commands consume no item, turn or randomness. Enemy AI chooses one of its two moves. There are no PP, status conditions or trainer battles yet.
 
@@ -99,4 +99,4 @@ Tab/M or gamepad Start opens the field menu at an idle exploration cell. Left/ri
 
 BAG shows charm/balm counts. Charms remain battle-only; field balm targets a living injured party member and heals up to 24 HP. Invalid requests spend nothing. REST works anywhere in town, healing/reviving party and storage and restoring at least 12 charms/six balms; surplus remains. This free care keeps the slice playable without adding shops, currency, interiors or quests. SET toggles normal (0.55 seconds) or quick (0.25 seconds) battle-event delays; confirmation still advances events.
 
-SAVE provides one explicit slot and confirmed LOAD. Save from idle field menus only; no autosave or suspended battle. Restart starts fresh, then LOAD restores your run. Persist collection/health/items/XP/settings, world position/facing, encounter stream and exactly-once reward ledger. Corrupt or interrupted saves can recover a validated pending/backup copy; unsupported schemas remain protected. Loading failure leaves the live run intact. Schema v1 migrates default settings to v2. Expedition/profile separation, procedural runs and run-end rules are not implemented; audio and release accessibility also remain planned.
+SAVE provides one explicit slot and confirmed LOAD. Save from idle field menus only; no autosave or suspended battle. Restart starts fresh, then LOAD restores your run. Persist collection/health/items/XP/settings, world position/facing, encounter stream and exactly-once reward ledger. Corrupt or interrupted saves can recover a validated pending/backup copy; unsupported schemas remain protected. Loading failure leaves the live run intact. Schema v1 migrates default settings to v2. This paragraph describes legacy M4 saving. The default M5 app uses v3 profile/expedition checkpoints above; audio and release accessibility remain planned.

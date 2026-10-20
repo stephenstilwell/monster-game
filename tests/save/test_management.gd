@@ -1,5 +1,5 @@
 extends SceneTree
-const App = preload("res://scenes/app/game.tscn")
+const App = preload("res://tests/fixtures/legacy_game.tscn")
 const Codec = preload("res://scripts/save/save_codec.gd")
 const Save = preload("res://scripts/save/save_service.gd")
 const Field = preload("res://scripts/core/field_service.gd")

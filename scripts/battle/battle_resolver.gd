@@ -31,10 +31,12 @@ func validate(state: RefCounted, command: Dictionary) -> String:
 		"item":
 			if typeof(command.get("item", null)) != TYPE_STRING: return "THAT ITEM IS NOT AVAILABLE."
 			var item: String = command.get("item", "")
+			if item == "charm" and not state.capture_allowed: return "GUARDIAN: NO CAPTURE." if state.guardian else "PARTY AND RESERVE ARE FULL."
 			if not catalog.items.has(item): return "THAT ITEM IS NOT AVAILABLE."
 			if state.inventory.get(item, 0) <= 0: return "NONE LEFT IN THE BAG."
 			if item == "balm" and ally.hp >= ally.max_hp(catalog.species[ally.species_id]): return "HEALTH IS ALREADY FULL."
-		"flee": pass
+		"flee":
+			if state.guardian: return "THE GUARDIAN BLOCKS RETREAT."
 		_: return "CHOOSE A VALID COMMAND."
 	return ""
 
@@ -112,6 +114,7 @@ func attack(state: RefCounted, attacker: RefCounted, defender: RefCounted, move_
 	var d: Resource = catalog.species[defender.species_id]
 	var multiplier := affinity_multiplier(move.affinity, d.affinity)
 	var damage := maxi(1, floori((move.power + attacker.attack(a) * 0.7 - defender.defense(d) * 0.45) * multiplier * (1.15 if move.affinity == a.affinity else 1.0) * state.rng.randf_range(0.9, 1.05)))
+	damage = maxi(1, damage + state.ally_damage_bonus) if side == "ally" else maxi(1, damage - state.foe_damage_reduction)
 	defender.hp = maxi(0, defender.hp - damage)
 	events.append({"kind": "hit", "side": side, "index": state.active, "hp": defender.hp, "effect": move.effect, "message": "%s USED %s. %s DAMAGE!" % [title(attacker), move.title, damage]})
 

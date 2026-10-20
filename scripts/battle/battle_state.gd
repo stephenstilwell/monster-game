@@ -9,6 +9,10 @@ var turn: int = 0
 var flee_attempts: int = 0
 var outcome: String = ""
 var habitat: String = "forest"
+var guardian: bool = false
+var capture_allowed: bool = true
+var ally_damage_bonus: int = 0
+var foe_damage_reduction: int = 0
 
 func first_healthy() -> int:
 	for index in range(party.size()):

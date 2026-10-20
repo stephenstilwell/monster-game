@@ -3,7 +3,7 @@ const Session = preload("res://scripts/core/run_session.gd")
 const Rules = preload("res://scripts/battle/battle_resolver.gd")
 const Monster = preload("res://scripts/monsters/monster_state.gd")
 const Encounters = preload("res://scripts/world/encounter_controller.gd")
-const App = preload("res://scenes/app/game.tscn")
+const App = preload("res://tests/fixtures/legacy_game.tscn")
 var checks: int = 0
 var failed: bool = false
 var content: RefCounted

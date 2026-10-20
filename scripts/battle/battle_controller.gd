@@ -27,7 +27,7 @@ func configure(battle_state: RefCounted, run_session: RefCounted) -> void:
 	display_active = state.active
 	for monster: RefCounted in state.party: display_hp.append(monster.hp)
 	display_enemy_hp = state.enemy.hp
-	message = "WILD %s APPEARED!" % session.catalog.species[state.enemy.species_id].title
+	message = "THE FERN GUARDIAN AWAKENS!" if state.guardian else "WILD %s APPEARED!" % session.catalog.species[state.enemy.species_id].title
 
 func _ready() -> void:
 	Bindings.install()
@@ -138,4 +138,11 @@ func finish_result() -> void:
 		"defeat": result_text = "BACK TO LANTERN REST. YOUR TEAM RESTED."
 	if reward.xp > 0: result_text += " GAINED %s XP." % reward.xp
 	if reward.levels > 0: result_text += " LEVEL UP!"
+	if session.get("expedition") == true:
+		if state.outcome == "defeat": result_text = "THE EXPEDITION ENDS. YOUR SANCTUARY IS SAFE."
+		elif state.guardian: result_text = "THE GUARDIAN BOWS. RETURN WITH ONE RECRUIT."
+		if reward.get("field_heal", 0) > 0:
+			result_text += " HEARTH HEALED YOUR TEAM."
+			for i in range(session.party.size()):
+				if i < display_hp.size(): display_hp[i] = session.party[i].hp
 	message = result_text

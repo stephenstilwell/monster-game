@@ -1,0 +1,261 @@
+{
+	"animations": {
+		"guardian_entry": {
+			"anchor": [
+				24,
+				16
+			],
+			"asset": "effects",
+			"fps": 8,
+			"frames": 4,
+			"size": [
+				48,
+				32
+			]
+		},
+		"guardian_idle": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "guardian",
+			"fps": 4,
+			"frames": 4,
+			"size": [
+				48,
+				48
+			]
+		},
+		"guardian_react": {
+			"anchor": [
+				24,
+				43
+			],
+			"asset": "guardian",
+			"fps": 10,
+			"frames": 4,
+			"size": [
+				48,
+				48
+			]
+		}
+	},
+	"assets": {
+		"effects": {
+			"sha256": "445bb52ee3c4462503c09fae63978b9235957bbefc42d0c7af5c7c4b2fa0bf21",
+			"size": [
+				192,
+				32
+			]
+		},
+		"guardian": {
+			"sha256": "b902e6962346d7940310c2bed8d119d034132c35c72d850dacb107bcdfd4f648",
+			"size": [
+				384,
+				48
+			]
+		},
+		"journal": {
+			"sha256": "e44f79bf9ba1dcf1bc22be58bc444df6333f6f97bbcc8e7f56fd2c94f8d2c475",
+			"size": [
+				320,
+				180
+			]
+		},
+		"outcomes": {
+			"sha256": "331975906924f8a843a0ceb4a5249db8bfd9d22bdd494b9db78e158d3ecfefea",
+			"size": [
+				128,
+				32
+			]
+		},
+		"props": {
+			"sha256": "c0cb84fcf8aedf344179adb0d07f4879b7fd5be227b863ee35dc93f9fb1215d4",
+			"size": [
+				240,
+				48
+			]
+		},
+		"relics": {
+			"sha256": "a3565bc7f631d1a793e7775e1a9362d8fe351fc28d67d3dfc95cd0b7923258a6",
+			"size": [
+				72,
+				24
+			]
+		}
+	},
+	"palette": "woodland16",
+	"regions": {
+		"abandon": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "outcomes",
+			"rect": [
+				96,
+				0,
+				32,
+				32
+			]
+		},
+		"defeat": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "outcomes",
+			"rect": [
+				64,
+				0,
+				32,
+				32
+			]
+		},
+		"hearth": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				48,
+				0,
+				24,
+				24
+			]
+		},
+		"m5_camp": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "props",
+			"rect": [
+				80,
+				0,
+				48,
+				48
+			]
+		},
+		"m5_cleared": {
+			"anchor": [
+				8,
+				31
+			],
+			"asset": "props",
+			"rect": [
+				16,
+				0,
+				16,
+				32
+			]
+		},
+		"m5_fern": {
+			"anchor": [
+				8,
+				31
+			],
+			"asset": "props",
+			"rect": [
+				0,
+				0,
+				16,
+				32
+			]
+		},
+		"m5_gate": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "props",
+			"rect": [
+				32,
+				0,
+				48,
+				48
+			]
+		},
+		"m5_guardian_gate": {
+			"anchor": [
+				24,
+				47
+			],
+			"asset": "props",
+			"rect": [
+				128,
+				0,
+				48,
+				48
+			]
+		},
+		"m5_sanctuary": {
+			"anchor": [
+				32,
+				47
+			],
+			"asset": "props",
+			"rect": [
+				176,
+				0,
+				64,
+				48
+			]
+		},
+		"retreat": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "outcomes",
+			"rect": [
+				32,
+				0,
+				32,
+				32
+			]
+		},
+		"shell": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				24,
+				0,
+				24,
+				24
+			]
+		},
+		"thorn": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "relics",
+			"rect": [
+				0,
+				0,
+				24,
+				24
+			]
+		},
+		"victory": {
+			"anchor": [
+				0,
+				0
+			],
+			"asset": "outcomes",
+			"rect": [
+				0,
+				0,
+				32,
+				32
+			]
+		}
+	},
+	"seed": 842031,
+	"version": "m5.1"
+}

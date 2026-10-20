@@ -34,10 +34,14 @@ func _draw() -> void:
 	var e: Resource = catalog.species[enemy.species_id]
 	draw_rect(Rect2(0, 0, 320, 180), palette[0])
 	draw_texture(arena, Vector2(0, 18))
-	text("FERNGLASS / WILD ENCOUNTER", 6, 5, 13)
+	text("FERNGLASS / GUARDIAN" if state.guardian else "FERNGLASS / WILD ENCOUNTER", 6, 5, 13)
 	var foe_hit: bool = battle.event.get("kind", "") == "hit" and battle.event.get("side", "") == "ally" and battle.event_clock < 0.4
 	var ally_hit: bool = battle.event.get("kind", "") == "hit" and battle.event.get("side", "") == "foe" and battle.event_clock < 0.4
-	animation(enemy.species_id, enemy.species_id + "_front_" + ("react" if foe_hit else "idle"), Vector2(234, 28))
+	if state.guardian:
+		if not frames.has("guardian"): frames.guardian = load("res://assets/generated/m5/guardian_frames.tres")
+		animation("guardian", "guardian_front_" + ("react" if foe_hit else "idle"), Vector2(234, 28))
+		if battle.phase == battle.Phase.ENTRY: animation("guardian", "guardian_entry", Vector2(234, 36))
+	else: animation(enemy.species_id, enemy.species_id + "_front_" + ("react" if foe_hit else "idle"), Vector2(234, 28))
 	animation(ally.species_id, ally.species_id + "_back_" + ("react" if ally_hit else "idle"), Vector2(41, 71))
 	if battle.event.has("effect") and battle.event_clock < 0.5:
 		animation("effects", battle.event.effect, Vector2(234, 56) if battle.event.get("side", "ally") == "ally" and battle.event.kind != "heal" else Vector2(41, 98))

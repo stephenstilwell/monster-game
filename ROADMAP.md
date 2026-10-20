@@ -1,6 +1,6 @@
 # Roadmap
 
-Sequential milestones; each requires generated art, meaningful tests, visual evidence, concise documentation and a reviewed Git checkpoint. No later milestone begins before its gate passes. M0-M4 remain completed foundation work. The user requested a roguelite documentation pivot after M4; M5 onward below supersedes the former linear quest/release plan. This documentation task does not implement or complete M5.
+Sequential milestones; each requires generated art, meaningful tests, visual evidence, concise documentation and a reviewed Git checkpoint. No later milestone begins before its gate passes. M0-M4 remain completed foundation work. The user requested a roguelite documentation pivot after M4; M5 onward below supersedes the former linear quest/release plan. The subsequent user implementation request authorized M5. M5 is implemented and validated below; M6 is not started.
 
 ## M0: planning and baseline — complete
 
@@ -34,9 +34,9 @@ Observed result: grass encounters, three species, five moves, two consumables, b
 
 Party/storage UI, inventory, healing, settings and versioned save/load. Generate item icons, portraits and menu states. Acceptance: round trips, corruption, unsupported schema and interrupted-write recovery; full-party storage behavior; keyboard/gamepad focus without traps.
 
-Observed result: scene-owned field menu provides party ordering/deposit, paginated storage/withdraw/full-party exchange, balm targets, town rest/refill, battle pace and explicit save/load. Three deterministic raster atlases provide portraits, items and menu states. Schema v2 validates before applying; v1 migrates settings. Checksummed pending/primary/backup writes recover interrupted arrangements and protect unsupported versions. 168 management/save/input assertions, 33 art assertions and 51 screenshot assertions pass; M1-M3 regressions and all six suites in an isolated fresh-cache source copy pass. Native/3x captures were inspected. See PROGRESS.md for limits. This is the current executable baseline; M5 is not started.
+Observed result: scene-owned field menu provides party ordering/deposit, paginated storage/withdraw/full-party exchange, balm targets, town rest/refill, battle pace and explicit save/load. Three deterministic raster atlases provide portraits, items and menu states. Schema v2 validates before applying; v1 migrates settings. Checksummed pending/primary/backup writes recover interrupted arrangements and protect unsupported versions. 168 management/save/input assertions, 33 art assertions and 51 screenshot assertions pass; M1-M3 regressions and all six suites in an isolated fresh-cache source copy pass. Native/3x captures were inspected. See PROGRESS.md for limits. This remains the historical foundation; the default executable now uses M5.
 
-## M5: first complete roguelite expedition — planned, not started
+## M5: first complete roguelite expedition — complete
 
 Replace the session-wide RPG loop with the sanctuary/expedition contract in GAME_DESIGN.md. Complete this entire loop before adding more species or a campaign.
 
@@ -57,6 +57,8 @@ Acceptance:
 - Test schema migrations, profile/active-run round trips, unsupported versions, corruption and every checkpoint/settlement interrupted-write boundary. Persist profile and expedition together. Recovery never grants an outcome twice or silently rerolls an in-progress encounter. Actual player saves remain untouched by diagnostics.
 - Keyboard/virtual gamepad reach and leave every run/setup/reward/camp/result screen. All earlier unaffected mechanics regressions pass; update tests for deliberately replaced RPG rules. Run clean-import validation and inspect native/3x art and full-loop captures.
 - Record measured run duration, resource pressure and known balance limitations. Inspect victory and failure loops interactively before marking complete; 20-30 minutes is a tuning target, not a required unmeasured claim. Stop before M6.
+
+Observed M5 result: permanent profile plus optional expedition; starter normalization; three seeded traversable stages with two route choices and two finite wild lights each; camp after stage two; three relics; guardian; victory/retreat/defeat/abandonment; one eligible recruit or none; camp-only reserve exchanges/confirmed releases; schema v3 checkpoints and v1/v2 migration with preserved source backup. Six generated atlases, thirteen regions, three animations and three baked templates are saved. State tests pass 1,402 assertions over 64 seeds/384 routes; default-app flow passes 98; art passes 111; screenshots pass 175. Ten suites and startup pass in a fresh-cache copy, with earlier regressions preserved. A scripted real-time GPU victory/admission run took 55.28 seconds; the slice is much shorter than the eventual 20-30 minute target. See PROGRESS.md for measured bot outcomes, evidence and remaining limits. Stop before M6.
 
 ## M6: roguelite variety, progression and balance — planned
 
